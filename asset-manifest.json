@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.de8b1fe4.css",
+    "main.js": "/static/js/main.e0640daa.js",
+    "static/js/787.b3bb357e.chunk.js": "/static/js/787.b3bb357e.chunk.js",
+    "static/media/wisdom-icon.png": "/static/media/wisdom-icon.066d80c4ebc0d4f7203a.png",
+    "static/media/moon-block-icon.png": "/static/media/moon-block-icon.36050ff4bc0248145863.png",
+    "static/media/whisper-icon.png": "/static/media/whisper-icon.4fdfb2f76092bff127af.png",
+    "static/media/divination.svg": "/static/media/divination.55687ba51a8c6d9163f0.svg",
+    "static/media/home.svg": "/static/media/home.66054e63aea515fbf4bb.svg",
+    "static/media/rune-icon.png": "/static/media/rune-icon.543b2c1093be0457e65a.png",
+    "static/media/tarot-icon.png": "/static/media/tarot-icon.304675d2485021a91aec.png",
+    "static/media/lenormand-icon.png": "/static/media/lenormand-icon.cb366e498368730a4d4b.png",
+    "static/media/tarot.svg": "/static/media/tarot.2babe7cf1e90ecd6d3cd5b12126452eb.svg",
+    "static/media/rune.svg": "/static/media/rune.62a0976aef75c211095d942d054f4a7f.svg",
+    "index.html": "/index.html",
+    "main.de8b1fe4.css.map": "/static/css/main.de8b1fe4.css.map",
+    "main.e0640daa.js.map": "/static/js/main.e0640daa.js.map",
+    "787.b3bb357e.chunk.js.map": "/static/js/787.b3bb357e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.de8b1fe4.css",
+    "static/js/main.e0640daa.js"
+  ]
+}
