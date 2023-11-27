@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/staging/static/css/main.db594a81.css",
-    "main.js": "/staging/static/js/main.31cabc71.js",
+    "main.js": "/staging/static/js/main.42230e77.js",
     "static/js/787.b3bb357e.chunk.js": "/staging/static/js/787.b3bb357e.chunk.js",
     "static/media/wisdom-icon.png": "/staging/static/media/wisdom-icon.066d80c4ebc0d4f7203a.png",
     "static/media/moon-block-icon.png": "/staging/static/media/moon-block-icon.36050ff4bc0248145863.png",
@@ -15,11 +15,11 @@
     "static/media/rune.svg": "/staging/static/media/rune.62a0976aef75c211095d942d054f4a7f.svg",
     "index.html": "/staging/index.html",
     "main.db594a81.css.map": "/staging/static/css/main.db594a81.css.map",
-    "main.31cabc71.js.map": "/staging/static/js/main.31cabc71.js.map",
+    "main.42230e77.js.map": "/staging/static/js/main.42230e77.js.map",
     "787.b3bb357e.chunk.js.map": "/staging/static/js/787.b3bb357e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.db594a81.css",
-    "static/js/main.31cabc71.js"
+    "static/js/main.42230e77.js"
   ]
 }
