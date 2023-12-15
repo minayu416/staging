@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/staging/static/css/main.504aab57.css",
-    "main.js": "/staging/static/js/main.f3875c17.js",
+    "main.css": "/staging/static/css/main.f51a2f81.css",
+    "main.js": "/staging/static/js/main.fcb29130.js",
     "static/js/787.b3bb357e.chunk.js": "/staging/static/js/787.b3bb357e.chunk.js",
     "static/media/poe-cover.png": "/staging/static/media/poe-cover.ff685b3859612584cf32.png",
     "static/media/poe-up.png": "/staging/static/media/poe-up.4f2bf569a1704655da1e.png",
@@ -20,12 +20,12 @@
     "static/media/slick.woff": "/staging/static/media/slick.295183786cd8a1389865.woff",
     "static/media/rune.svg": "/staging/static/media/rune.62a0976aef75c211095d942d054f4a7f.svg",
     "index.html": "/staging/index.html",
-    "main.504aab57.css.map": "/staging/static/css/main.504aab57.css.map",
-    "main.f3875c17.js.map": "/staging/static/js/main.f3875c17.js.map",
+    "main.f51a2f81.css.map": "/staging/static/css/main.f51a2f81.css.map",
+    "main.fcb29130.js.map": "/staging/static/js/main.fcb29130.js.map",
     "787.b3bb357e.chunk.js.map": "/staging/static/js/787.b3bb357e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.504aab57.css",
-    "static/js/main.f3875c17.js"
+    "static/css/main.f51a2f81.css",
+    "static/js/main.fcb29130.js"
   ]
 }
