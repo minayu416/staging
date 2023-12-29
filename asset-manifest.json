@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/staging/static/css/main.fe12bc07.css",
-    "main.js": "/staging/static/js/main.790dc8a0.js",
+    "main.js": "/staging/static/js/main.636cc2cc.js",
     "static/js/787.b3bb357e.chunk.js": "/staging/static/js/787.b3bb357e.chunk.js",
     "static/media/poe-cover.png": "/staging/static/media/poe-cover.ff685b3859612584cf32.png",
     "static/media/poe-up.png": "/staging/static/media/poe-up.4f2bf569a1704655da1e.png",
@@ -21,11 +21,11 @@
     "static/media/rune.svg": "/staging/static/media/rune.62a0976aef75c211095d942d054f4a7f.svg",
     "index.html": "/staging/index.html",
     "main.fe12bc07.css.map": "/staging/static/css/main.fe12bc07.css.map",
-    "main.790dc8a0.js.map": "/staging/static/js/main.790dc8a0.js.map",
+    "main.636cc2cc.js.map": "/staging/static/js/main.636cc2cc.js.map",
     "787.b3bb357e.chunk.js.map": "/staging/static/js/787.b3bb357e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe12bc07.css",
-    "static/js/main.790dc8a0.js"
+    "static/js/main.636cc2cc.js"
   ]
 }
