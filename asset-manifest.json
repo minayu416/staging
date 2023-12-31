@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/staging/static/css/main.fe12bc07.css",
-    "main.js": "/staging/static/js/main.636cc2cc.js",
+    "main.css": "/staging/static/css/main.02e4b62c.css",
+    "main.js": "/staging/static/js/main.26f406ac.js",
     "static/js/787.b3bb357e.chunk.js": "/staging/static/js/787.b3bb357e.chunk.js",
     "static/media/poe-cover.png": "/staging/static/media/poe-cover.ff685b3859612584cf32.png",
     "static/media/poe-up.png": "/staging/static/media/poe-up.4f2bf569a1704655da1e.png",
+    "static/media/magicball.png": "/staging/static/media/magicball.95b60accc2c341ae18f8.png",
     "static/media/wisdom-icon.png": "/staging/static/media/wisdom-icon.066d80c4ebc0d4f7203a.png",
     "static/media/moon-block-icon.png": "/staging/static/media/moon-block-icon.36050ff4bc0248145863.png",
     "static/media/whisper-icon.png": "/staging/static/media/whisper-icon.4fdfb2f76092bff127af.png",
@@ -20,12 +21,12 @@
     "static/media/slick.woff": "/staging/static/media/slick.295183786cd8a1389865.woff",
     "static/media/rune.svg": "/staging/static/media/rune.62a0976aef75c211095d942d054f4a7f.svg",
     "index.html": "/staging/index.html",
-    "main.fe12bc07.css.map": "/staging/static/css/main.fe12bc07.css.map",
-    "main.636cc2cc.js.map": "/staging/static/js/main.636cc2cc.js.map",
+    "main.02e4b62c.css.map": "/staging/static/css/main.02e4b62c.css.map",
+    "main.26f406ac.js.map": "/staging/static/js/main.26f406ac.js.map",
     "787.b3bb357e.chunk.js.map": "/staging/static/js/787.b3bb357e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe12bc07.css",
-    "static/js/main.636cc2cc.js"
+    "static/css/main.02e4b62c.css",
+    "static/js/main.26f406ac.js"
   ]
 }
