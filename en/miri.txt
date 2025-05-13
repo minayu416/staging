@@ -1,0 +1,484 @@
+3:I[9275,[],""]
+5:I[1343,[],""]
+4:["routes","en/miri","c"]
+0:["BtztGXLghCb4kyyOoKl_H",[[["",{"children":[["routes","en/miri","c"],{"children":["__PAGE__?{\"routes\":[\"en\",\"miri\"]}",{}]}]},"$undefined","$undefined",true],["",{"children":[["routes","en/miri","c"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},[["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null],null]},[["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__className_dcd603","children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/staging/_next/static/css/0a1d829d3b405975.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L6"]]]]]
+7:I[4633,["676","static/chunks/870fdd6f-d8d8a996639eb86b.js","99","static/chunks/99-8b11c91fca0a0585.js","920","static/chunks/920-d7de7a79109c9690.js","635","static/chunks/635-e879002c1d5bc2de.js","432","static/chunks/app/%5B...routes%5D/page-3d032cf2ba4633f3.js"],"default"]
+8:T1236,<p>When I'm developing my self software service, there is a background with stars and nights effect.</p>
+<p>I thought it is difficult to develop when I was designing the background (I do design and development in same role)</p>
+<p>However, it finished with an easy way, so today I would like to share the tips.</p>
+<h2>Requirement Introduction</h2>
+<p>This is my design of the background by Figma.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
+<p>This is a starry night background by using linear-gradient and draw the stars by hands.</p>
+<p>Here is the Home Page of the service that I'm developing.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-19-at-12.50.59-am.png" alt="miri-home-page"></p>
+<p>Based on this background and I add some elements, then this will be a good divination service. This is the first front-end design of the service that I self-learn by using Figma and Front-end skills.</p>
+<p>I got 2 methods to develop it from my colleagues.</p>
+<ul>
+<li>Use CSS to draw each line and points.</li>
+<li>Put Image directly.</li>
+</ul>
+<p>In the beginning, I thought if only put an image, the front-end will look fake, but seems I was wroung xD.</p>
+<h2>Resolution</h2>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
+<p>So, we are gonna to see the Figma, we need following steps.</p>
+<ol>
+<li>Use linear-gradient to render night space color in background.</li>
+<li>Export the stars to SVG file by using Figma Plugin.</li>
+<li>Integrate SVG file and background.</li>
+</ol>
+<p>So first, we are gonna use linear-gradient to render night scene, here are code.</p>
+<pre><code class="language-css">/* We use three colors starts from top to bottom and render the night space effect.  */
+.wallpaper {
+  background: linear-gradient(to bottom, rgba(23, 18, 50), rgba(49, 22, 56), rgba(53, 53, 119));
+}
+</code></pre>
+<pre><code class="language-html">
+&#x3C;div class="wallpaper">
+
+&#x3C;/div>
+
+</code></pre>
+<p>So that can done the good night effect.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.21.00-pm.png" alt="night-effect"></p>
+<p>Second, we need to export stars to SVG file by Figma Plugin.</p>
+<p>I use a tool called SVG Export, you click your componenets (don't forget to group by them.) and then click the plugin, you can download it as SVG file, we will use it later.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.22.27-pm.png" alt="export-step-of-stars"></p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.23.01-pm.png" alt="export-svg-tool-in-figma"></p>
+<p>Third, now we need to integrate them as a background.</p>
+<p>I tried to put img tag on div directly, but it will cover other divs, and we can not click other divs. I also use <code>z-index</code>, however in one page, I have a lot of cards with z-index arrangement, it will be a nightmare to adjust each z-index sequences.</p>
+<p>So, I use <code>before</code> and <code>relative</code> + <code>absolute</code> to reach our requirement, please see following code.</p>
+<pre><code class="language-css">.wallpaper {
+  background: linear-gradient(to bottom, rgba(23, 18, 50), rgba(49, 22, 56), rgba(53, 53, 119));
+  /* We need to add position: relative, and make SVG file as absolute, so the SVG can be attached on background. */
+  position: relative;
+}
+
+.wallpaper-color::before {
+  content: "";
+  position: absolute;
+  /* Because the SVG Export still transfer some space, so we need some adjustment position to put the SVG to right place. */
+  top: -46px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* This is the SVG file we exported by Figma Plugin. */
+  background-image: url("./static/stars.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+</code></pre>
+<pre><code class="language-html">
+&#x3C;div class="wallpaper">
+
+&#x3C;/div>
+
+</code></pre>
+<p>Remember adding the <code>position:relative</code> in background and adding <code>position:absolute</code> to your SVG css layer, so that we can achieve the effect we want.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
+<p>That's the tips I want to share to you!</p>
+<p>Because I'm a self-learned Front-end and learning by doing projects, so if you have other good resolution on this topic, please share to me and I will update my post.</p>
+<p>Thank you!</p>
+9:Tcb5,<p>Since I'm developing my own product and using a lot of gradient color as background color, as a new Front-end learner, this issue stuck me a while, so I would like to share the solution I found.</p>
+<h2>Requirement Introduce</h2>
+<p>As the picture shows.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-9.33.08-pm.png" alt=""></p>
+<p>This is one of the page in my product, I used the linear-gradient effect in the square.</p>
+<p>Here is my CSS and html code:</p>
+<pre><code class="language-html">    &#x3C;div className='h-32 w-32 rounded-[20px]'>
+        &#x3C;div className='h-32 w-32 rounded-[20px] border square'>
+        &#x3C;/div>
+    &#x3C;/div>
+
+</code></pre>
+<pre><code class="language-css">
+.square {
+  border-color: #EACB84;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+}
+
+</code></pre>
+<p>In this product, user needs to choose square, so I want to add a new effect to show if user choose the square, as picture shows.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-9.33.16-pm.png" alt=""></p>
+<p>In the begining, I though this is very easy, only use hover and change background color can achieve the requirement. However, I was wrong, it didnt work.</p>
+<h2>Solution</h2>
+<p>Since I'm a self-learner of Front-end, I only found this solution, if anyone has better solutions, please share to me, I will update the article.</p>
+<p>This is the reason why change backgound color doesn't work:</p>
+<p><strong>The priority of using linear-gradient as background color is higher then other simple backgound color, so change background color doesn't work.</strong></p>
+<p>The solution I found is using <code>overlay</code> + <code>absolute</code> to resolve the bug. Add a new div in front of the original square div and using absolute to <strong>cover</strong> the background-color of the square div.</p>
+<p>Here is the code:</p>
+<pre><code class="language-html">    &#x3C;!-- Remember to add relative, because we want the overlay div absolute and cover the square div  -->
+    &#x3C;div className='relative h-32 w-32 rounded-[20px]'>
+        &#x3C;!-- Because I use React.js, so when user choose specific div, this will add the div overlay. -->
+        &#x3C;!-- You can change the JS or handle event style according the framework you use. -->
+        {selectedDiv === square.id &#x26;&#x26; &#x3C;div className="overlay">&#x3C;/div>}
+            &#x3C;div className='h-32 w-32 rounded-[20px] border square'>
+            &#x3C;/div>
+    &#x3C;/div>
+
+</code></pre>
+<pre><code class="language-css">.overlay {
+  /* position is absolute, cover the background of square div */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(234, 203, 132);
+  opacity: 0.4; 
+}
+
+</code></pre>
+<p>And that's done:</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-9.33.16-pm.png" alt=""></p>
+<p>This is the issue and solution I faced in product and this stuck me a long while, I'm not sure there is other better solution, if you have any ideas, welcome to share to me, I will update in article.</p>
+<p>Thank you!</p>
+a:Te93,<p>Recent, I'm developing my tarot app and it needs to send HTTP requests to back-end API. I face CORS issue several times, but I forgot how to resolve each time, so in this post, I will record the resolution.</p>
+<h2>Why &#x26; What is CORS (Cross-origin resource sharing)</h2>
+<p>I will only have some shorten introduction of CORS here.</p>
+<p>Before CORS, we refer the Same-origin policy first, due to the Information Security, to avoid requests from another domain outside the original domain, because some hackers or third-party software will mock the fake domain and attack your services, so any requests (for example, calling API or any CSS and Images resources need in same domain).</p>
+<p>However, in recent technological trend, it's normal that services request outside API and resources, so there is CORS requests happened.</p>
+<ol>
+<li>My case is Jamstack, my front-end hosted on Github, and my Back-end API hosted on Vercel, when front-end send the request and showed <code>Access to Reqeust, ... has been blocked by CORS policy</code>.</li>
+</ol>
+<p>I think many developers have faced this CORS issue many times.</p>
+<ol start="2">
+<li>Second case is I developed a website and it has operation with Google Firestore &#x26; Firebase, also faced the CORS.</li>
+</ol>
+<p>I tried many resolution fix in front-end, but it doesn't work, the rresolution in my these 2 cases, is to add white list to allow domain sending request, so in this post, I will show the implementation code.</p>
+<h2>Case 1: Front-end React.js with Back-end Python Fask API</h2>
+<p>When React.js use fetch method for sending HTTPS Request and Back-end API blocked the request because the CORS.</p>
+<p>The resolution is we implemented the CORS in API layer and add the front-end domain into white list, here is the code.</p>
+<pre><code class="language-py">
+# Import fastapi package
+from fastapi import FastAPI
+
+# Import fastapi cors feature
+from fastapi.middleware.cors import CORSMiddleware
+
+# (1) Init an app
+app = FastAPI()
+
+# (2) put allow domains in white list
+origins = [
+    "http://localhost",
+    "https://example.com"
+]
+
+# (3) Init CORS object and put the white list with it
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# (4) Write api route
+@app.get("/")
+def hello_word():
+    return {"Hello": "World"}
+</code></pre>
+<h2>Case 2: React.js operate data with Google Firestore or Firebase</h2>
+<p>This case is when I use React.js and store/get data with Firebase (Firestore/Realtime DB), the domain blocked by Firebase.</p>
+<p>So what we need to do is going to Firebase Console and set the allow domains in white list.</p>
+<p>First, we go Google Firebase Console and choose your project.</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.55.25-pm.png" alt=""></p>
+<p>Then we need to create Authentication for this project (If you have Authentication, you can skip this)</p>
+<p>Click All projects -> Select Authentication -> Get started</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.57.39-pm-1.png" alt=""></p>
+<p>After you created Authentication, you can configure allow enter users or Sign-in method in the Users and Sign-in method tabs, but now we go to the Settings tab.</p>
+<p>Go to Authentication -> Settings -> Authorized domains -> Add domain, and then add the domains you want to let it allowed without <code>http://</code> or <code>https://</code>.</p>
+<p>After added, the services can operate with the Firebase without CORS errors.</p>
+<p>That's all for my resolution, if you have quesions, please leave in below Comment section, thank you!</p>
+b:T1044,<p>I always think, as a software engineer, what's my dream? What's my next target and task?</p>
+<p>For me, dream and objectives are the important power for keeping motivation and enthusiasm, if the dream is hard to achieve, and it will be the best point to keep learning and doing.</p>
+<p>So as a software engineer, my original intention was not engineer is easy to earn money, is not that I don't have other options, it is because I want to make own products, I want to create things by myself, also playing skills is another reason.</p>
+<p>I have always thought if I work for money, what will leave after I work as engineer many years? Will it many programming skills? Will it a lot of money? Will it achievement or skills of management?</p>
+<p>Since I was young, I touched many computer things by myself, I felt accomplished while writing code in computer class in junior school. One of my dream was my making a personal website by myself, because I didn't suit to many different blog platforms, I want to edit themes and arragement by myself, this was one reason that I want to be a software engineer.</p>
+<p>I didn't aware my real dream before and I have thought a while in this half year then I know that my dream is <strong>Create by myself</strong> and I need to keep learning skills and having implement experience constantly.</p>
+<p>After developed the third version of Miri, I feel my technical skills are still immature. I need to have more experience and learn more, so I stopped the development of Miri. After I accumlate more skills, I become more powerful, I will back and design Miri more perfact.</p>
+<h1>Chapter 8 - The location of Miri</h1>
+<p>Like I referred at the <a href="https://minayu.site/en/2021/08/miri-development-series-2-begin-en/">first story</a>, <code>The main concept</code> of the Miri is very important, I always stood at back-end point to develop Miri, I didn't know that I should stand more higher perspective to plan Miri. I need to think about the product location of Miri, what users want to see? What's balance between ideal (Helping people) and business (Earning money for development and maintenance) and many other things.</p>
+<p>Before next time I continue to develop Miri, I need to think about</p>
+<ul>
+<li>The main concept</li>
+<li>Target users and customers</li>
+<li>What is the final map</li>
+</ul>
+<p>Then other questions will accord to these three answers.</p>
+<ul>
+<li>Do it need multiple languages?</li>
+<li>Do it need to develop app?</li>
+<li>How's the interface does Miri need?</li>
+<li>What's feature does Miri need?</li>
+</ul>
+<p>Then design Miri according these questions, implement, .. the job of Back-end and Front-end ...</p>
+<h1>Chapter 9 - Future Features</h1>
+<p>Although I need to clear the main concept of Miri, but I know some features I definitely hope to do it in the future!</p>
+<p>So the following parts I want to do it at future:</p>
+<ul>
+<li>Develop independent front-end (website and app), Separate front-end from Line Bot and Telegram Bot.</li>
+<li>Develop Graphical Chart of Astrology chart and Zi Wei</li>
+<li>Develop new divination methods</li>
+<li>Design and draw divination cards by ownself</li>
+<li>Optimize explanation of all divination methods</li>
+<li>Research the probability of getting cards</li>
+<li>Research the combination explanation and smart explanation</li>
+</ul>
+<p>The above list is whole features I can imagine currently, others points like <code>How many methods should it have?</code> and <code>What's the UI should it need?</code> and many other questions I still need to think and clarify them.</p>
+<p>So make a product my ownself is not easy, that's why many start-up product need to re-make again and again, because there are many different things need to be clarify and considered and no one can know that the currently decisions will be fail or not, we can not know future now.</p>
+<p>But If I really want to do, then go, just need to do more consideration as I can.</p>
+<p>This series will stop temporarily, I hope there will be next story, we expect it!</p>
+<p>Thanks for reading, the next article will begin to introduce development skills of Miri.</p>
+c:T47c7,<p>Recalling this life period, it seems all things are just happened yesterday, time passed quickly.</p>
+<p>The experience of this period gave me big harvest, although I used to doubt my decision, but I insisted to keep it until finish.</p>
+<p>In English version, I will not write as long as Chinese version, because writing style are different and some description of different languages are not same, but I still keep important points.</p>
+<p>So, that's begin the story in this half year!</p>
+<h1>Chapter 4 - Motivated from colleague</h1>
+<p><strong>Ahh, I feel if this atmosphere continue, maybe I will quit job next year.</strong></p>
+<p>2020 October 16, I smelt that our department might be dismissed, this situation like I faced at first job, everything was gradually stopped, lacked of any direction and supervisor lead us to do some meaningless things.</p>
+<p>So future is unpredict, you never know what will happend in next second, next hour, next day or next week.</p>
+<p>when I was noticed by my supervisor, he told me it's time to pick a good time and leave.</p>
+<p>I discussed a good time with my Human Resources friend, we worked together both in first and second companies.</p>
+<p><strong>Sorry, I really don't know this thing, this announcement didn't pass here.</strong></p>
+<p>That's ok, I already feel it, when the top and high levels supervisors have been changed many people and many elders retired, I can feel the thing will happend.</p>
+<p>When the time of leaving has been checked, I have about 2-3 weeks can enjoy my last days in company. Our company is very near beach, if I quit, I think I will not have many chance to visit the beach.</p>
+<p>So at the Saturday, I decided to visit the beach with my designer colleague. We went to a beautiful restaurant, with cool weather and dressed light dress skirt, it represented we put down the huge stress of work.</p>
+<p>We talked about things of company, previous days and we discussed the business of <code>Miri</code>. <code>Miri</code> in that moment is a Line social media robot and there was only one easy divination feature, Runes, the user guide was a mess, but the divination feature at least can activate, getting result and imperfact explanation.</p>
+<p><strong>Miri is good innovative idea, you should conitnue develop it!</strong></p>
+<p>I have already introduced Miri to my designer colleague, she played Miri many times, I never think Miri is funny before, I just thought it was only a divination feature with imperfact code and structure plans.</p>
+<p><strong>I suddently recalled, I have a project which has been online for 2 years and being stable, I can show it when chat or interview, it is Miri!</strong></p>
+<p>She motivated me, I began to think about continue developing Miri, to continue my dream: make a divination and fortune-telling product.</p>
+<p>So, after I quitted job, I decided to give myself half year to develop Miri and release it a new version.</p>
+<h1>Chapter 5 - The third version</h1>
+<p>In last story, I refered that Miri was in the second version, which only included a divination feature.</p>
+<p>The days before I quit job, I have began to plan the next features and decided it will be the third version.</p>
+<p>I recalled that I first position Miri as a chat bot, but I needed a specific feature for showing to interviewers, so I developed one divination feature. After it, the position of Miri tend to divination and fortune-telling, thus I decided to change the position of Miri from chat bot to a divination product offically.</p>
+<p>I gave myself half year to plan and implement the third version, the following features are the objectives:</p>
+<ul>
+<li>Refactor and Re-design the back-end structure</li>
+<li>Extend divination methods since 1 to 6.</li>
+<li>Optimize the explanation and description of divination results</li>
+<li>Add another platform to use (the original is Line social app)</li>
+<li>Account management and different languages</li>
+<li>More completed user guide (menu, document, flow)</li>
+<li>Optimize divination flow</li>
+</ul>
+<p>The plan can make Miri more complete than before and this will be the big improvement than the last version.</p>
+<p>In third version, because I have learned how to design structure, so I first I redesigned the structure and refactor the code for suit the development of new features.</p>
+<p>Then I extended more divination methods for having more choices and more fun. Optimized the explanation of results because the vision arrangement was very bad and there were many wrong words in old explanations. Redesigned the divination flow, made it more fluently for users.</p>
+<p>In third version, I considered that I want Miri can be seen for more users except in Taiwan or Asia, so I decided to develop telegram platform and English dialogue which my Russian programmer friend suggested me. I used to compare <code>What's app</code> and <code>Messanger</code>, but <code>Telegram</code> is the last winner, it has similar features with Line bot and it has totally different target customers with Line. However, considered that I want to push Miri to more users, I think I will plan website and mobile apps in the future.</p>
+<p>About adding English dialogue, I binded it with back-end side which means I need to design accounts feature for store the user and its language. Because  I used social apps as the front-end part temporarily and I can not add remembering langauge feature inside it.</p>
+<p>The last part is user guide and user flow. I considered that the user flow was very bad at last version, users need to type <code>Runes</code> and activated the feature, so I designed better flow than before. Also there was not any user guide and menu, I made them in this time.</p>
+<h1>Chapter 6 - Develop product is not easy</h1>
+<p>My totally tasks and sequences were:</p>
+<ul>
+<li>
+<p>[APIs] Check the brige of front-end and back-end</p>
+<ul>
+<li>Because of my previous colleague recommand, so I decided to change Flask to FastApi</li>
+<li>For adding Telegram platform, refactor the old APIs structure</li>
+<li>Redesig Line APIs and process program</li>
+<li>Plan and design Telegram APIs and process program</li>
+</ul>
+</li>
+<li>
+<p>[Divination] Extend different divination methods</p>
+<ul>
+<li>Integrate divination flow</li>
+<li>Delete or add flow according to different divination method</li>
+<li>Implement new divination methods</li>
+</ul>
+</li>
+<li>
+<p>[Accounts and Language] Develop accounts management and language feature</p>
+<ul>
+<li>Plan and implement accounts feature</li>
+<li>Plan and implement setting language and switching language</li>
+<li>Implement binding account to language</li>
+<li>Implement according account to give messages of default language</li>
+</ul>
+</li>
+<li>
+<p>[Divination Explanation] Write divination explanation (After most big features finish)</p>
+<ul>
+<li>Design and fill up explanation of each card</li>
+<li>Plan and implement other explanation features</li>
+<li>Optimize arrangement of explanation</li>
+</ul>
+</li>
+<li>
+<p>[User Guide] User flow, messages flow, introduction and menu</p>
+<ul>
+<li>Choose language before first login</li>
+<li>User guide message</li>
+<li>User guide document</li>
+<li>Menu</li>
+</ul>
+<p>Making product is more hard than I thought before, I thought I only need to write code and achieve the features, but there were other parts I need to consider not only the code.</p>
+<p>The following parts, I begin to describe what kind of problems and obstacles I met and how to solve them.</p>
+</li>
+</ul>
+<h2>The importance of UI/User Flow</h2>
+<p>I believe the experience of this half year bring me a big harvest, not only the skills of back-end. As a back-end engineer, I always stand in the back-end aspect for seeing things, but in this period, I found I can not only stand at it, I should switch my role to UI designer, users and other roles to consider this product.</p>
+<p><em><strong>Why need us?</strong></em></p>
+<p>Before describe my experience, I want to arise a concept, why company need us? In social value and the scene created by news and reporters, employees are always be the side of selection, so this make all employees need to improve themselves constantly to suit the requirement of companies.</p>
+<p>However the work of us is making product from plan to reality and operate it. So every roles in team are important, the critical points should be:</p>
+<ul>
+<li>Each role need to maxsize their ability and efficacy which are best suit for product</li>
+<li>Communicate and cooperate with team for come up with the best results and solutions</li>
+</ul>
+<p>So it is not only one's responsibility and it's not the thing about who is powerful or who can insist the extreme method but not suit to team and the development.</p>
+<p>After I planned which features I want to develop in the third version, I immediately began to refactor the back-end code, because it was written when I was not mature of back-end, then I want to achieve the features quickly, so I didn't consider more and wrote code quickly everyday.</p>
+<p>Untill one day, I opened client side (Line or Telegram) and I want to test features I completed, I found that I only can use few features and reply less messages, even there are many features have done in back-end.</p>
+<p>I confused, I changed code while testing on client step by step, and I realized that I can not continue this. Thus I know I need to switch my role from back-end to user or UI designer, I need to know what kind of effects I want to see at front-end and what is the flow, as a user, then switch to UI designer to plan the user flow and story according requirements.</p>
+<p><strong>I realized that every roles in software development are important.</strong></p>
+<p>Without UI designers or the roles who plan or design the projects, even we are the programmer, we have skills can make the plan to reality, but we don't have direction and objectives, even we complete features but it might not be integrated with back-end and front-end, it might not be confirm to the requirements of users or customers.</p>
+<p>This is what I learned in this experience, after the confused period, I swich myself to user and designer, draw the flow and imagination actions on paper then saw the draw to plan how to do it by code. I developed Miri more fluent.</p>
+<p>This concept maybe seems very easy, but to be honest, as backend engineer for long while, my aspect limit in back-end gradually, so my thinking and my consideration will put back-end at the first.</p>
+<p><strong>Before make a plan to reality, switch to user role, think about what kind of features want to see, then going to design the user flow and interface, the final is programmers implement features according to requirements</strong></p>
+<h2>The integration of different front-end platform</h2>
+<p>Adding Telegram platform is the new in the third version, Line is the original front-end platform, now Miri has been designed for providing two platforms. Since before to now, I only have experience of processing one platform, it is front-end website, so every featues of back-end and APIs only need to be designed for the only front-end page, the task of 2 platforms will be the new challenge.</p>
+<p>The features perform in Line and Telegram are a little different, for example a special message type called <code>Template message</code> exist in Line, but not be provided from Telegram. I want to have same user experience in both platform, so I planned:</p>
+<ul>
+<li>As UI role, I designed two platforms message present can be same as possible.</li>
+<li>As Back-end, I designed the structure for suit multiple message type objects and increased flexibility of message composition.</li>
+</ul>
+<p>So that's see how to realize.</p>
+<p><em><strong>Line的Template Message</strong></em></p>
+<p>This is <strong><a href="https://developers.line.biz/en/docs/messaging-api/message-types/#buttons-template">Buttons Template Message Type</a></strong> in Line, it is one message which contains photo, title, short description and button, but not be provided by Telegram.</p>
+<p><em><strong>Desgined similar message type in Telegram, refered from Line</strong></em></p>
+<p>In Telegram, my solution is composing photo, text and button (which called <strong><a href="https://python-telegram-bot.readthedocs.io/en/stable/telegram.inlinekeyboardbutton.html">InlineKeyboardButton</a></strong> in Telegram) to present the feature similar to Line template message.</p>
+<p>There are more these design, I will describe them in later articles.</p>
+<h2>The balance of skills and user usage</h2>
+<p>It is like as programmers, we want to use the newest and cool skills to do back-end side, but sometimes it's not requests from users.</p>
+<p>When I developed Miri, I always thought I have done many features and code in back-end, but they can not present totally in front-end, this made me confused. When I was in my past work life, the back-end always be complicated and be vast, but present in front-end page very less.</p>
+<p>So it means any solutions can achieve projects, but need to according the time spending, the cooperation with front-end, UI design, requirement from users and other conditions. Instead of pursuing the extreme or newest skills.</p>
+<p>As back-end, we all know the construction of back-end is vast, maybe it can not be present totally at front-end, but every back-end need to know how much efforts they spend.</p>
+<h2>Operation and Maintenance</h2>
+<p>I underestimated the operation part. In whole development, I tested Miri by hosted on localhost, so it was totally impeccable at local environment. I finished all features and tested all tests, then I decided to deploy Miri on Heroku server. It happend many things, delayed the time I set originally.</p>
+<p>The first is the environment and package dependency on Heroku, the last deployment was 2 years ago, the version of heroku was very old, I have to delete it and create another new engine for deployment. Another problem I faced is dependency, the specific heroku version limit the version of Python and Packages, so I have to change the python version I used in Miri and changed the package version. It was good, after I changed versions, it still suit Miri, it didn't happend any big problems.</p>
+<p>The critical point is that I didn't notice the free plan of heroku will restart the server and re-deploy the project every day which cause cache or variable data will be delete or miss.</p>
+<p>The original design of accounts management was store user data in SQLite, which puts with other code and will be deleted by server re-starting every day, so I need to come up with other solution for store accounts data in other side.</p>
+<p>This costed me much time to debug and fix because I didn't have any ideas why data will be deleted on server and be saved on localhost, I was sure the code on server and local are same. So the problem is server-side, I took some solutions at first time, but didn't solve it, I observed for almost 2 weeks which delayed the schedule and I finally found the information on heruku page and took many methods to test the bug, got the root problem.</p>
+<p>If I have more knowledge of operation or I can test Miri on server more early, I think these problems can be found more early and I can design Miri more perfact. At the first time I changed code many times but after I found the root problem, then I know those changes were in vain.</p>
+<p><strong>When problems can not be solved immediately, don't be nervous, it is because you don't understand it, give yourself more time to observe and research.</strong></p>
+<h2>The lack of programming skills</h2>
+<p>When I was in last company, I used Redis and dictionary type to store cache or temporary data.</p>
+<p>I wanted to use dictionary to store accounts data for getting default language of user quickly and reducing the usage of database. However, I don't know why I store data in dictionary and the data will be changed constantly on heroku server (on local is success), and it is unstable if any user change their default language.</p>
+<p>The origin is:</p>
+<pre><code class="language-py">
+{
+    "Sam": "EN",
+    "Jerry": "JP"
+}
+</code></pre>
+<p>But after Sam changed his default langauge, the dictioanry should be:</p>
+<pre><code class="language-py">
+{
+    "Sam": "CN",
+    "Jerry": "JP"
+}
+</code></pre>
+<p>However, it change constantly, in this time, it is "CN", but in next time, it will be "EN" and constantly change.</p>
+<p>I haven't gotten any root problem even now, this is because I haven't enough familiar with my programming skills, there are always some small but critical details need to be awared.</p>
+<p>I believe that use Redis and dictionary to store temporary data is good solution to reducing the utilization of performance but I can not achieve it this time, I need to improve my skills.</p>
+<h1>Chapter 7 - The confused feeling before success</h1>
+<p>Final chapter in this article, the psychology problems always be hard to human. In the progress of development, I used to doubt myself.</p>
+<p><strong>Is it worth? should I need to continue? Or I should stop it and find a job...</strong></p>
+<p><strong>Why I have written many back-end code and they can not present by front-end totally? What interviewers will think? What other people will think? Will they think I'm a loser?</strong></p>
+<p>I doubted myself many times in this road, especially near the success, only need to insist a while.</p>
+<p>This affected me a lot, because this is my dream, only I know everything, nobody knows this will be good or not, so I need to have powerful inside heart to keep it go ahead. (I didn't have much confidence before)</p>
+<p>If other people doubted myself, I followed them to doubt myself too, sometimes it affected me and shaked my insistance.</p>
+<p>What supported me and insisted me?</p>
+<p><strong>I tell myself, don't think too much, I have many tasks in my TODO list, they all need to be completed, I only need to think how to complete tasks, not doubt them.</strong></p>
+<p>Finally I completed Miri and I am writing the stories of Miri now. When face any challenges, obstacles and problems, sometimes we will be confused and afraid of it, but I learned those fears are imagined by ourselves, the only solution is beginning to do it and keeping do it until finish.</p>
+d:T3b35,<p>I wrote the story of how Miri was conceived in the Github README originally.</p>
+<p>But when I recently completed the development of the third version and was about to rewrite the README, I found that I should move the description here, plus I want to record my motivation and story of making Miri.</p>
+<p>Due to I am a person who easily forgets the past, I hope to record stories of Miri development through blog articles. Whether I succeed in the future or not, it will be an interesting story.</p>
+<h1>Chapter 1 - The Birth of Miri</h1>
+<p><img src="https://mingjungyu.files.wordpress.com/2021/08/599743_544968448866799_1105772966_n.jpg" alt=""></p>
+<p><code>Miri Robot Fortune Teller</code> - Miri is a fictitious 10-year-old girl with a character set like she was gifted and intelligent since childhood, and interest in mathematics and numerology. She help questioners who are confused get the results and suggestion.</p>
+<p>In fact, Miri was not intended to be a robot fortune-teller at the beginning. I originally hoped to develop Miri in the direction of artificial intelligence as a management, assistant or housekeeper.</p>
+<p>Before studying in graduate school, I lost my goal in life and felt very confused for the future. During that time I had time to watch some movies and dramas, so I watched <code>Iron Man</code> and <code>Resident Evil</code>. I saw that there was <code>Friday</code> artificial intelligence in the Iron Man movie as assistant, following Stark's instructions, Friday was able to collect data, analyze data and display it by fictitious visual interface in the third dimension space, Friday always help Stark manage some things or report progress. In Resident Evil, the artificial intelligence "Red Queen" that appeared in the first episode also aroused my enthusiasm. The Red Queen helped control the entire company and later developed self-aware artificial intelligence.</p>
+<p>Affected by the Iron Man's <code>Friday</code> and the <code>Resident Evil "Red Queen"</code>, I was inspired to artificial intelligence, hoping to study artificial intelligence or enter the powerful development research room in the future, work with great engineers from all over the world develop artificial intelligence together.</p>
+<p><code>Artificial intelligence</code> sounds like a super cool technological term. I touched <a href="https://www.rinna.jp/">りんな</a> when I was in the master degree, <code>りんな</code> is artificial intelligence made by a Japanese company, connects with Line social media, so I can chat with her on Line, and there are some interesting features can be used. I felt surprised because I thought my dream is to create another <code>りんな</code>.</p>
+<p>I firstly decided to set the dream of artificial intelligence towards the chat robot, and chosen Line bot api as the first step of my artificial intelligence dream. (Now go to the official website of <code>りんな</code> and the company has developed many different new functions, and they developed feature of divination!</p>
+<p>Divination and numerology are really a novel market. I feel that if I don’t start planning the implementation, there will be many people occupy the market)</p>
+<p>However, when I was in master degree, my programming skills had just started. I had no experience in software development at all, and I had no relevant knowledge, so I didn’t know how to start.</p>
+<p>Finally, there was an opportunity. Our university department requested a teacher to teach how to implement Line chat robots with only one class time, which gave me a chance to step into the development of chat robots, who didn't know how to start at the time. It was at this time that the Line account of <code>Miri</code> was created.</p>
+<p><code>Miri</code> is born!</p>
+<p>Why is it called <code>Miri</code>?</p>
+<p>Because at the time, only Apple’s <code>Siri</code> was like a personal assistant with artificial intelligence technology, and I created this chatbot with the original intention because I wanted to make artificial intelligence. I added the abbreviation of my name <code>M</code> to <code>Siri</code> formed <code>Miri</code> as the name of my artificial intelligence assistant.</p>
+<p>How did the avatar of <code>Miri</code> come from?</p>
+<p>In 2010, Facebook had an external plug-in software that could make a portrait picture by myself. I made a cute picture similar to myself according to my appearance at the time and put it on Facebook.</p>
+<p>Later, I thought that photo looked like a young girl, and <code>Miri</code> sounded like a cute girl's name, so I decided to put the photo as avatar of Miri.</p>
+<p>When Miri was first born, most of the time was in shutdown state. As mentioned above, the teacher who taught the Line chatbot only spent one class for teaching the implementation, plus my programming ability was just started. The basic abilities are completely 0, so the initial Miri feature only received messages from users and send same messages back to users, like Echo.</p>
+<p>I didn't know how to set up a server, if I didn't excute program on my computer, Miri was in shutdown state and did not react at all.</p>
+<p>At that time, I only registered Line account of Miri and used Line bot api code provided by the teacher and I used Ngrok to connect localhost. Only a very simple program was built, and even didn't understand the Line bot api program.</p>
+<h1>Chapter 2 - Miri Basic Development</h1>
+<p>Since most of the projects I implemented in master degree are related to website front-end pages, and there was a serious lack of back-end knowledge, so I had no idea that after I created Miri, How do I continue to develop her? How do I make her become an artificial intelligence assistant like <code>Friday</code> and the <code>Red Queen</code>? The development of Miri has been temporarily stopped. It has been suspended for 1-2 years without planning any development.</p>
+<p>After graduation, in order to achieve my dream of developing artificial intelligence, fortunately, I entered the American startup company that develops artificial intelligence. During that time, I improved my python programming ability a lot and learning a lot of artificial intelligence knowledge.</p>
+<p>After half a year of training in a high-pressure environment, I found that I have more background and technical skills than before to support me to continue to develop Miri.</p>
+<p>So, I restarted Miri, which has been stopped for 2 years, and then tried to use the knowledge and technology I learned to plan Miri's first version program architecture, and add artificial intelligence sentense analysis packages <code>nltk</code> and <code>jieba</code> to implement simple feature of receiving messages and  reply the sentences which have been setted by coming messages.</p>
+<p>The technoligies I used are flask structure, nltk, jieba and understood basic implement of line bot api.
+And the response message was initially set up some greeting terms like <code>Good morning</code>, <code>Good night</code> and other basic terms. Of course, I also thought about making Miri to a lover chat robot, so I also set up a few flirting sentences, such as <code>Like you</code>, <code>Love you</code>, you are so beautiful... etc.</p>
+<p><em><strong>So the first version only have chinese reply sentences, basically there were some basic sentences like "good morning", "hi"</strong></em></p>
+<p>Also because after understanding the operating principle behind artificial intelligence, I found that artificial intelligence is not as dreamy as I imagined at the beginning. Most of them rely on a large number of input sentence content, or training vocabulary and store it in the database, and reply messages which are setted with each word.</p>
+<p>Of course, it is also possible that I have not explored deeper or core artificial intelligence knowledge, so my understanding of artificial intelligence implementation only stops at this.</p>
+<p>So the only method of training Miri is inputing amount of sentences and cutting into words by <code>nltk</code> 或 <code>jieba</code>, then setting the features/ reply messages for each word.</p>
+<p>If I want to develop Miri as personal assistant, there will need to connect extended features, like notes app, weather app or other features.</p>
+<p>Developing artificial intelligence to personal assistant like in movies, there must need teamworks of a lot of reseachers, scientists, programmers. Rely on 1 person team is not possible, in addition even the current technoligy of artificial intelligence is not familir.</p>
+<p>Hmm.. so just watch movies and have fun, those cool technology still need a long road to achieve. Although for artificial intelligence, I already don't have much enthusiasm than before, but created <code>Miri</code> also opened the road of software development by myself.</p>
+<p>Although want to develop Miri to chat bot or personal assistant, but I thought Miri lack of a main subject product concept.</p>
+<ul>
+<li>What kind of chat bot?</li>
+<li>What kind of features does she has?</li>
+</ul>
+<p>I didn't have any idea, I wanted to make Miri like a virtual lover, also wanted to make as assistant like Friday, this time it seems I pick needle in sea, lack of main concept, can not imagine the final state of Miri and can not have plans of development and implement.</p>
+<h1>Chapter 3 - Towards To Divination And Numerology</h1>
+<p>On Aug 15, 2019, I left my first job. I have to prepare for the second job interview. I have a period of time to prepare the resume and side-projects. Because I already have software development experience and technical abilities, so I adjusted the code of the previous programs and were uploaded to github, I also deployed some projects on the heroku server, and put them in resume.</p>
+<p>Due to my first job was in a start-up company, the company’s product development process was very turbulent, lacking major directions and major product owners, and the product had to be re-planned and reworked time and time again. I have participated in many web projects and main product of company, but there is no project or product are online that can be shown to future interviewers.</p>
+<p>At this time, I thought that I can continue develop Miri, I hoped I can use all the technologies and skills I learned in my first job to Miri, and Miri can represent collection of skills and experience learned in the first job.</p>
+<p>I didn't arrange a lot of time to develop Miri, I only gave myself 1-2 months to develop Miri, and then I was ready to find the next job.</p>
+<p>I must to complete a version of phased results in two months, so it can not like <code>chat bot</code> which has opened and widely concepts. I must make a main concept and limit scope. And in same time, I need to use some new abilities which I learned and been trained at first job, not some sentences which were setted.</p>
+<p>After I took long term consideration, driven by my persinality, I don't want Miri to be normal chatbot, I decided to make some unique and novel concepts. I recalled that I learned Runes (one divination) in my leisure time, it is an unique and mysterious concept, I had confident to achieve the phased results in 2 months, it is enough to show to the next interviewer.</p>
+<p>Thus, I decided to extend development based on original design on Line bot api, making a new unique feature (runes divination), adding new Line api message type <code>Template</code> for guiding users to do divination. Using SQLite to store static runes data and explanation, then reply to users when they click button.</p>
+<p>I refered program structure design which I observed at first job, simple designed strucutre which can extend divination feature and keeping the originally basic conversation.</p>
+<p><em><strong>So this version only have chinese language too, basically there was new template message type for guiding users and its content is runes.</strong></em></p>
+<p>I totally spent only three weeks and complete the target, this is the second version of Miri.</p>
+<p>Then learned how to build it on heroku server, so that Miri was officially online and users can play it.</p>
+<p>Although there was simple runes divination, but it was enough that I can raise it to interviewers when I was in interviews and even I can show it to my colleagues. My friends and colleagues sometimes played Miri.</p>
+<p>This is the development story of Miri, which moment was setted at an artificial intelligence and turned into divination robot then being to robot fortune-teller.</p>
+<p>The above is the story for me from the first steps of ​​Miri, until I started to implement it, and then decided the concept.</p>
+<p>Now I recalled I never thought Miri is important to me. But I always want to develop her while every time I learned new skills or quitting jobs. I always want to develop Miri by all skills I learned. Developing let me understand what abilities and skills I lacked, what I need to learn can continue develop Miri.</p>
+<p>Maybe it was because I have worked 2 years and in 2 different company, but still don't have any projects and products online. Suddenly found Miri has online and operating 2 years stably and I can show to people any time.</p>
+<p>I lacked enough abilities to develop Miri to the final state in my heart. In this time I quitted job, I developed Miri for 6 months because inspiration from my ex-collegues, now Miri is important to me now.</p>
+<p>These experience will be write at next article.</p>
+<p>While I am writing this article, I compared <code>Miri</code> and <code>りんな</code>. I understood some important concepts.</p>
+<p>I think the most important thing is clear the definition of product:</p>
+<ul>
+<li>What is main concept?</li>
+<li>Target users/ customers</li>
+<li>How widely scope want to implement?</li>
+</ul>
+<p>Before making product, it is necessaru that check these things though these questions, because the results will decide it need how many team members, what skills it need, which area, region need to market, and many many other things.</p>
+<p>As a developer since first job, I only observe the implement aspects and stayed at the basic positions. I understood many concepts while I began to develop Miri widely at this time for 6 months, I found that I always used the developer/programmer aspect to think about things.</p>
+<p>It is not suit to consider the whole aspect of product.</p>
+<p>Developing Miri alone bring me:</p>
+<ul>
+<li>What skills/abilities I lack now</li>
+<li>What skills/abilities I need to learn next</li>
+<li>How one product make and operation, design, program, marketing</li>
+<li>How important to main concept and limited scope of one product</li>
+<li>Change thinking perspective between different characters (sometimes designer, sometimes programer, sometimes being PM and sometimes being Product Owner, think about target customers and how to market it.)</li>
+</ul>
+<p>And many different things.</p>
+<p>I enjoy it and I'm very happy I spent 6 months to develop Miri and understaning many things.</p>
+<p>So about story of these, please expect next article :)</p>
+2:["$","$L7",null,{"lang":"en","posts":[{"lang":"en","year":"2023","month":"08","slug":"frontend-how-to-do-simple-starry-sky-effect","isDraft":false,"content":"$8","author":"minayu416","title":"[Front-end] Use CSS linear-gradient and Figma export SVG file develop simple starry night background effect.","date":"$D2023-08-18T12:26:20.000Z","status":"published","categories":["IT Things and Development","Research and Learning Note"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"Today, I would like to share how I use CSS linear-gradient with stars svg file exported by Figma Plugin to develop a simple starry night background.","tags":["[Front-end] A new learner - Adventure of Front-end"],"keywords":["CSS","linear-gradient","Front-end","Figma","starry night effect"],"featured":"screenshot-2023-08-18-at-9.42.11-pm-3954764380-e1692366164937.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"en","year":"2023","month":"08","slug":"frontend-linear-gradient-change-background","isDraft":false,"content":"$9","author":"minayu416","title":"[Front-end] How to change CSS background color if use linear-gradient effect?","date":"$D2023-08-12T12:56:20.000Z","status":"published","categories":["IT Things and Development","Research and Learning Note"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"I used a lot of linear-gradient effect in css in my self-developed product. The one of the features is changing the color when user click the div, it didn't work if use the normal syntax, I found a new resolution and share in article.","tags":["[Front-end] A new learner - Adventure of Front-end"],"keywords":["CSS","linear-gradient","overlay","background-color","absolute"],"featured":"screenshot-2023-08-12-at-9.33.26-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"en","year":"2023","month":"07","slug":"cors-resolution-note","isDraft":false,"content":"$a","author":"minayu416","title":"[Back-end] Resolve CORS issue research note (Python FastAPI + Firebase/Firestore)","date":"$D2023-07-07T05:37:20.000Z","status":"published","categories":["IT Things and Development","Research and Learning Note"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"This post note how I resolve CORS issue in back-end side with the cases FastAPI and Firebase. ","tags":["[Back-end] 10000 hours - Road of being Back-end Developer"],"keywords":["CORS policy","Access-Control-Allow-Origin","Python FastAPI","Firebase and Firestore"],"featured":"","featuredalt":"","featuredpath":""},{"lang":"en","year":"2021","month":"10","slug":"miri-development-series-3-the-future-plan-en","isDraft":false,"content":"$b","author":"minayu416","title":"[Product Development Diary] The future plan of Miri |  Series(3) | Story","date":"$D2021-10-11T07:25:40.000Z","status":"published","categories":["IT Things and Development","[Start-Up Diary] Miri Robot Fortune Teller - Making Product Is Not Easy!"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"With enthusiasm and less powerful programming ability, I began to try to develop my own software product. Record stories about the future plans of Miri, what features I want to do in the future, what should I do before continue develop it.","tags":["[Start-Up Diary] Miri Bot Fortune Teller - Making Product Is Not Easy!"],"keywords":["python","product","start-up","divination","fortune telling"],"featured":"img_7985-e1630309209651.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"en","year":"2021","month":"10","slug":"miri-development-series-2-the-third-version-en","isDraft":false,"content":"$c","author":"minayu416","title":"[Product Development Diary] The third version of Miri | The development life in this half year |  Series(2) | Story","date":"$D2021-10-07T08:45:33.000Z","status":"published","categories":["IT Things and Development","[Start-Up Diary] Miri Robot Fortune Teller - Making Product Is Not Easy!"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"With enthusiasm and less powerful programming ability, I began to try to develop my own software product. Record stories about the development of third version in this half year, what are new features? What problems I faced and What affected my insistance of dream.","tags":["[Start-Up Diary] Miri Robot Fortune Teller - Making Product Is Not Easy!"],"keywords":["python","product","start-up","divination","fortune telling"],"featured":"img_0453-e1630242161993.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"en","year":"2021","month":"08","slug":"miri-development-series-2-begin-en","isDraft":false,"content":"$d","author":"minayu416","title":"[Product Development Diary] The motivation and origin of Miri |  Series(1) | Story","date":"$D2021-08-24T08:52:06.000Z","status":"published","categories":["IT Things and Development","[Start-Up Diary] Miri Robot Fortune Teller - Making Product Is Not Easy!"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"With enthusiasm and less powerful programming ability, I began to try to develop my own software product. Record stories since the beginning of the inspiration, the implementation, until now I have the final picture of the product, and continue to work hard to move forward.","tags":["[Start-Up Diary] Miri Bot Fortune Teller - Making Product Is Not Easy!"],"keywords":["python","product","start-up","divination","fortune telling"],"featured":"","featuredalt":"","featuredpath":""}]}]
+6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Create Next App"}],["$","meta","3",{"name":"description","content":"Generated by create next app"}],["$","link","4",{"rel":"icon","href":"/staging/favicon.ico","type":"image/x-icon","sizes":"16x16"}],["$","meta","5",{"name":"next-size-adjust"}]]
+1:null

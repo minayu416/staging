@@ -1,0 +1,1643 @@
+3:I[9275,[],""]
+5:I[1343,[],""]
+4:["routes","miri","c"]
+0:["BtztGXLghCb4kyyOoKl_H",[[["",{"children":[["routes","miri","c"],{"children":["__PAGE__?{\"routes\":[\"miri\"]}",{}]}]},"$undefined","$undefined",true],["",{"children":[["routes","miri","c"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},[["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null],null]},[["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__className_dcd603","children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/staging/_next/static/css/0a1d829d3b405975.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L6"]]]]]
+7:I[4633,["676","static/chunks/870fdd6f-d8d8a996639eb86b.js","99","static/chunks/99-8b11c91fca0a0585.js","920","static/chunks/920-d7de7a79109c9690.js","635","static/chunks/635-e879002c1d5bc2de.js","432","static/chunks/app/%5B...routes%5D/page-3d032cf2ba4633f3.js"],"default"]
+8:T183f,<p>在開發自己設計的命理軟體，終於逐漸地進入到開發一些當初我覺得比較困難的效果設計。</p>
+<p>應該會常常遇到的是UI設計師設計很炫的特效跟畫面，但前端工程師眉頭一皺，煩惱著到底要怎麼達成那個效果？</p>
+<p>這個狀況在我身上沒有發生，因為作為自己集結設計+開發為一身的角色，當初我剛學會使用Figma並開始設計出我腦內偉大的初版前端畫面時，為了讓整個軟體服務品質看起來美觀，也是特別設計了幾項我當時覺得進開發一定會卡著不知道怎麼做的效果。</p>
+<p>不過畢竟Figma還是一款特別設計軟體前端介面為主的服務，所以許多功能上還是基於前端開發的功能去使用，不像真實的藝術家，那一筆那一畫，或者特效師做了許多的酷炫特效，前端工程師會刻不出來的窘境。</p>
+<p>今天，來簡單分享一個自己當初覺得應該會蠻難達成的一個美觀效果，但後來居然找到方式做出來了。</p>
+<h2>需求介紹</h2>
+<p>我先show出我在Figma設計渲染得很開心的圖。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
+<p>這是一張透過線性渲染效果來呈現夜空作為背景，再手動一條一條拉金色的星空，用Figma做的前端背景。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.35.06-pm.png" alt="miri-home-page"></p>
+<p>所以基於這個背景再加上一些元素後，可以很好搭配命理的神秘感。</p>
+<p>這是我自學自己幫我的命理軟體加上第一版前端頁面的設計。</p>
+<p>為了讓整個軟體服務看起來更夢幻跟神秘，我特地加上了星星，並將背景調成漸層，但在前端開發上，就會需要比較多工。</p>
+<p>當時確實是考慮了幾種方式，問了其他同事，得出幾種答案。</p>
+<ul>
+<li>用css刻。</li>
+<li>直接放一張圖。</li>
+</ul>
+<p>本來想說用第一種方式，用純css刻，這樣對於網站的loading也會比較小，但後來居然誤打誤撞，用了第二種方式，接下來就來針對第二種方式寫下解法。</p>
+<h2>解法</h2>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
+<p>先看一下Figma的圖，要做出這樣的背景，以下幾個步驟。</p>
+<ol>
+<li>在background 用 線性漸層 linear-gradient 先把夜空的效果做出來。</li>
+<li>將Figma上的設計，用Figma的Plugin 導出SVG檔</li>
+<li>將SVG檔和原本設計的背景做調整與整合。</li>
+</ol>
+<p>首先第一步驟，我們先用 線性漸層勾勒出夜空背景，以下是css。</p>
+<pre><code class="language-css">/* 我們用了三層漸層從上而下製造出夜空效果 */
+.wallpaper {
+  background: linear-gradient(to bottom, rgba(23, 18, 50), rgba(49, 22, 56), rgba(53, 53, 119));
+}
+</code></pre>
+<pre><code class="language-html">
+&#x3C;div class="wallpaper">
+
+&#x3C;/div>
+
+</code></pre>
+<p>這樣就可以很好的渲染出夜空漸層效果。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.21.00-pm.png" alt="night-effect"></p>
+<p>再來是第二步驟，我們需要把星空，在Figma用Plugin導出。</p>
+<p>在Figma中，選取你的星星效果(記得將他們都group by起來)，去Plugins找到<code>SVG Export</code> 這個工具。</p>
+<p>記得要點選你的特效再按Plugin，他就會將你的特效轉成SVG。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.22.27-pm.png" alt="export-step-of-stars"></p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.23.01-pm.png" alt="export-svg-tool-in-figma"></p>
+<p>接下來就會存成一個svg檔。</p>
+<p>第三個步驟是將SVG檔和我們的背景整合！</p>
+<p>我試過直接在wallpaper div裡直接放一張圖片然後導入SVG檔，這可以達成我們要的效果，但是在這背景上所有其他的元件跟按鈕都沒辦法點選，因為會直接被圖片蓋掉，也嘗試過用<code>z-index</code>去調，很無奈的是由於我有一個頁面是一堆卡牌需要用到一堆z-index，所以他們的垂直關係變得錯綜複雜。</p>
+<p>所以後來我運用了 <code>before</code>跟<code>after</code> 加上 <code>relative</code> 與 <code>absolute</code>，可以達成的需求，又能在背景上實作其他功能，請參照以下的程式碼。</p>
+<pre><code class="language-css">.wallpaper {
+  background: linear-gradient(to bottom, rgba(23, 18, 50), rgba(49, 22, 56), rgba(53, 53, 119));
+  /* 記得加relative，才能讓absolute的svg檔符貼在背景上 */
+  position: relative;
+}
+
+.wallpaper-color::before {
+  content: "";
+  position: absolute;
+  /* 這邊的位置自己調一下 */
+  top: -46px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 導入剛剛Figma轉出的圖片 */
+  background-image: url("./static/stars.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+</code></pre>
+<pre><code class="language-html">
+&#x3C;div class="wallpaper">
+
+&#x3C;/div>
+
+</code></pre>
+<p>記得兩者整合時，我們是將svg檔貼在背景上，所以原本的背景要加上 <code>position:relative</code>，後面導入的svg要加上<code>position:absolute</code>，如此一來便能達到我們預計的星空背景。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
+<p>不過透過Figma svg export Plugin導出的svg檔會有一點點誤差，所以在設置位置時，要自己調整一下 top, left, right and bottom 值，讓SVG檔符合你想要的效果.</p>
+<p>大家試試看吧！</p>
+<p>由於我是自學前端，學習的方式很粗糙，就是直接做專案，沒有一個有系統地學習方式，沒有使用教學課程的習慣。</p>
+<p>所以如果有其他前端工程師們有更好的解法，麻煩分享給我，我會更新文章。</p>
+<p>感謝收看唷！</p>
+9:T101b,<p>由於我自己開發的命理服務產品，有大量使用漸層效果渲染前端，為求美麗的頁面呈現，加上是自己自學前端工程，所以卡了這個問題有一段時間，後來解決了，撰寫一篇文章分享給需要的其他工程師小夥伴們。</p>
+<h2>需求介紹</h2>
+<p>再正式進入解法之前，先上圖解釋。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-8.59.56-pm.png" alt=""></p>
+<p>這個頁面是其中一頁我自己開發的產品頁面，圖中的金邊框框，我使用了漸層效果來展示毛玻璃微透明感，這還不是最終完成的樣子。</p>
+<p>以下是我的CSS和html</p>
+<pre><code class="language-html">    &#x3C;div className='h-32 w-32 rounded-[20px]'>
+        &#x3C;div className='h-32 w-32 rounded-[20px] border square'>
+        &#x3C;/div>
+    &#x3C;/div>
+
+</code></pre>
+<pre><code class="language-css">
+.square {
+  border-color: #EACB84;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+}
+
+</code></pre>
+<p>那在這個命理服務中，使用者需要根據他本身的需求選擇牌陣，所以我希望當使用者選取該牌陣時，給予一個特效，如下：</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-9.00.13-pm.png" alt=""></p>
+<p>剛開始，我就想著這還不簡單，使用 hover 然後change background的顏色就好，但卻行不通，沒有任何反應。</p>
+<p>卡這個問題，卡了一段時間，後來找了很多文章後，才找到根源，以下是我的解法。</p>
+<h2>解法</h2>
+<p>由於我是自學前端，學習的方式很粗糙，就是直接做專案，沒有一個有系統地學習方式，沒有使用教學課程的習慣，因為我不太喜歡看影片，有可能在某個教學課程中有提到，但我渾然不知。</p>
+<p>以下是我後來查到的原因：</p>
+<p><strong>使用linear-gradient漸層效果顏色的優先度比其他單純的顏色還高，所以單純用hover或者單純在寫一個css改變backgound-color是行不通的。</strong></p>
+<p>後來我查網站的解法是用 overlay + absolute的方式解決，在原先使用漸層效果的div前新加一個overlay的div，把原本的漸層背景蓋掉。</p>
+<p>不過如果有其他前端大神有更好的解法，歡迎分享給我，我會更新文章。</p>
+<p>於是，我在我原先的square div前加一個overlay，偵測只要該div被選取，就新增一個overlay div，然後再製作一個overlay的css，我們來看code</p>
+<pre><code class="language-html">    &#x3C;!-- 記得要加relative，因為overlay會是使用absolute去疊在這個div上，蓋掉原本的背景顏色  -->
+    &#x3C;div className='relative h-32 w-32 rounded-[20px]'>
+        &#x3C;!-- 因為我是用React.js 開發，所以這麼寫等同於當這個div被選取時，前面自動加一個overlay的div改掉原本的顏色-->
+        &#x3C;!-- 你可以根據你使用的框架或Javascript來改，總之就是一有點取的動作，就新增這個overlay的div -->
+        {selectedDiv === square.id &#x26;&#x26; &#x3C;div className="overlay">&#x3C;/div>}
+            &#x3C;div className='h-32 w-32 rounded-[20px] border square'>
+            &#x3C;/div>
+    &#x3C;/div>
+
+</code></pre>
+<pre><code class="language-css">.overlay {
+  /* position 是absolute，直接在最上層蓋掉原本的背景顏色 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(234, 203, 132);
+  opacity: 0.4; 
+}
+
+</code></pre>
+<p>如此一來，就能實現以下的效果：</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-9.00.13-pm.png" alt=""></p>
+<p>以上就是這次開發產品時遇到的前端問題，我不知道有沒有其他更好的解法，所以如果有工程師夥伴們有任何想法，歡迎在下面的留言區點開留言，或者寄信給我，我會把其他解法更新在文章上，造福更多工程師們。</p>
+<p>感謝收看！</p>
+a:Tf9b,<p>由於最近在將我的命理服務的前端和後端串接，又遇到了CORS跨域問題，但我記得這個問題先前也有遇過，可是完全忘記之前怎麼解決，所以這次特地寫了一篇文章紀錄。</p>
+<h2>前言 &#x26; 什麼是CORS (Cross-origin resource sharing)</h2>
+<p>我相信許多其他部落客或技術文章會寫得比我更詳細，這邊就簡短描述一下。</p>
+<p>在提及CORS之前，先描述同源策略(Same-origin policy)，由於資訊安全的關係，為防止網站內的資源請求(例如前端call後端的API取得資訊，或者前端網站的圖像、CSS及一些資源需要使用外部請求時)，必須是同源/同個域名/同個domain，為防止駭客或其他有心人士假冒假的域名侵入你的服務。</p>
+<p>但隨著科技的發達呢，現在的軟體服務很多會去使用到第三方或者外部的資源請求，所以就會有CORS跨域請求的出現。</p>
+<ol>
+<li>我最現成的例子是Jamstack，我將我的前端網站架在Github，但後端的API我架在Vercel上，當前端使用fetch對後端的API請求時，出現了<code>Access to Reqeust, ... has been blocked by CORS policy</code>。</li>
+</ol>
+<p>這應該是蠻多技術人員會遇到的問題。</p>
+<ol start="2">
+<li>先前我的前端網站需要存取Google Firestore &#x26; Firebase資訊時，也遇到了CORS問題。</li>
+</ol>
+<p>但本人非常的健忘，所以以至於這次遇到CORS問題時，又花了些時間找解決方法。</p>
+<p>許多以前端為本的解決方法嘗試過了沒有成功，後來才想起是要去後端的部分加上CORS，然後將前端的網域加入白名單，使前端請求能被允許傳入後端API中。</p>
+<p>我查了很多關於後端的解決方式，但因為每個人的服務都不同，有的服務需要去NGINX 修改設定，但我的是去後端API層加上CORS實作，所以本篇會以兩個我遇到的案例提供解決方法。</p>
+<h2>案例一: 前端 React.js with 後端 Python Fask API</h2>
+<p>當React.js實作的前端網站使用fetch 送出HTTPS 請求時，被後端API 擋下產生CORS問題。</p>
+<p>因此這邊的解決方式就是，我們在後端的API層實作CORS，並將前端網域加入白名單，以下是實作程式碼:</p>
+<pre><code class="language-py">
+# Import fastapi的套件
+from fastapi import FastAPI
+
+# Import fastapi的cors功能
+from fastapi.middleware.cors import CORSMiddleware
+
+# (1) Init 一個 app
+app = FastAPI()
+
+# (2) 將你想要allow請求的白名單放這
+origins = [
+    "http://localhost",
+    "https://example.com"
+]
+
+# (3) Init CORS物件，並將設定及白名單加入app中 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# (4) 撰寫你的api route
+@app.get("/")
+def hello_word():
+    return {"Hello": "World"}
+</code></pre>
+<h2>案例二: React.js 前端 存取 Google Firestore or Firebase</h2>
+<p>在此案例為React.js前端網頁存取Google的資料庫(Firestore or Firebase)，前端網頁的域名被Google擋掉。</p>
+<p>而設定需要去Google Cloud的Console去做設定</p>
+<p>先前往Google Firebase Console，選取你的專案(此為fancy-chatroom)，然後確認有沒有Authentication在左邊的Navbar。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.24.33-pm.png" alt=""></p>
+<p>如果沒有的話，需要進入左邊最下面的所有產品，然後創一個新的Authentication</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.26.09-pm.png" alt=""></p>
+<p>創好後，回到 Authentication -> Settings -> 授權網域 -> 新增網域，加入你希望能夠allow哪些網站的請求，加入完之後就不會有CORS的報錯了！</p>
+<p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.28.27-pm.png" alt=""></p>
+<p>大家試試看吧！</p>
+b:T2499,<p>這篇開發概念應該會是這陣子的最後一篇，第三版本的新功能與概念設計就到這篇為止，給自己半年的時間把Miri將原本只是個小玩具專案的規模，建築為具有發展性的產品，接著開發的工作會暫時打住，並開始規劃未來的實作方向。</p>
+<p>至於為什麼和上一篇撰寫日期差了有一週，因為本人在這週施打了新冠肺炎AZ疫苗，受到疫苗年輕人之認證，躺著高燒兩天外加幾天全身肌肉與神經痠痛，還有誤吃含有咖啡因的退燒藥兩天通宵沒睡，所以將近一週的時間完全沒辦法在電腦前撰寫文章。</p>
+<p>在第三版本還有兩個新的功能，雖然使用者不會有太明顯的感受，卻在後續軟體開發跟維護中佔了很大的作用，那就是帳號功能與語言功能。</p>
+<p>當初是<code>語言功能</code>最先被列入規劃開發的行列中，因為我在將Miri展現給我的外國朋友看時，我發現他們只能就第二版功能的錄影來觀賞<code>功能面</code>的呈現。因為我大部分的外國人朋友是沒有使用Line通訊軟體，除了當初並沒有做除了Line之外的通訊軟體，語言也只有中文一個語言而已。</p>
+<p>所以，雖然<code>客群</code>只有我一小部分外國人朋友，但考量到Miri再經過半年後的開發後，一定會被拿來當作作品展現，到時候除了台灣的公司外，也考慮試試看國外公司，因此，在第三版本我決定新開發<code>語言功能</code>並添加<code>英文</code>為第二種可選擇的語言。</p>
+<p>由於前端完全由Line處理，所以沒有機會將<code>語言</code>的紀錄跟<code>社群軟體的帳號</code>綁在一起，因此在後端跟資料庫，我必須自行創建一個<code>帳號功能</code>，去紀錄使用者是在哪個平台使用Miri，以及他選擇的預設語言是什麼，接下來Miri的每封訊息都會是根據使用者選擇的語系去抓出對應語系的內容。</p>
+<p>因此，我規劃的開發內容包括:</p>
+<ul>
+<li>實作帳號功能</li>
+<li>實作訊息內容依據帳號綁定的語系決定的功能</li>
+<li>實作設定語系的功能</li>
+<li>實作切換語系的功能</li>
+<li>填寫不同語系的訊息內容</li>
+</ul>
+<p>這中間稍微有一點難度的是第二項: <code>實作訊息內容依據帳號綁定的語系決定的功能</code>，會需要思考與設計，也是當初覺得最困難的地方。</p>
+<p>接著就陸續介紹各個部分如何實作</p>
+<h1>帳號功能</h1>
+<p>Miri目前是基於兩個社交聊天軟體 <code>Line</code> 及 <code>Telegram</code>的 Bot Api 功能，所以只要有使用這兩個聊天的軟體的人一定會有帳號，然而帳號是在這兩個平台的資料庫上，我沒辦法施加其他我想要整合的功能進去，所以我決定在Miri後端的部分也設計帳號功能。</p>
+<p>我的作法是</p>
+<ul>
+<li>於資料庫開設紀錄 <code>帳號的TABLE</code></li>
+<li>在每個使用者<code>第一次</code>使用Miri時，將他的資料紀錄於<code>TABLE</code>中</li>
+<li>實作<code>帳號功能</code>處理程式</li>
+</ul>
+<p>如此一來，無論是<code>使用語言</code>的紀錄或者是未來需要做到<code>註冊及登入</code>，都可從帳號功能去做延伸。</p>
+<h2>帳號資料庫TABLE設計</h2>
+<p><img src="https://minayu0416.files.wordpress.com/2021/09/img_8130.jpg" alt=""></p>
+<p>一開始開設欄位紀錄帳號資訊，包括</p>
+<ul>
+<li>platform 使用平台: 由哪個社交軟體進入，其社群平台</li>
+<li>user_type 使用者型別，私人還是群組(不過好像使用不到，只是根據平台傳來的參數先記著)</li>
+<li>user_id 使用者辨別號: 使用者的 id</li>
+<li>lang 語言: 紀錄使用的語言</li>
+<li>register_time 註冊時間: 第一次使用Miri的時間</li>
+<li>user_name 使用者姓名: 由社交軟體傳來的姓名</li>
+</ul>
+<p>而主要Key 由 <code>使用平台 platform</code> + <code>使用者辨別號 user_id</code> 組成獨一的Key。</p>
+<h2>取得使用者資訊</h2>
+<p>無論是 Line 還是 Telegram 平台，在接收到使用者的訊息時，都能同時接收到使用者的資訊，像是使用者id, 名字, 傳訊息的時間。</p>
+<p>第一次會將使用者的資訊存入資料庫保存作為辨別，而第二次使用者傳訊息則會依據訊息中使用者的資訊，找出紀錄於後端的使用者設定之語系，回覆對應語系之訊息內容。</p>
+<h2>帳號功能程式</h2>
+<p>實作一個帳號功能物件來處理任何和帳號操作相關的功能</p>
+<p>此為 Demo 版本</p>
+<pre><code class="language-py">class AccountHandler(object):
+
+    def language(self):
+        """Language guide message (CN/EN)
+        
+        [Line] Button Template Message
+        [Telegram] InlineKeyboardButton Message
+
+        Args:
+            event(Event):
+
+        Returns:
+            message(Message)
+
+        """
+        pass
+
+    def switch_language(self, event):
+        """Switch language
+        1. Update database
+        2. Change account language cache in Redis/Dict
+        3. Change account language in event object
+
+        Args:
+            event(Event):
+
+        Returns:
+
+        """
+        pass
+
+    def register(self, event):
+        """Register account for first login user.
+        
+        Account: platform + user_type + user_id + register_time
+        Platform: 0: Line, 1: Telegram
+        User_type: 0: person, 1: group
+        Unique Key: platform + user_id
+
+        Args:
+            event(Event):
+
+        Returns:
+            True(bool): Success
+            False(bool): Fail
+
+        """
+        pass
+
+    @exception_handle
+    def process(self, event: Event) -> Response:
+        """Process each operation of account
+
+        Args:
+            event (Event):
+
+        Returns:
+            Response (object)
+
+        """
+        pass
+
+</code></pre>
+<h1>設定語系</h1>
+<p>設定語言可分為</p>
+<ul>
+<li>第一次註冊帳號時，會順便設定預設語言(由使用者設定)</li>
+<li>之後可透過切換語言，來切換預設語言(有提供功能)</li>
+</ul>
+<p><code>初次設定語系</code>跟<code>切換語系</code>，兩個功能共用同一個程式，基本上這兩個功能的邏輯是一樣的。</p>
+<p>邏輯的話是:</p>
+<pre><code>1. INSERT/UPDATE 資料庫
+2. 將存在暫存的帳號與語系做更換
+3. 將Event事件物件中的語系做更換
+</code></pre>
+<p>範例程式:</p>
+<pre><code class="language-py">class AccountHandler(object):
+
+    def switch_language(self, event):
+        """Switch language
+        1. Update database
+        2. Change account language cache in Redis/Dict
+        3. Change account language in event object
+
+        Args:
+            event(Event):
+
+        Returns:
+
+        """
+        pass
+</code></pre>
+<p>判斷帳號是否為初次註冊，就在使用者初次註冊帳號的時候，當註冊完畢時，順便丟出選擇語言的訊息即可。</p>
+<p>[訊息] 第一次選擇語言</p>
+<p>[訊息] 切換語言</p>
+<p>想要切換語言的話，選單 Menu 跟 功能層面都提供按鈕。</p>
+<h1>實作訊息內容依據帳號綁定的語系決定</h1>
+<p>無論是帳號存放的地方還是設定語系的功能都實作完畢，最後一個步驟是實現使用者每次的訊息都能依據先前設定的預設語言來回覆相對語言的訊息內容。</p>
+<p>因為上面提到紀錄語言的地方並非前端，而是後端，所以用一個圖來展現概念:</p>
+<p><img src="https://mingjungyu.files.wordpress.com/2021/09/screen-shot-2021-09-14-at-4.39.59-pm.png" alt=""></p>
+<p>前端 (Line/Telegram平台)，使用者傳來的訊息(Message)並不會挾帶預設語言，所以我們必須從傳來的訊息取出使用者的資訊(使用平台 Platform + 使用者辨識Id User_id)，接著去後端儲存的地方取得該使用者先前使用的語言，然後根據語言來回傳內容。</p>
+<p>如圖中，在軟體伺服器run起來的當下，會先將資料庫(Database)中所有的帳號紀錄以及其設定語言都取出儲存於(Redis)或者任何可供暫存的地方，接著如上句所說，每次傳來使用者的訊息，從訊息挾帶的使用者資訊取得其id然後進Redis查找並取出使用者先前預設的語言。</p>
+<p>若偵測到使用者是要切換語系，則一樣透過傳來的訊息，取出使用者的id，然後依照callback回傳的參數(欲切換的語系)，來同步更新資料庫中使用者的語言設定跟存於Redis的使用者預設語言。</p>
+<p>以上就是這次實作語言功能跟帳號功能的解說。</p>
+<p>通常語言選擇會是前端的部分處理，但是因為這次實作Miri，前端是使用社交軟體的Bot功能來呈現，所以如果要額外紀錄語言的話，只能自己在後端這邊自行紀錄。壞處就是如果未來帳號資訊過多或者訊息過多，那後端的暫存空間會使用越來越多，讀取暫存的次數也會越多，相反的如果是由前端傳入使用者預設語言的話，就不需要暫存來存放語言的紀錄，訊息的傳遞速度跟程式的運作也許會變得比較快。</p>
+<p>不過總之，這些規劃跟解決方法也都會一併列入下一次開發版本優化或開發的功能之一。</p>
+c:T3a25,<p>開發Miri的技術與概念第二篇，來分享一些與第一篇較不同面向的開發概念。</p>
+<p>對比於Miri的第二版本，除了Line Bot的技術有改善之外，還新增的Telegram Bot的平台供給使用。</p>
+<p>這部分在上篇文章以超級長文的形式分享了，接下來分享一些比較偏向使用者面向及UI面向的概念規劃。</p>
+<h1>使用者流程發想起源</h1>
+<p>在第二版本的Miri，並沒有任何的<code>使用者流程</code>規劃，在短短一個月的開發期，我將後端盧恩符文的功能做出來後，也沒有考慮到任何流程順暢度，就直接上伺服器運行，然後找工作去了。</p>
+<p>在之前的開發感想我曾說過，一直以來我作為後端工程師，角度只會著重於後端的開發，頂多在和前端合作時，會多在前端的角度琢磨思考，然後多溝通完成前後端功能連接。</p>
+<p>基本上作為後端只要根據前端跟UI設計師開出來的畫面去構想功能跟程式怎麼實作就好，但在這次獨立開發Miri的時候，有了新的領悟。由於是獨立開發，所以沒有一個角色替我規劃UI跟使用者流程，而我本身又注重於後端，所以在開發Miri的時候，會直接從後端開始寫。</p>
+<p>通常是先由UI設計師規劃使用者介面跟流程之後，前後端工程師才會依據設計師出的圖去構思實作方法，而我卻從後端出發，結果就是我一直不斷的重複拆掉程式再寫，不斷地修改，直到後來我才知道，我應該要先把自己當作一個使用Miri的使用者，然後去期望我使用Miri我會希望我看到的是什麼？</p>
+<p>從這個角度去思想，Miri的規劃跟開發才終於比較順暢。</p>
+<p>於是再經過一番腦力激盪後，Miri第三版的使用者流程為下：</p>
+<ul>
+<li>改善並新增<code>占卜流程</code></li>
+<li>新增<code>使用者前導指引</code>來引導使用者初次使用Miri</li>
+<li>新增<code>選單 Menu</code>，提供選單類選項，提供使用者可選擇動作，而非茫然不知所措</li>
+</ul>
+<p>就這樣，第三版Miri的使用者流程就按照這三個部分去做展開開發。</p>
+<h1>使用者前導指引 User Pre-Guide</h1>
+<p>一得知我需要作為使用者去發想，第一個想到的就是第二版的缺點。在第二版本中，當使用者加入Miri後，會突然不知所措，傳了隨便一句話後，則是跳出來:</p>
+<pre><code>哈囉！
+目前Miri只提供占卜的功能，打上「盧恩符文」就可以進入占卜模式囉！
+</code></pre>
+<p>還需要使用者手動打字<code>盧恩符文</code>或<code>盧恩</code>才能夠觸發占卜功能，整理的使用者體驗會顯得有點莫名其妙。但當初會是這樣的設計，其實是因為當時的Miri本來就是想做成聊天機器人，<code>占卜</code>只是其中一個功能，<code>聊天</code>只是才是主要功能。</p>
+<p>但這個版本確定將Miri定位為<code>占卜與命理</code>機器人，那麼就有必要好好的規劃使用者流程了！</p>
+<p>所以在這次開發中，我優化了<code>使用者初次使用的流程</code>跟新增了<code>使用者前導指引</code>，我們來看看是怎麼一回事。</p>
+<ul>
+<li>語言設定</li>
+</ul>
+<p>首先因為第三版本的Miri新增了<code>英文</code>作為第二個可選擇的訊息選項，所以在每個使用者一開始使用Miri時，若偵測為<code>新用戶</code>，則會需要設定預設的訊息語言。</p>
+<ul>
+<li>設定語言後，設計了一個手冊來引導使用者</li>
+</ul>
+<p>由於會需要設定語言的使用者代表是初次登入，一定不知道如何使用Miri，所以當語言設定完畢後，會一併跳出<code>使用者引導手冊</code>訊息來引導使用者了解功能。</p>
+<p>提供兩個選項，如果選擇<code>引導手冊</code>，則會提供四頁的描述內容，而如果選擇<code>進入選單</code>，則直接進入下一步訊息。</p>
+<ul>
+<li>點選 <code>引導手冊</code></li>
+</ul>
+<p>此時會向使用者發出四頁的手冊內容，這個部分其實有點設計不良或者有爭議的是，使用者一般使用手機螢幕，發送圖檔且是圖文並茂手冊，還需要使用者專注閱讀，其實挺強人所難，這也是其中一個暗示Miri的功能可能已經豐富到用聊天機器人是無法負荷，需要<code>網頁</code>或<code>App</code>才能呈現好的情況。</p>
+<p>第一頁及第二頁主要描述Miri的操作功能，包含選單內容，每個選項的功能描述</p>
+<p>第三頁跟第四頁則是介紹<code>占卜</code>功能，每個占卜的介紹跟適合的對象及問題。</p>
+<p>其實比較詳細的介紹會埋在每個占卜方法的訊息中，但我想多數人也許不會注意，很快地就跳到開始占卜的部分。為了防止使用者對於<code>選擇占卜方法</code>會是一頭霧水，所以在手冊裡也同時附上每個占卜方法的內容描述。</p>
+<ul>
+<li>功能選項</li>
+</ul>
+<p>當進到<code>選單</code>後，其實就是Miri的各個功能選項，包括<code>占卜功能</code>的入口，也考量到大部分的人可能會比較常用<code>筊杯</code>，所以特地設立了捷徑。</p>
+<p><img src="https://mingjungyu.files.wordpress.com/2021/08/screen-shot-2021-08-14-at-8.56.55-pm.png" alt=""></p>
+<p>還有就是語言如果一開始按錯，可以再次更換(但我的設計師朋友說，其實這個功能很少用到不太需要擺在這)，接著是<code>關於我</code> 介紹Miri資訊跟開發者資訊。</p>
+<p>以上就是第三版本針對使用者前導手冊跟功能與流程上的優化跟新增部分，比起第二版本來說，此次更動幅度非常大，同時也了解到獨立開發產品時，需要從原本只由後端角度思考，適時的改成從不同角度切入。</p>
+<p>由於將前端掛在聊天機器人上，沒有辦法讓使用者引導功能呈現像網站或App那樣自由設計的效果，所以解決方法是製作了四頁的<code>使用者手冊</code>，讓使用者可以先透過手冊認識Miri的功能。</p>
+<p>這其實也是一個需要在下個版本在優化的地方，畢竟要使用者在使用前看完手冊，再加上大量的功能需要一時融入腦袋，蠻強人所難。Miri的功能跟內容似乎相較以前成長很多，用社群軟體的聊天機器人已經無法負荷他豐富的功能，這將會是未來需要考量跟規劃的重要部分。</p>
+<h1>占卜流程</h1>
+<p>新增的使用者前導覽功能及新增的功能選單已經介紹完畢，接下來就進入到占卜功能的主體。由於對比先前只有盧恩符文一個占卜方法，第三版本將新增至六種占卜方法，每個占卜方法的流程都會有不同，所以當時設計占卜流程時，也花了一點時間在釐清脈絡。</p>
+<p>傳統的占卜流程比較像是：</p>
+<ul>
+<li>選擇想要的占卜方法</li>
+<li>告知問題及資訊</li>
+<li>冥想個人資訊與問題</li>
+<li>抽取牌卡</li>
+<li>解釋</li>
+</ul>
+<p>我保留大部分的流程，新增了一個流程為: <code>選擇牌陣</code>。由於機器人方面無法得知使用者的問題跟問題分類(應該是要設計一些分類或引導讓機器人得知問題種類，然後由機器人決定牌陣)，所以這部分得由使用者了解問題本身並選擇適合的牌陣。同時這也是線上占卜遇到的困難之一，因為大部分前來占卜的使用者，對占卜方法不熟悉，對牌陣自然也不熟悉，會不知道如何使用跟做占卜。</p>
+<p>所以在制定Miri的占卜流程時，我將流程調整為</p>
+<ul>
+<li>選擇想要的占卜方法</li>
+<li>選擇提供的牌陣 (有些方法沒有牌陣): 可參考<code>介紹</code>描述做選擇</li>
+<li>進入冥想: 靜下心觀想自身訊息以及思考想詢問的問題</li>
+<li>抽取結果</li>
+<li>獲得解釋: 請根據自身情況及問題的狀況搭配牌卡附的解釋做解讀</li>
+</ul>
+<p>這著這樣的流程下去設計整個占卜的流程。</p>
+<p>所以對比第二版本，有幾個部分做比較大的改善</p>
+<ol>
+<li>新增冥想的流程</li>
+</ol>
+<p>在第二版本的盧恩符文占卜中，當使用者按下<code>盧恩占卜</code>，再次按下<code>占卜</code>後立刻就會取得答案，讓使用者還沒將問題詢問或者冥想於腦內，就立刻取得答案，令人十分的錯愕。</p>
+<p>所以新增一個流程為<code>冥想</code>功能，如圖</p>
+<p>可以讓使用者在選擇占卜方法以及確認牌陣後，清楚得知下一個步驟是冥想問題，接著點選<code>進入冥想</code>後，會根據不同的占卜方法給出不同的冥想訊息，引導使用者冥想！</p>
+<p>這麼一來就能解決之前直接給出答案，並無緩衝的問題，還能讓占卜流程更完整。</p>
+<ol start="2">
+<li>針對不同牌卡有無牌陣做調整</li>
+</ol>
+<p>由於第三版的Miri，新增至六種占卜方法，但是每個占卜方法的性質不同，不一定會有選擇牌陣的選項，在這部分也會做調整。</p>
+<p>例如偉特塔羅有牌陣的設定，所以選擇偉特塔羅後，下一步就會是選擇牌陣</p>
+<p>我們選擇了<code>偉特塔羅占卜</code>，接下來點選<code>開始占卜</code>就會進到<code>選擇牌陣</code>。</p>
+<p>每個牌陣都會有專屬於他的解釋：</p>
+<p>另外一個例子，是屬於沒有牌陣的<code>筊杯</code>，在選擇占卜方法後，就會是<code>進入冥想</code>的按鈕。</p>
+<ol start="3">
+<li>牌卡解釋</li>
+</ol>
+<p>牌卡解釋與第二版本相比之下也改善很多，以往是取得結果後，丟出來的解釋非常長且凌亂，而現在針對不同的占卜方法有不同的解釋，而且將長條解釋做分段。</p>
+<p>拿<code>盧恩符文</code>做例子，抽到牌卡後，就會分選項，原先是設計成3-4個選項，分別代表著工作與愛情或其他分類解釋。但由於目前在<code>解釋</code>這方面還沒有這麼多時間跟經驗安排時間下去編寫，所以目前就僅僅將解釋做簡單的分類，還是至少與先前版本相比，大大優化許多。</p>
+<p>這是抽出的其中一個盧恩符文結果，按下<code>深度解釋</code>則會得到下方整齊排列的解釋。</p>
+<p>而另外一個例子是<code>自然絮語占卜卡</code>，自然絮語的解釋會稍微短一點，因此點擊牌卡後會直接出現牌卡圖案以及解釋。</p>
+<p><strong>得到兩個結果</strong></p>
+<p>點下其中一張牌卡後，直接展開解釋</p>
+<h1>選單 Menu</h1>
+<p>最後一部分是第三版本設計了選單的製作，在以往第二版本的Miri，使用者只能通過輸入<code>盧恩符文</code>來觸發占卜功能，以及幾項缺點像是</p>
+<ol>
+<li>結束占卜後，當下一次要使用時，會不知道如何使用</li>
+<li>如果中斷流程後，使用者會變得不知所措，還是只能再次輸入<code>盧恩符文</code>觸發功能</li>
+</ol>
+<p>因此，已經增加<code>使用者前導覽手冊</code>功能，再加上這個版本新增很多其他功能，像是<code>語言切換</code>，或者使用者可以再次觀看<code>導覽手冊</code>，以及個完善的<code>占卜功能</code>，總不能每次都請使用者從最一開始的訊息開始選，一路選到<code>占卜功能</code>或其他想操作的功能。</p>
+<p>所以在大部分的功能都開發完畢後，在最後一個開發任務，我決定幫Miri做一個選單 Menu功能，這麼一來當使用者困惑不知道如何使用時，打開選單可以引導使用者點選功能。</p>
+<p>接下來就是兩個平台的選單呈現介紹：</p>
+<p>Line Bot的部分，使用官方帳號具有的功能<code>圖文選單 Rich Menu</code>來製作Miri的選單</p>
+<p>選項有</p>
+<ul>
+<li><code>使用者手冊</code>: 會再次發送四頁使用者手冊圖文描述</li>
+<li><code>占卜</code>: 進入選擇六種占卜方法</li>
+<li><code>筊杯</code>: 直通筊杯功能</li>
+<li><code>選單</code>: 其實就是將 Rich Menu中的所有功能用Carousel message的方式，同時呈現圖片、選項及描述</li>
+<li><code>設定語言</code>: 可以切換訊息語言</li>
+<li><code>關於我</code>: 介紹Miri及開發者資訊</li>
+</ul>
+<p>之所以做成中文及英文選項，主要是因為Rich Menu目前不能隨著使用者選擇的語系做更換，至少透過官方帳號網站設定的選單沒有這個功能，以往對於使用者語系選擇，大部分會是透過前端網頁做紀錄(或者根據使用者的電腦、瀏覽器、手機端語系)來判斷使用語系，在傳遞給後端去抓出同語系的訊息。</p>
+<p>但是Line目前作為Miri的前端部分，是沒有紀錄語系的功能，所以目前紀錄使用者的語言是由後端處理，在選單方面就沒有辦法根據使用者選擇的語系去做變更，這其實也是一個問題，會需要做修正。</p>
+<p>至於Telegram Bot的部分，則是主要使用 <code>/command</code>動作指令作為選單的功能</p>
+<ul>
+<li><code>/user_guide</code>: 會再次發送四頁使用者手冊圖文描述</li>
+<li><code>/divination</code>: 進入選擇六種占卜方法</li>
+<li><code>/moon_blocks</code>: 直通筊杯功能</li>
+<li><code>/menu</code>: 其實就是將 Rich Menu中的所有功能用Carousel message的方式，同時呈現圖片、選項及描述</li>
+<li><code>/languages</code>: 可以切換訊息語言</li>
+<li><code>/about</code>: 介紹Miri及開發者資訊</li>
+</ul>
+<p>在Telegram的情況又更不樂觀了，Telegram的選單採全文字及 <code>/command</code>功能來製作選單，所以沒有圖片可以作客製化雙語圖案，因此 Telegram的使用者面對的選單語言會是全英文，因為Telegram的選單也是透過官方bot去設定，而非自己自訂，所以一樣無法根據使用者紀錄的語系去變更選單語言。</p>
+<p>不過，訊息內容可以是中文，所以如果Telegram使用者看英文很吃力的話，點選 <code>/menu</code>，若設定語系是中文，則會出現中文的選單選項可以使用。</p>
+<p>不過本來Telegram Bot所面向的客群就是外國人，所以預定立場使用Telegram的使用者應該主要設定的語系不會是中文，而是觀看英文居多。</p>
+<p>以上就是這次針對Miri第三版本關於使用者流程的優化與改善，雖然還有許多流程上以及使用者的不便，但相較於第二版本已經進步很多，加上又必須會被兩個社群軟體Bot的功能侷限，能做到這個程度我已經很開心了。</p>
+<p>接下來的優化跟改善就交給之後未來的規劃，看要怎麼設計或者突破侷限。</p>
+<p>感謝觀看！</p>
+d:Tb0ce,<p>由於本人健康問題，再加上這幾天有其他事情比較重要，還有就是一下把開發感想寫完，寫文章的靈感突然全無，所以跟技巧還有概念設計相關的文章就拖到了現在才有靈感撰寫。</p>
+<p>再將近一週內心的沈澱後，我想應該可以好好的撰寫本系列的文章了，我應該會分成三到四篇來撰寫。</p>
+<p>這篇主要介紹的是Miri的前端設計，以及和後端API接口的程式設計。</p>
+<p><em><strong>整篇文章非常的長，以下為整篇文章的目錄</strong></em></p>
+<p>目錄如下：</p>
+<ul>
+<li>概念: 前端設計</li>
+<li>重構: API及後端整體架構設計</li>
+<li>實作: 期望與模擬的後端API層架構實作</li>
+<li>實作: FastApi (含Heroku部署程式碼)</li>
+<li>實作: Line Bot
+<ul>
+<li>事件Event</li>
+<li>訊息型別 Message Type</li>
+<li>實作: Api &#x26; handler</li>
+<li>選單 Menu</li>
+<li>Line Bot的一些注意細節</li>
+</ul>
+</li>
+<li>實作: Telegram Bot
+<ul>
+<li>訊息處理者 Handler</li>
+<li>Message Type 訊息型別</li>
+<li>創建一個Telegram Bot</li>
+<li>實作 Api &#x26; Handler</li>
+<li>Telegram Bot的一些注意細節</li>
+<li>選單 Menu</li>
+</ul>
+</li>
+<li>困難克服: 訊息於不同平台的呈現方式</li>
+</ul>
+<p>那麼就開始吧！</p>
+<h1>概念: 前端設計</h1>
+<p>Miri 在之前跟第三版本的規劃中，是沒有要將前端獨立出來開發的計畫，因為本人當初還只是很菜鳥的後端工程師，連後端開發都吃力了，要怎麼去學習前端。所以從Miri剛開始出生時，我就是先是打算利用<code>Line Bot Api</code>的功能，讓Line代替前端的功能，使我能夠更專注的在開發後端，將Miri做成一個Line的聊天機器人。</p>
+<p>但是，在規劃第三版本時，我希望能夠朝向更國際化的市場前進，說白了一點就是希望能找國外的工作，讓外國的面試官看到這個作品，所以想要新增其他新的Bot平台，畢竟Line目前還是在東亞洲地區比較興盛，除此之外的地區都不是Line的主要地盤，所以若是要開發一個面向英文使用者的平台，就要另外找其他通訊軟體的Bot功能。</p>
+<p>最一開始我有想過<code>What's App</code> 跟 <code>Facebook 的 Messenger</code>，但經過研究跟實際實作時，我發現要開發起來十分困難，會有些障礙，而且比較難克服。在一個外國朋友的推薦下，後來選擇了<code>Telegram</code>當作第二個可以連接到Miri的平台。</p>
+<p>仔細看了 <code>Telegram Bot Api</code>後，發現他有和<code>Line Bot Api</code>相似的功能，也許在圖像化或者前端畫面豐富性沒有像Line那樣的齊全，但作為Miri另外一個連接的Bot平台，功能也夠了。</p>
+<p>(才怪，我當初可是擔心死了，害怕在Line上能呈現的效果，在Telegram上到底要怎麼呈現qq)</p>
+<h1>重構: 後端及API架構設計</h1>
+<p>有了要接兩個不同前端的平台的邏輯後，後端的程式架構就必須得做一些改變，我們先來看看第二版以前的Miri程式架構。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2021/09/screen-shot-2021-09-06-at-4.42.38-pm.png" alt=""></p>
+<p>在第二版以及之前的架構中，由於本身還只是年幼的後端工程師，再加上所經歷的專案跟產品經驗不多，也沒有單獨設計程式架構的經驗，所以在當時連Api是什麼都很吃力理解的狀態下，硬是兜了簡單的架構。(就是隨便做)</p>
+<p>從圖中可以看到的是第二版是使用<code>Flask</code>的框架來實作，而由於當初的前端平台只有Line，所以就把 <code>Flask</code> 跟 <code>Line</code> 的程式碼混在一起。</p>
+<p>後端功能上非常簡單，當初並沒有需要紀錄帳號的功能，也沒有像現在這樣需要不同平台，所以基本上Line接收進來的訊息，直接丟進<code>NLTK</code>或<code>Jieba</code>切詞後，去功能面簡單撈一下回答就把回覆送回給客戶端。</p>
+<p>那麼看一下第三版的程式架構圖</p>
+<p><img src="https://minayu0416.files.wordpress.com/2021/09/screen-shot-2021-09-06-at-4.55.08-pm.png" alt=""></p>
+<p>比起上一個版本，由於要串接兩個不同的平台，所以在後端API中勢必得將不同平台的API入口分割開來，如圖中的架構，當然也因為為了相容兩種不同平台而做出的重構，在未來若有規劃想要開發出獨立的前端像是<code>前端網頁</code>或者<code>app mobile行動端</code>都可以相容，而不用再做出這麼大幅度的更動。</p>
+<p>再來還有一個很重要的點就是，由於目前是有兩種不同的平台而來的訊息，收到的訊息模式跟型別也會不同，在規劃上會特地多一個 <code>process</code>的步驟，主要是用來處理</p>
+<ul>
+<li>將收到訊息統一處理為另外一種訊息物件可以不分平台差異傳送到後面的<code>功能層面</code> 取得回覆</li>
+<li>將從<code>功能層面</code>取到的回覆傳回指定平台的<code>process</code>處理成可以傳回客戶端的訊息模板/型態</li>
+</ul>
+<p>這是後端其中一個比較大幅度需要更改的重構部分。</p>
+<p>而另外一個部分則是<code>功能層面</code>，因為Miri在第三版本確定會往<code>命理跟占卜</code>方向前進，所以比較大的主題功能會落於<code>命理及占卜</code>，把這個部分作為主要功能，而另外一個<code>溝通功能</code>則是保留若未來需要類似<code>聊天/溝通</code>的功能，還可以在這塊規劃的地區做開發。</p>
+<p>主要主題是<code>命理跟占卜</code>，所以基本上功能面就是依照這個主題去展開程式架構，然後由每個功能去單獨和資料庫互動取出需要的資訊，詳細情形就不多說。</p>
+<p>還有一個功能在圖中沒有呈現，就是關於<code>系統層面</code>的功能，像是<code>帳號管理</code>、<code>使用者引導</code>跟<code>切換語言</code>等其他功能，也會一併規劃在<code>功能層面</code>。</p>
+<h1>實作: 期望與模擬的後端API層架構實作</h1>
+<p>我的程式碼沒有公開，也不會在部落格撰寫具體是怎麼實作，所以我設計了一個貼近真實實作的程式碼架構模擬，Miri內部大致上也是照著這樣去實作的。</p>
+<p>接下來的部分就是實作後端API層架構層，那麼期望的實作架構與程式碼如下：</p>
+<pre><code>Miri
+├── api
+│   ├── line
+│   │   ├── __init__.py
+│   │   └── process.py
+│   └── telegram
+|       ├── __init__.py
+│       └── process.py
+│
+├── features
+│   ├── divination
+│   │   └── ?
+│   ├── conversation
+│   │   └── ?
+│   └── system
+│       └── ?
+│
+└── Procfile
+└── main.py
+</code></pre>
+<p>規劃上會將<code>FastApi</code>的程式碼實作在 <code>main.py</code> 作為Api接口的大門，然後line跟telegram會分開放在<code>api</code>資料夾中，分別將Api程式碼寫在各自資料夾的<code>__init__.py</code>中，在用<code>FastApi</code>的<code>rounter</code>功能將分開在不同檔案的Api路徑註冊進api的名單中，這樣即便api路徑在不同檔案，也能一併成為接口，接收request啦！</p>
+<h1>實作: FastApi</h1>
+<p>這個部分要換成<code>Flask</code>還是<code>Django</code>或者其他的WebApi套件都可以，基本上會使用FastApi主要只是因為要離職時同事跟我說過這是目前最快的Api套件，基於好奇，就直接拿來使用在Miri身上，但我目前在Miri身上使用到FastApi功能沒有很多，所以就算之後要替換成其他WebApi套件，也很簡單。</p>
+<p>在專案的根部底層創立<code>main.py</code>成為整個程式驅動的主程式，也就是說當架設於伺服器上時，只要跑<code>main.py</code>就能將整個程式跑起來，將api架起來，前端就能使用了</p>
+<p><strong>main.py</strong></p>
+<pre><code class="language-py">import uvicorn
+from fastapi import FastAPI
+
+from api import line, telegram
+
+app = FastAPI()
+
+app.include_router(line.line_api)
+app.include_router(telegram.telegram_api)
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+# Production Setting
+# Run on Heroku/ Procfile, run terminal directly
+# web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}
+
+# Development Setting
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+
+</code></pre>
+<p>原則上和Flask用法很像，先初始化一個<code>app</code>，而這個<code>app</code>就是代表整個程式及api的出入口，然後是將之後會寫在line跟telegram的api路徑註冊進<code>app</code>中，這樣即便api沒有寫在主程式，但也會自動將處在不同資料夾的api列進能使用的api。</p>
+<pre><code class="language-py"># 初始化一個app，代表整個專案程式的web入口
+app = FastAPI()
+
+# 將分散在line跟telegram的 api rounte 註冊進app
+app.include_router(line.line_api)
+app.include_router(telegram.telegram_api)
+</code></pre>
+<p>再來寫了一個<code>hello_world</code>來測試架起來後可否呼叫到api，接著是當正在撰寫程式碼時，需要開啟debug模式所寫的設定。</p>
+<pre><code class="language-py">@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+# Production Setting
+# Run on Heroku/ Procfile, run terminal directly
+# web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}
+
+# Development Setting
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+
+</code></pre>
+<p>最後要提及一下，之後怎麼部署於 <code>Heroku</code> 伺服器上，當所有程式都完成了，要部署於Heroku上時，需要把用於開發真錯的程式暫時註解掉。</p>
+<pre><code class="language-py"># Development Setting
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="127.0.0.1", port=8000)
+</code></pre>
+<p>接著需要在根部底層創一個 <code>Procfile</code> 檔，是部署Heroku時，會使用到的部署檔，沒有副檔名！！</p>
+<p>接著直接將一行程式貼進<code>Procfile</code>就好</p>
+<p><strong>Procfile</strong></p>
+<pre><code>web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}
+</code></pre>
+<p>在Heroku中，是將程式執行於 <code>0.0.0.0</code> 並非 <code>127.0.0.1</code>。</p>
+<p>之後使用Github連接自動部署就能自動將FastApi執行起來。</p>
+<p>FastApi的部分就到這為止，我並沒有使用太多功能，只是拿來當 web api的大門接口而已</p>
+<h1>實作: Line Bot</h1>
+<p>再來進到 Line Bot Api 中，我一直在想要怎麼撰寫Line跟Telegram的教學會比較好，因為其實網路上已經蠻多人撰寫這方面的文章。</p>
+<p>但我還是根據自己使用到的功能，加上一些開發需要注意的地方來撰寫此篇幅。</p>
+<p><img src="https://minayu0416.files.wordpress.com/2021/09/screen-shot-2021-09-06-at-7.23.10-pm.png" alt=""></p>
+<p>這個是我自己畫的架構圖，基本上最左邊是FastApi的api大門，而line的api只有一個，就自訂吧，我這邊是定為<code>/api/line/callback</code>。可能會想問，如果Line的<code>api</code>只有一個，那要怎麼分辨不同的訊息？這個時候<code>事件Event</code>跟<code>訊息型別MessageType</code>就很重要了。在Line中即便api rounte路徑只有一個，但主要是依靠訊息的<code>事件Event</code>跟<code>訊息型別MessageType</code>來接收跟回覆不同的訊息。</p>
+<h2>事件Event</h2>
+<p>Event是比訊息還上一層的概念，我們來看看Line中有哪些事件：</p>
+<ul>
+<li>MessageEvent</li>
+<li>FollowEvent</li>
+<li>UnfollowEvent</li>
+<li>JoinEvent</li>
+<li>PostbackEvent</li>
+</ul>
+<p>還有一些我沒寫上去，基本上Event比較像是<code>加入群組</code>, <code>離開群組</code>, <code>訊息動作</code>或其他類似的動作，也就是說一種<code>Event</code>需要一個或多個<code>handler</code>處理程式去處理它，如果你要做的Event或者接收到的Event沒有特別寫handler來處理的話，後端程式也就不會接收到傳過來的Event事件，訊息就會卡在api層然後報錯。</p>
+<p>而我基本上只用到兩個Event: <code>MessageEvent</code>, <code>PostbackEvent</code>，所以只寫了3個handler:</p>
+<ul>
+<li>MessageEvent, message=TextMessage</li>
+<li>MessageEvent, message=StickerMessage</li>
+<li>PostbackEvent</li>
+</ul>
+<p>剛剛有提到一個Event需要<code>一個或多個</code>handler，主要就是在於<code>MessageEvent</code>能有不同的<code>訊息型別Message Type</code>，而每個訊息模式也都需要有一個handler來處理。</p>
+<h2>訊息型別 Message Type</h2>
+<p>Line的訊息型別蠻多種的，詳細的型別給大家列在下方</p>
+<p><strong><a href="https://developers.line.biz/en/docs/messaging-api/message-types/">Message types</a></strong></p>
+<p>基本上，從Api最開始收到的會是一種Line的訊息型別(Message Type)，<strong>而當程式要回傳給Line客戶端時，也必須要將訊息包裝成Line的Message Type，才能回傳給客戶端。</strong> 所以就是一律用Line的Message物件去做溝通傳遞，也請放心即便傳來的是<code>Message物件</code>，裡面也一定夾帶一堆參數，可以讀取其中的訊息或檔案。</p>
+<p>在Miri當中，我大量的使用 <code>TextMessage</code> 跟 <code>Template message</code>。</p>
+<p><code>TextMessage</code>指的是文字訊息，所以如果只要發文字訊息的話，只要將字串包成<code>TextMessage</code>物件再發出去就可以了</p>
+<p>而<code>Template message</code>中，我在實作占卜流程時大量運用到了：</p>
+<ul>
+<li><a href="https://developers.line.biz/en/docs/messaging-api/message-types/#buttons-template">Buttons template</a></li>
+<li><a href="https://developers.line.biz/en/docs/messaging-api/message-types/#carousel-template">Carousel template</a></li>
+</ul>
+<p>這兩個訊息點擊按鈕後觸發的事件叫做<code>PostbackEvent</code>，所以如果有需要用到<code>Template message</code>來回覆訊息的話，記得加上<code>PostbackEvent</code>的handler來處理使用者按下按鈕之後的操作。</p>
+<p>總之Line Bot也是一門有趣的學問，我可能只用到了20-30%Line Bot的功能來實作Miri的前端，有興趣的人可以多加鑽研，而我的文章也沒有說撰寫的很詳細，因為主要是紀錄Miri使用了哪些功能，不過只要有架構圖跟api的實作做完後，基本上後續的施工就依照每個人需求不同的功能各自去研究。</p>
+<h2>實作: Api &#x26; handler</h2>
+<p>以上講了很多，接下來就實作api的部分，來看一下上面的架構圖</p>
+<pre><code>Miri
+├── api
+│   ├── line
+│   │   ├── __init__.py
+│   │   └── process.py
+│   └── telegram
+|       ├── __init__.py
+│       └── process.py
+...
+...
+└── Procfile
+└── main.py
+</code></pre>
+<p>先前已經將FastApi實作於<code>main.py</code>，這次要將Line Api實作於 <code>./api/line/__init__.py</code> 當中</p>
+<p><code>./api/line/__init__.py</code></p>
+<pre><code class="language-py">import configparser
+from datetime import datetime
+
+from fastapi import APIRouter, HTTPException, Request
+
+from linebot.models import *
+
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from linebot.exceptions import (
+    InvalidSignatureError
+)
+
+from log import logger
+from process import processor, MsgEvent
+
+
+# Load data from config.ini file
+# 通常重要資訊不會寫死在程式碼，會用環境變數檔存著，所以用此套件讀取出重要資訊
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# Access Token 跟 Secret 要去Line網頁中，你創的頻道內的設定觀看
+# Channel Access Token
+line_bot_api = LineBotApi(config['LINE']['ACCESS_TOKEN'])
+
+# Channel Secret
+handler = WebhookHandler(config['LINE']['CHANNEL_SECRET'])
+
+# 這個部分就是開一個FastApi的Router，所有使用Router的Api Url都會註冊成為可以使用的api
+line_api = APIRouter()
+
+# 將 /api/line/callback 註冊進 line_api Router內
+# 主要的api入口，接收所有的request
+@line_api.post("/api/line/callback")
+async def callback(request: Request):
+
+    # get X-Line-Signature header value
+    # 這個部分是要從header取得Line特有的參數或簽名參數，需要和Line官方比對，有誤就會報錯
+    signature = request.headers['X-Line-Signature']
+
+    # get request body as text
+    body = await request.body()
+    body = body.decode('utf-8', 'replace')
+
+    # 這是我寫的logger, 可以刪除
+    logger().debug("Request body: " + body)
+
+    # handle webhook body
+    # 透過接收到的訊息類型來分配到要進入哪個handler
+    try:
+        handler.handle(body, signature)
+
+    except Exception as e:
+        logger().error("ERROR: " + str(e))
+
+    except InvalidSignatureError:
+        HTTPException(400)
+    return 'OK'
+
+
+# 處理文字訊息
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    """
+    TextSendMessage(text = type(str))
+    """
+
+    # 基本上各項元素都包在Event物件中
+    user_id = event.source.user_id
+    user_type = event.source.type
+    send_time = datetime.fromtimestamp(event.timestamp / 1000)
+    msg_type = event.message.type
+    message = event.message.text
+    
+    # 這個我寫的，主要是因為我需要將傳來的事件統一變成另外一個我自己寫的物件，方便和後端溝通
+    msg_event = MsgEvent("line", user_type, user_id, send_time, msg_type, message)
+    response = processor.analyze(msg_event)
+
+    # logger 也是我寫的
+    logger().debug("Reply response: " + str(response))
+
+    # 這一步就是回覆給客戶端，注意response 是 list型別
+    line_bot_api.reply_message(event.reply_token, response)
+
+
+# 處理貼圖訊息
+@handler.add(MessageEvent, message=StickerMessage)
+def handle_message(event):
+    import random
+    # 貼圖的部分沒怎麼做，就是從1-21個表情包隨便選一個回覆，使用者傳貼圖，我也回傳貼圖
+    message = StickerSendMessage(
+        package_id='1',
+        sticker_id='{}'.format(random.randint(1, 21))
+    )
+    logger().debug("Reply response: " + str(message))
+    line_bot_api.reply_message(event.reply_token, message)
+
+
+@handler.add(PostbackEvent)
+def handle_message(event):
+    import json
+    # 基本上 Template Message 傳出去前先要將每個按鈕的訊息壓成json
+    # 所以Postback回傳的訊息會是json
+    data = event.postback.data
+    data = json.loads(data)
+    user_id = event.source.user_id
+    user_type = event.source.type
+    send_time = datetime.fromtimestamp(event.timestamp / 1000)
+
+    # 處理訊息的部分，你可以替換成任何你想怎麼處理訊息就怎麼處理訊息
+    msg_event = MsgEvent("line", user_type, user_id, send_time, "option", data)
+    response = msg_processor.analyze(msg_event)
+
+    # 自己寫的logger
+    logger().debug("Reply response: " + str(response))
+
+    # 回覆給客戶端，注意response 是 list型別
+    line_bot_api.reply_message(event.reply_token, response)
+
+</code></pre>
+<p>很長一段，但大部分的步驟都有寫上註解了，將幾個比較重要的地方寫出來。</p>
+<ol>
+<li>Line 的 Access Token 跟 Secret</li>
+</ol>
+<p>這兩個Token 能夠在你在Line網頁上管理機器人的頁面設定中找到，建議最好不要寫死在程式碼中，最好是使用類似<code>.ini</code>,<code>.config</code>,<code>.env</code>之類的隱藏檔案做開發，或者加密儲存在資料庫，因為當這兩個token被偷走後，機器人頻道就等於整個被偷走。</p>
+<ol start="2">
+<li>APIRouter</li>
+</ol>
+<p>記得在實作Line api接口時，要創建FastApi的router，我們用code展現一下</p>
+<p><strong>line/<strong>init</strong>.py</strong></p>
+<pre><code class="language-py">from fastapi import APIRouter
+
+# 我們在Line的api檔案中開一個FastApi的Router，用來將api串進fastapi接口，使其可使用
+line_api = APIRouter()
+
+# 將 /api/line/callback 註冊進 line_api Router內
+@line_api.post("/api/line/callback")
+async def callback(request: Request):
+    pass
+
+</code></pre>
+<p>接著回到先前就已經實作過的FastApi <code>main.py</code></p>
+<pre><code class="language-py">from api import line, telegram
+
+app = FastAPI()
+
+# 可以看到我們將上面在line檔案中實作的api rounter註冊進app中，使其可以使用
+app.include_router(line.line_api)
+
+# Telegram 也是一樣的道理
+app.include_router(telegram.telegram_api)
+
+</code></pre>
+<ol start="3">
+<li>handler &#x26; event</li>
+</ol>
+<p>根據上方程式碼，我們可以看到我寫了三個handler</p>
+<pre><code class="language-py">
+# 處理文字訊息
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    """
+    TextSendMessage(text = type(str))
+    """
+
+    # 基本上各項元素都包在Event物件中
+    user_id = event.source.user_id
+    user_type = event.source.type
+    send_time = datetime.fromtimestamp(event.timestamp / 1000)
+    msg_type = event.message.type
+    message = event.message.text
+    
+    # TODO 看你怎麼處理他囉！但是要記得response要是list型別
+    response = processor.analyze(msg_event)
+
+    # 這一步就是回覆給客戶端，注意response 是 list型別
+    line_bot_api.reply_message(event.reply_token, response)
+
+
+# 處理貼圖訊息
+@handler.add(MessageEvent, message=StickerMessage)
+def handle_message(event):
+    # TODO 處理
+    line_bot_api.reply_message(event.reply_token, message)
+
+
+@handler.add(PostbackEvent)
+def handle_message(event):
+    # 處理
+    line_bot_api.reply_message(event.reply_token, response)
+</code></pre>
+<p>在每一個處理的函式中，你需要用裝飾器decorator來標示這個函式是一個Line訊息的handler，接著要在handler的參數中標明這個handler是要處理什麼事件/訊息。</p>
+<pre><code class="language-py">@handler.add(MessageEvent, message=TextMessage)
+</code></pre>
+<p>這個部分是回覆訊息，程式處理完的回覆記得將他依照需求變成Line Message 物件，然後放進list中</p>
+<pre><code class="language-py">line_bot_api.reply_message(event.reply_token, response)
+</code></pre>
+<p>簡單來說 <code>response = [message_obj, message_obj]</code></p>
+<p>接著，傳來的event會夾帶一些參數，大致上需要用到的參數都會有</p>
+<pre><code class="language-py">def handle_message(event):
+    # ---------------^ 就是這個傳來的event
+    pass
+</code></pre>
+<p>基本上傳來的事件參數可得知：</p>
+<ul>
+<li>使用者ID</li>
+<li>使用者型別, 私人或是群組</li>
+<li>傳訊息的時間</li>
+<li>訊息類別</li>
+<li>訊息本身</li>
+</ul>
+<p>這邊要特別說一件事是Line的時間，我研究很久，因為他既很像timestamp，但是轉換過來的時間又不正確，Line的文件是寫 <code>Unix Time</code>，我最後是將讀到的時間除以1000再將其從timestamp轉為datetime才取到正常時間，不過是UTC時間，所以台灣時間是<code>+8小時</code>，記得要+上8小時再使用它。</p>
+<h2>選單 Menu</h2>
+<p>Line 的選單有兩種方式可以做成</p>
+<ul>
+<li>Line 官方帳號管理網頁設定</li>
+<li>透過 Line Bot Api 設定</li>
+</ul>
+<p>很抱歉讓你們失望了，身為後端工程師！！！</p>
+<p>我沒有使用 Line Bot Api做成選單XD，因為當時我給自己實作Miri的時間已經超過了，再加上我覺得看起來選單這個功能如果用Line Bot Api做，不熟，看不懂，感覺很難XD，在Deadline大敵將至，我還是決定用第一個方式做哈哈！</p>
+<p>這是我做的選單，也是現在Miri在用的，也有被我朋友砲轟說是要做多簡單，乾脆他幫我畫！</p>
+<p>畫畫不是我的強項！！！我用Mac的KeyNote拉出了我覺得可以接受的選單頁面就好，總之功能先到位比較重要！</p>
+<p>如果是用<code>Line 官方帳號管理網頁設定</code>來做選單就會比較簡單，請到 <strong><a href="https://manager.line.biz/">Line 官方帳號管理網頁</a></strong>，登入後，選擇你之前創建的Bot帳號。</p>
+<p><code>主頁</code> > <code>聊天室相關</code> > <code>圖文選單</code>，接著就能找到創建圖文選單的地方。</p>
+<p>點選<code>建立</code>，建立新的選單，比較重要的就是版型，目前官方提供像是圖中這麼多種版型，就依照個人需求選擇</p>
+<p>我先隨便選了一個版型，接著右邊就有對應版型的動作類型可以選擇，然後左邊的設定也能夠上傳照片</p>
+<p><img src="https://mingjungyu.files.wordpress.com/2021/09/screen-shot-2021-09-07-at-5.18.59-pm.png" alt=""></p>
+<p><code>按鈕動作</code>提供了6~7種，但對我幫助比較大的只有文字，我還在妄想有沒有可能可以設定CallBack按鈕qq，所以最後我做的選單只有按下去發送文字，然後Miri再根據文字去判斷要回送什麼訊息。</p>
+<h2>Line Bot的一些注意細節</h2>
+<ol>
+<li>如果程式處理時間太久，會被Line判定超過時效，不會回覆使用者訊息</li>
+</ol>
+<p>我常常會用debug模式去追我程式到底哪邊寫錯，有時候甚至會直接在錯誤的地方一步一步看傳遞的參數，結果就發現如果訊息太久沒有回給客戶端，Line就會有時間到期的問題，而直接跳錯，不會回覆。</p>
+<p>感覺這算Line比較嚴謹的地方，所以估計Line Bot後面的程式也不太適合拿來做大量的運算或者複雜的功能，目前沒測過最久能接受多久，但如果在Debug模式或者程式跑太久後報錯，可能就是反應時間超過Line定的時效囉！</p>
+<ol start="2">
+<li>可以一次回上限五個訊息</li>
+</ol>
+<p>不管是Line還是Telegram，回覆是使用list中可包含許多Message物件，所以代表可以回覆多個訊息，比方說小明對Bot丟了一個 <code>Hello</code>，則機器人可以回說: <code>Hello 您好！</code>, <code>請問要選擇哪個食物？</code>, <code>食物的Carousel template message</code>。</p>
+<pre><code class="language-py">response = [msg, msg, msg]
+</code></pre>
+<p>上限是五個訊息，超過就會報錯！</p>
+<ol start="3">
+<li>Template Message的字數問題</li>
+</ol>
+<p>我承認！在開發時，我沒有好好看api文章XD</p>
+<p>要記得在開發Template Message相關的訊息型別時，參考一下api文件，因為他的每個參數都會有一些限制。</p>
+<p>例如:</p>
+<ul>
+<li>Carousel template 的 columns 最多只能放10個</li>
+<li>Button template 的 button actions 最多只能放4個按鈕</li>
+<li>Button template 的 title 最多只能40個字(40個中文或日文字當標題應該完全足夠，慘的是英文字母，所以感覺Line不太適合給英文使用者開發XD，因為我光要想辦法把英文要能詞達意又要限制在固定的字數中，花了很大的功夫)</li>
+</ul>
+<p>總之就是開發時或者規劃時多看一下api文件就是！</p>
+<p>但最令人羨慕的是 Button 的 Postback action 竟然可以多達300個字！！等於在action中塞一個很長一串的dictionary 或者json都沒事，這個部分在Telegram非常麻煩，因為Telegram的postback有限字數XDD</p>
+<ol start="4">
+<li>訊息處理失敗了就重新從前端/Line訊息平台重新發一次Request</li>
+</ol>
+<p>這個部分基本上沒什麼問題，就是如果在開發時反覆測試，每次都從Line聊天室發訊息來後端測試功能，如果失敗了就是request直接失效，那就再從Line聊天室再發一次訊息。</p>
+<p>為什麼提到這點，主要是因為 ...</p>
+<p><em><strong>Telegram 就算程式處理失敗了，發過的Request若沒有處理或回覆的話，短時間內將會一直流浪在網路上，直到你的程式寫好/修好之前，他都會不斷的是同一個request往程式的api發，不斷的發。</strong></em></p>
+<h1>實作: Telegram Bot</h1>
+<p>接下來就來寫 Telegram Bot的部分啦！</p>
+<p>Telegram bot 是此次的新功能之一，我覺得它的bot機制和Line其實蠻相似的，所以實作邏輯不會有太大的問題，但訊息型別的精緻度會稍微比Line差一點點，還有一個特點是<code>PostBack</code>的<code>callback_data</code>參數字數不能超過64個字，所以幾乎隨便塞一個dictionary進<code>callback_data</code>，很快就爆了，方法我待會會在下面說。</p>
+<p>Telegram Bot 說是和 Line Bot 相似也能說不太相似，總之邏輯都是Bot，所以Api接口的寫法都蠻像的，但是深入核心的部分就會發現這兩種Bot會是呈現兩種完全不同的功能，倒也不是說不能整合，只是需要做一點轉換。</p>
+<p>還有就是我發現我看不太懂Telegram的文件XD</p>
+<h2>訊息處理者 Handler</h2>
+<p>和Line一樣，Telegram也會有訊息Handler，如果沒有撰寫函式處理相對應的動作或事件，Bot也是一樣不會有反應。</p>
+<p>這邊舉例兩個我用的Handler:</p>
+<ul>
+<li>MessageHandler: 顧名思義就是處理任何訊息的訊息
+<ul>
+<li>filter.text</li>
+<li>filter.audio</li>
+<li>filter.command</li>
+<li>filter.document</li>
+</ul>
+</li>
+<li>CallbackQueryHandler: 處理任何透過按鈕觸發的Callback動作
+<ul>
+<li>handle_callback</li>
+</ul>
+</li>
+</ul>
+<p>這個概念跟Line很相似，<code>MessageHandler</code>是一個 <code>Handler</code>，但還是要特別標注他是處理哪種訊息，比方說 <code>filter.text</code> 專門處理文字，<code>filter.audio</code>專門處理音訊。</p>
+<p>所以假設你要一個Bot處理<code>文字</code>，<code>檔案</code>，<code>音訊</code>，就變成要增加三個Handler:</p>
+<ul>
+<li>MessageHandler(Filters.text, handle_message)</li>
+<li>MessageHandler(filter.document, handle_message)</li>
+<li>MessageHandler(filter.audio, handle_message)</li>
+</ul>
+<p>詳細程式碼下面會寫</p>
+<h2>Message Type 訊息型別</h2>
+<p>一些基本的訊息型別會有，包含<code>文字</code>，<code>圖像</code>，<code>影片</code>，還有一些其他的訊息型別</p>
+<p>有興趣再麻煩參照 <strong><a href="https://core.telegram.org/bots/api#available-types">Telegram Bot Api 文件</a></strong> 啦！</p>
+<p>比較讓我燒腦的是Telegram Bot沒有像Line的 <code>Carousel Template</code>的訊息，有提供的是<code>InlineKeyboardMarkup</code>跟<code>InlineKeyboardButton</code>型別，來看一下他的效果為何？</p>
+<p><em><strong>想不想來占卜一下？ 哈哈</strong></em></p>
+<p>總之<code>InlineKeyboardMarkup</code>跟<code>InlineKeyboardButton</code> 是擁有按鈕的訊息，上面那個照片中其實是兩個訊息: <code>Photo</code> + (<code>InlineKeyboardMarkup</code> + <code>InlineKeyboardButton</code>)，所以真實的效果是沒有照片的，而圖片中的整組訊息就是我想出來可以代替 Line 的 Button Template 訊息呈現於 Telegram的替代方案，這個部分下方會說明。</p>
+<p>總之，也許有其他訊息型別更適合，但就待各位去官方文件挖寶了。</p>
+<h2>創建一個Telegram Bot</h2>
+<p>Telegram Bot 的創建和Line有一點點不一樣，Telegram沒有像Line一樣完整的官方帳號管理頁面，也許本來這兩個機器人面對的客群就不同，要創建Telegram Bot你需要先找到他爸爸！</p>
+<p><strong><a href="https://t.me/BotFather">BotFather</a></strong></p>
+<p>不是跟你開玩笑吧XD</p>
+<p>進去之後，BotFather就會寄很多創建Bot相關的指令，創建Bot跟刪除Bot蠻簡單的，所以如果操作不當就刪掉重創吧！</p>
+<p>從<code>/newbot</code>開始</p>
+<ul>
+<li>先取名字</li>
+<li>再取 username，他會像是唯一的<code>@</code> id</li>
+<li>創建後，會給你一串Token</li>
+</ul>
+<p>比較需要注意的是bot 的 username，就是類似Bot的Id，用<code>@</code>包裝的Id，這個名字一定要含<code>bot</code>，所以你可以取 <code>TetrisBot</code> 或 <code>tetris_bot</code> 就看個人發揮，就是要有bot字在裡面。</p>
+<p>然後那串token很重要，是未來需要連接Bot到後端程式所需要的Token，丟了也可以透過BotFather再創建，不用擔心！</p>
+<p>接下來就進入到實作APi的部分！</p>
+<h2>實作 Api &#x26; Handler</h2>
+<p>接下來一樣進到實作的部分，來看一下上面的架構圖</p>
+<pre><code>Miri
+├── api
+│   ├── line
+│   │   ├── __init__.py
+│   │   └── process.py
+│   └── telegram
+|       ├── __init__.py
+│       └── process.py
+...
+...
+└── Procfile
+└── main.py
+</code></pre>
+<p>先前已經將FastApi實作於<code>main.py</code>，這次要將Telegram Api實作於 <code>./api/telegram/__init__.py</code> 當中</p>
+<p><code>./api/telegram/__init__.py</code></p>
+<pre><code class="language-py">import configparser
+from datetime import timedelta
+
+from fastapi import APIRouter, HTTPException, Request
+
+import telegram
+from telegram import Update, Bot
+from telegram.ext import Dispatcher, MessageHandler, CallbackQueryHandler, Filters, CallbackContext
+
+from process import MsgEvent, processor
+
+
+# 建議將Token存入環境變數檔或者資料庫中
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# 一樣需要用FastApi的Router功能初始化telegram_api
+telegram_api = APIRouter()
+
+# 還記得上面說的Token嗎？要寫在這邊
+bot = telegram.Bot(token=(config['TELEGRAM']['ACCESS_TOKEN']))
+
+# 這邊一樣，將 /api/telegram/hook 註冊於 rounter中
+@telegram_api.post('/api/telegram/hook')
+async def webhook_handler(request: Request):
+    """Set route /hook with POST method will trigger this method."""
+    body = await request.json()
+
+    update = telegram.Update.de_json(body, bot)
+
+    # 需要將來的事件丟進handler
+    dispatcher.process_update(update)
+    return 'ok'
+
+
+def handle_message(update: Update, context: CallbackContext):
+    """Reply message."""
+    text = update.message.text
+    user_id = update.message.chat.id
+    user_type = update.message.chat.type
+
+    send_time = update.message.date + timedelta(hours=8)
+
+    # 處理的部分
+    msg_event = MsgEvent("telegram", user_type, user_id, send_time, "text", text)
+    response = msg_processor.analyze(msg_event)
+    
+    # 這邊示範寄出照片跟文字訊息
+    bot.send_photo(update.message.chat_id, photo=response.photo)
+    bot.send_message(update.message.chat_id, response.text)
+
+
+def handle_callback(update: Update, context: CallbackContext):
+    """Reply message."""
+    data = update.callback_query.data
+    user_id = update.callback_query.message.chat.id
+    user_type = update.callback_query.message.chat.type
+
+    send_time = update.callback_query.message.date + timedelta(hours=8)
+
+    # 處理的部分，請各位自由發揮
+    msg_event = MsgEvent("telegram", user_type, user_id, send_time, "option", data)
+    response = msg_processor.analyze(msg_event)
+
+    # 這邊示範寄出照片跟文字訊息
+    bot.send_photo(update.callback_query.message.chat_id, photo=response.photo)
+    bot.send_message(update.callback_query.message.chat_id, response.text)
+
+
+# New a dispatcher for bot
+dispatcher = Dispatcher(bot, None)
+
+# 需要新增 Handler 來處理特定的訊息跟動作
+dispatcher.add_handler(MessageHandler(Filters.text, handle_message))
+dispatcher.add_handler(CallbackQueryHandler(handle_callback))
+
+</code></pre>
+<p>跟上方的Line Api實作方式很相似，幾個注意的要點，一樣提醒大家</p>
+<ol>
+<li>Telegram token 建議使用 <code>config</code>, <code>.env</code>檔案儲存或者存入資料庫</li>
+</ol>
+<p>記得利用token初始化一個telegram的bot，會需要使用bot做回覆訊息的功能</p>
+<pre><code class="language-py"># 還記得上面說的Token嗎？要寫在這邊，初始化你的Telegram Bot
+bot = telegram.Bot(token=(config['TELEGRAM']['ACCESS_TOKEN']))
+</code></pre>
+<ol start="2">
+<li>記得要新增你想處理的訊息/動作的Handler</li>
+</ol>
+<pre><code class="language-py"># 需要新增 Handler 來處理特定的訊息跟動作
+dispatcher.add_handler(MessageHandler(Filters.text, handle_message))
+dispatcher.add_handler(CallbackQueryHandler(handle_callback))
+</code></pre>
+<p>以這個例子來說是處理 <code>訊息動作</code> 的 <code>文字訊息</code>跟 <code>Callback動作</code></p>
+<ul>
+<li>MessageHandler(Filters.text, handle_message)</li>
+<li>CallbackQueryHandler(handle_callback)</li>
+</ul>
+<p>所以假設你要處理客戶端傳來音訊，那就是以此類推：</p>
+<ul>
+<li>MessageHandler(Filters.audio, handle_message)</li>
+</ul>
+<p>詳細情況再麻煩爬文Python的 <strong><a href="https://github.com/python-telegram-bot/python-telegram-bot">Telegram套件</a></strong></p>
+<ol start="3">
+<li>記得要將Telegram的api route透過 FastApi APIRouter 加入路徑</li>
+</ol>
+<pre><code class="language-py">telegram_api = APIRouter()
+
+@telegram_api.post('/api/telegram/hook')
+async def webhook_handler(request: Request):
+    pass
+
+</code></pre>
+<ol start="4">
+<li>注意由一般訊息來的參數跟從callback動作來的參數會在不同地方</li>
+</ol>
+<pre><code class="language-py"># 以取user_id為例
+
+# 一般訊息從update.message來 
+user_id = update.message.chat.id
+
+# Callback 的參數會在callback_query內
+user_id = update.callback_query.message.chat.id
+
+</code></pre>
+<ol start="5">
+<li>寄出去的訊息型別</li>
+</ol>
+<p>在Telegram中傳送文字訊息跟圖片不用特別轉換成另外一種訊息物件，寄圖片有寄圖片的函式<code>send_photo</code>，重送訊息也有傳送訊息的函式 <code>send_message</code>，只是參數中無論是photo還是 text都要塞字串。</p>
+<pre><code class="language-py">bot.send_photo(update.message.chat_id, photo=response.photo)
+bot.send_message(update.message.chat_id, response.text)
+</code></pre>
+<p>再來，我用的按鈕訊息，也是用<code>send_message</code>來發送訊息，唯一不同的是，需要多帶一個參數</p>
+<pre><code class="language-py">
+# 你需要用`InlineKeyboardMarkup`跟`InlineKeyboardButton`兩個物件做出你要的訊息模式，再帶入reply_markup中，所以資訊會長這樣
+
+markup = 
+InlineKeyboardMarkup([
+    InlineKeyboardButton("button1", "{'action': push}"),
+    InlineKeyboardButton("button2", "{'action': pull}"),
+    InlineKeyboardButton("button3", "{'action': cut}")
+])
+
+bot.send_message(chat_id, text, reply_markup=markup)
+
+</code></pre>
+<p>換你實作啦！</p>
+<h2>Telegram Bot的一些注意細節</h2>
+<ul>
+<li>Request若沒得到回應，會一直重複對api發送</li>
+</ul>
+<p>這點和Line不同，Telegram的Request沒有短時效問題，所以如果Request沒有得到回覆（也就是可能在跑程式的某個地方報錯），那那個Request會一直循環在網路雲端中，然後不斷地往api發送直到取得答案為止，我有點忘記時效多少，但我記得好像...一天內失敗的Request都會活著。</p>
+<p>如果不幸在測試程式時，發送Request太多失敗，那就Debug模式繼續開著等剛剛發送的Request會延遲幾秒後再次自動向api發送。</p>
+<ul>
+<li>CallBack Data 參數有限制</li>
+</ul>
+<p>如果要用 <code>InlineKeyboardButton</code>當作按鈕做出 Callback行為，要注意一下 <code>callback_data</code>不能超過64的字，由於我是塞字典，所以一下就爆字數了，文件在此 <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">InlineKeyboardButton</a>。</p>
+<p>我的參數：</p>
+<pre><code class="language-py"># 隨隨便便寫的字典就48個字了
+InlineKeyboardButton(callback_data=str({"category": "communication", "action": "flirt"}))
+</code></pre>
+<p>當然你也可以直接就寫文字，例如:</p>
+<pre><code class="language-py"># 寫中文字完全OK
+InlineKeyboardButton(callback_data=str("會話，調情"))
+</code></pre>
+<p>看個人發揮，我個人是塞字典，比較好我後端程式後續的程式操作，但又很容易爆字！</p>
+<p>所以我的一個作法是，我在CallBack訊息傳出去跟傳回來時做了一個<code>壓縮器/加密器</code>，將超過長度的 <code>callback_data</code>透過演算法或加密法壓縮成64個字內，回來時再用一樣的方式解密，這樣就能夠解決64個字限制的問題！</p>
+<ul>
+<li>InlineKeyboardButton 按鈕寬度跟排列</li>
+</ul>
+<p>在實作Button訊息時，老實說我也有遇到如果我的按鈕字數太長，他就會被遮住，比方說：</p>
+<pre><code># 例如這樣字就會被壓縮到！
+
+[Runes][Tarot][Leno..][Moon..]
+
+</code></pre>
+<p>可是我希望字可以全部顯示，希望能夠將按鈕加寬。Telegram沒能讓按鈕加寬，但可以透過按鈕的排列來使按鈕加寬，這邊給些例子參考</p>
+<pre><code># 假設完整是這樣
+markup = 
+InlineKeyboardMarkup([
+    InlineKeyboardButton("button1", "{'action': push}"),
+    InlineKeyboardButton("button2", "{'action': pull}"),
+    InlineKeyboardButton("button3", "{'action': cut}")
+])
+</code></pre>
+<pre><code>
+# 我們將一些字簡略，比較好展示
+
+Markup(
+    [Button(), Button()]
+)
+
+</code></pre>
+<pre><code>
+# 我們將一些字簡略，比較好展示
+
+Markup(
+    [
+        [Button()], 
+        [Button()],
+        [Button()],
+        [Button()],
+        [Button()],
+        [Button()]
+        ]
+)
+
+</code></pre>
+<pre><code>
+# 我們將一些字簡略，比較好展示
+
+Markup(
+    [
+        [Button()], 
+        [Button(), Button()],
+        [Button(), Button()],
+        ]
+)
+
+</code></pre>
+<p><strong>簡單來說就是用list來去分割按鈕</strong></p>
+<h2>選單 Menu</h2>
+<p>再來也是Telegram的選單，Telegram的選單基本上沒有像Line那樣的華麗，如圖，這是Miri的選單</p>
+<p>蠻乾淨簡單的，是用 <code>/command</code>的動作作為選單按鈕，然後最一開始 Menu會向上方圖一樣，在文字輸入匡左方會多一個Menu，然後可以縮放跟展開。</p>
+<p>Menu的設定也是呼叫 機器人的爸爸XD，<strong><a href="https://t.me/BotFather">BotFather</a></strong>，來設定選單</p>
+<p>在Telegram中不是Set Menu，而是<code>setcommands</code>。</p>
+<p>格式如下：</p>
+<pre><code>command1 - Description
+command2 - Another description
+</code></pre>
+<p>你可以一次把要設定的command打齊一次送出去！</p>
+<p>就有美美簡約的選單囉！</p>
+<h2>困難克服: 訊息於不同平台的呈現方式</h2>
+<p>在實作於Line Bot跟Telegram Bot遇到的一個困難是，由於這兩個後端是共用程式，所以期望上希望兩者呈現的功能要一致，簡單來說就是當點下<code>占卜</code>按鈕時，要跳出六個<code>占卜方法</code>，我希望是圖文並茂，這在Line Bot上，用<code>Carousel message</code>可以完美辦到:</p>
+<p>但是在 Telegram就不是這麼一回事了，因為Telegram沒有 <code>Carousel message</code>，所以在這個單元想來介紹一下，我是怎麼改動流程盡量讓兩邊平台訊息一致的。</p>
+<p>首先是選單目錄，在Line使用<code>Carousel message</code>，在Telegram用<code>InlineKeyboardMarkup</code></p>
+<p><em><strong>可以往右滑</strong></em></p>
+<p><em><strong>在Telegram的呈現上會稍微遜色，畢竟沒有圖片輔佐</strong></em></p>
+<p>所以在規劃使用者流程時，我會特地讓Line <code>Carousel message</code>變成像是<code>列表</code>的邏輯，當點進去單個項目，才是進到那個項目的動作，來展現一下</p>
+<p>點選<code>Click</code>後，兩邊訊息會一致</p>
+<p><em><strong>Line點選後會進到Button Message，用一個感覺多此一舉的步驟來緩和Telegram沒有辦法圖文兼具的窘境。</strong></em></p>
+<p><em><strong>接著我們來看一下Telegram方，使用了Photo + InlineKeyboardMarkup 兩個訊息的Combo連發達成像Line的效果，緩和解決了沒有圖片的問題。</strong></em></p>
+<p>由於本人算是第一次做這種前端有兩個以上的平台，先前都是後端對到前端，我相信很多厲害的app或網站，兩者兼具的軟體都需要具備這種面對兩種平台以上的後端程式設計，而這是我第一次面對，所以難免在處理上會比較尷尬一點。</p>
+<p>也許這也就能夠理解為什麼有些軟體有些功能在網頁上是沒有的，但是在app上有，也許就是因為沒辦法做到兩邊展現同樣的效果跟體驗，所以必須有一方是犧牲的。</p>
+<p>這是我目前短暫想出的方式，也許會讓Line使用者在使用上有點多此一舉跟卡卡的感覺。期望未來如果我實作前端網頁跟mobile版本後，就不需要糾結於這個問題，但也有可能未來即便出了網頁跟手機端，還是會保留機器人版本(說不定喔！)</p>
+<p>好啦，這篇應該是產品技術文章中最長的文章，能看到這邊的人也蠻厲害的了(還是只會有我看得到XD)</p>
+<p>多謝支持啦！</p>
+e:T2007,<p>在過去毫無意識的狀態下，我一直在思考，作為一個軟體產業的工程師，我的追逐目標跟夢想是什麼？</p>
+<p>對我來說目標跟夢想是啟動跟維持熱忱最好的驅動力，即便這個夢想也許是很遙遠的，但也因為夠困難夠遙遠，才能讓我維持毅力持續努力。</p>
+<p>一直到近期幾年，訂下的目標跟夢想，都因為自己的努力達成，</p>
+<p>我記得從最一開始只是覺得修理電腦的懂一點電腦很有成就感，就這麼地把我從原本茫然的狀態下，拉回主線考研究所認真鑽研資訊產業。</p>
+<p>曾想過要當防毒軟體的員工，打擊跟嚴重各種電腦病毒，也想過要當網頁工程師，想過想去頂尖的公司開發人工智慧，也想過去開發IOT產業，這幾個以前的夢想，除了電腦病毒之外，都有開發經驗了。</p>
+<p>剛開始誤打誤撞就接下前端網頁設計的合約開始做，然後天真的想說只要學會後端就能自己寫一個自己的部落格了！第一份工作就勇敢挑戰後端工程師了，在後端只有10%理解的情況下。</p>
+<p>接著是寫了Miri，也是自己創的小作品，但剛開始由於能力不足加上沒有任何想法，所以也就沒有很大的規劃。</p>
+<p>每份工作終止後，都會回到我的部落格跟我的作品們，想要用我新學到的技術跟觀念來開發我的作品們。</p>
+<p>IOT是當初最後許下的一個夢想，這次IOT工作辭職後，直到現在我還沒找到下一個有興趣的產業別。</p>
+<p>直到這段日子，就像上述所說，<code>每份工作終止後，都回回到自己的作品中，持續開發，持續改良，持續優化</code>。</p>
+<p>我才開始去思考，是不是我的最終夢想...</p>
+<p><em><strong>其實是創作自己的作品？</strong></em></p>
+<p>透過去到不同公司努力工作努力學習的能力與經驗，最後回來灌溉在作品中，在毫無意識到這個的狀況下，持續的做著這件事，直到現在才終於意識到，原來這才有可能是我的最終目標。</p>
+<p>接下來在決定之後的人生道路前，會好好的思考這方面的體悟。</p>
+<p>終於開發Miri的時光又要暫時停止一段時間，但我相信既然已經知道自作作品是自己內心中重要的事，那麼繼續開發的時光很快就到來。</p>
+<p>在經歷這半年第三版本的開發後，我自己寫下了很多未來想新增的功能，不過在準備要規劃這些功能並實作之前，我必須考量到幾點，而這些點也是我這幾天才領悟到的道理。</p>
+<h1>第八章 - Miri定位與目標</h1>
+<p>就如同最開始的篇幅有講過，<code>決定產品的定位及內容</code>是整個產品的發展主軸也是最重要的事情。</p>
+<p>在前一篇我有寫道，一直以來我都是以後端工程師的角度來做事，然後了解到需要往更前追溯，需要先由使用者發想，由設計師設計流程跟功能需求，再由工程師們實作。</p>
+<p>Miri最一開始是因為自己想做人工智慧這個技術，而開的一個作品，所以最開始就是由後端的思維去思考這件事，後來我了解到，如果要展現給別人看，那就需要有個主題性，才決定結合自己所學去新增占卜的功能，我覺得目前的功能都是我自己從後端工程師的角度出發去規劃的</p>
+<p><em><strong>好像需要加這個功能，好像不需要這個功能，好像要改一下流程，好像不太需要...</strong></em></p>
+<p>就這樣時常變來變去換來換去，十分茫然，然後才了解會有這樣的情況是因為產品定位跟需求不清楚。</p>
+<p><em><strong>今天我要做的作品主軸是什麼？他的內容與功能是什麼？我要怎麼展現給未來的面試官看？再來才是去規劃使用者流程與設計，接著才是選定技術並規劃開發。</strong></em></p>
+<p>這樣的想法才是正確的。</p>
+<p>因此，我認為在我想要接下去開發之前，先想想下面的一些問題。</p>
+<ul>
+<li>主要內容與概念</li>
+<li>目標用戶與客群</li>
+<li>提供服務的地區範圍多廣？</li>
+</ul>
+<p>之後會根據上述的答案去決定</p>
+<ul>
+<li>產品需不需要從Line Bot中獨立出來，成為一個獨立的產品</li>
+<li>產品要呈現的一種樣貌跟氣場是如何？</li>
+<li>需不需要開發多語系</li>
+<li>需要有大概哪些功能</li>
+<li>參考現有市場的範本並改良缺點</li>
+<li>創作新的，目前沒有的新概念或新功能</li>
+</ul>
+<p>接著才會針對這些問題的答案再去設計介面、使用者流程、功能、以及要用到的什麼技術來達成</p>
+<p>只要主軸跟龍頭決定了，那麼接下來的規劃只要隨著主軸去發想跟展開，就不會發生跟之前一樣越做越茫然，懷疑自己要不要這樣做的情況了。</p>
+<h1>第九章 - 未來預計新功能</h1>
+<p>就目前看來，未來可能會想要規劃的新功能大概有：</p>
+<ul>
+<li>規劃獨立的前端(website, apps)，並將Miri從Line Bot跟Telegram Bot下獨立出來</li>
+<li>新增星座命盤跟紫微斗數圖像化排盤功能</li>
+<li>新增新的占卜方法</li>
+<li>自己設計跟繪畫所有的占卜牌卡</li>
+<li>完善所有現有牌卡的解釋</li>
+<li>研究綜合解釋或更深度及智慧化解釋</li>
+</ul>
+<p>以上是目前想到的新功能</p>
+<p>既然目前主題跟內容決定在<code>命理跟占卜</code>，作品大致上的程式框架跟技術也決定，那就從目前現有的情況來繼續發展。</p>
+<ul>
+<li>規劃獨立的前端(website, apps)，並將Miri從Line Bot跟Telegram Bot下獨立出來</li>
+</ul>
+<p>會想要把前端獨立出來，主要是因為在開發第三版本時，我發現很多功能的呈現受限於Line跟Telegram的平台，只有對話模式，也無法有更多更彈性的介面變化，所以當熱忱被侷限累積到一定的程度，就會開始去思考要不要乾脆自己做前端，這樣就能夠隨心所欲來去決定想呈現的功能。</p>
+<ul>
+<li>新增星座命盤跟紫微斗數圖像化排盤功能</li>
+</ul>
+<p>基本上目前只有占卜的功能，但其實我本人的剛開始進入命理學是研究命盤類的學問，但由於這類型的技術要求很高，所以先前沒有能力跟時間實作，之後會規劃新增類似紫微斗數或占星學的功能。</p>
+<ul>
+<li>新增新的占卜方法</li>
+</ul>
+<p>當跌入占卜這個坑洞之後，我才發現原來有這麼多不同的占卜牌卡跟占卜功能，而其實我在占卜上受惠最多的是<code>易經</code>跟<code>籤詩</code>，但這兩種占卜的技術要求複雜度也是遠遠比其他現有占卜方法還高。</p>
+<ul>
+<li>自己設計跟繪畫所有的占卜牌卡</li>
+</ul>
+<p>簡單來說，目前都是使用別人創作的牌卡，萬一之後要開營利，就可能會有版權問題。</p>
+<p>軟體上的牌卡圖像跟質地要求度不高，所以其實可以是適合自行設計與創作，再者是設計出的牌卡也可以考慮自己發行紙本牌卡。</p>
+<ul>
+<li>研究綜合解釋或更深度及智慧化解釋</li>
+</ul>
+<p>命理及占卜電腦軟體化的問題就是他可能不像真人解說這麼的能夠根據當事人狀況跟氛圍去解釋，當然也因為大部分的解釋都是按照書中的規則來去解釋，而不像真人占卜師能有不同的理解。</p>
+<p>針對這麼部分希望能夠特別開發出新的概念，看能否做到使用電腦技術來讓<code>解釋</code>更智慧跟貼近情況。</p>
+<p>以上就是我在還沒靜下心來思考產品定義跟定位前，以自己後端工程師的角度出發，預計開發的功能。</p>
+<p>當然這些功能其實都具有一定的技術難度，很多也是目前市面上現有的命理性質軟體尚未做到的部分，但是我想在未來實現這些功能。</p>
+<p>之後的功能規劃還是要看看之後我的決定為何，希望在歷經腦力激盪後，能有比較清晰的產品主軸內容產出。</p>
+<p>感謝大家的觀看，也感謝我自己的反思。</p>
+f:T67cb,<p>回想這段日子，彷彿好像事情昨天才發生，時間很快就過去了</p>
+<p>這段日子帶給我很多收穫，雖然在期間我曾經懷疑陷入茫然不安的情緒中，但是堅定的直覺力，讓我即便承受著極度茫然與悲傷的情緒中，還是努力繼續做直到完成。</p>
+<p>那麼就來看看這半年的故事吧！</p>
+<h1>第四章 - 來自同事的鼓勵</h1>
+<p>2020/10/16，我彷彿已經提前感受到我們部門可能會面臨解散的可能，那種感覺騙不了人的，跟我在第一家公司即將要被迫離職時的氣氛很相似。</p>
+<p>中午我拿著公司發的便當和同事坐在一起吃飯</p>
+<p><em><strong>哎我感覺這個氣氛要是再延續下去，可能我明年就會離職了</strong></em></p>
+<p>上一家公司是傳統產業公司，基本上你入職的開始，他就等同於公務人員般穩定，可以穩定待30-40年都沒問題。</p>
+<p>卻沒想到在進入公司的即將一年前感受到了一種部門即將滅亡的感受。</p>
+<p>三個人坐在一起，我一邊吃飯，一邊打趣地拿起手機看一下我的紫微斗數命盤，來看看有沒有可能在明年會有離職的可能性。</p>
+<p>未來總是不可測，尤其我的命運常常是一下高飛一下又重摔在地，如果有驛動的可能性，則代表我的感受也許不會錯。我一般很少主動想提離職，我的意思是我很少會有一種<code>我決定只做到明年</code>這種想法，因為我大部分都想久待，第一份工作想待六年，第二份工作原本想待2-3年，原本想說第二份工作至少能待久一點，沒想到若命運是如此，那是不可違抗。</p>
+<p><em><strong>明年的2-3月或者4-5月有離職的可能性，我來細看一下，應該是2/28號吧！</strong></em></p>
+<p>我細看自己的命盤，然後說出可能的時間。</p>
+<p><code>你傻了呀，2/28日是星期天，你星期天提離職做什麼？</code>，部門內最叛逆的同事回道。</p>
+<p>我們將時間快轉到離職前20天，我在電話中和我的人資朋友聊著，事實上在這之前我有找他吃過幾次飯聊這個事情。</p>
+<p><code>我要定下離職日期了，你覺得要什麼時候呢？</code>，回想起10月時和同事提過的離職時間，被笑說週日(2/28)提什麼離職，頓時我也不知道要將離職時間定在幾時。</p>
+<p><code>就2/28日吧，做完整個月</code>，人資朋友說道。</p>
+<p>我真的是嚇了一跳，自己準確預測了第一家公司跟第二家公司的離職時間，當初還想說2/28是週日，假日為什麼要請假？</p>
+<p>結果當人資朋友一講出日期後，我整個人都笑了起來</p>
+<p><em><strong>該來的還是會來的，跑也跑不掉的</strong></em></p>
+<p>離職時間敲定後，我利用剩下的上班時間，偶爾請假去淡水散步，畢竟這家公司就在淡水附近，要是離職了，我應該也會比較少來淡水玩。</p>
+<p>不過淡水真的是不錯，平時下班疲勞，晚上很少去海邊，但是下午請假去淡水散步，會讓人覺得既舒壓又舒服，很懷念那種感覺。早上上班，下午衝淡水，就這樣一個人當著觀光客散步。</p>
+<p>在離職前的某個週六，和很要好的設計師同事一起前往我在淡水的愛店餐廳<code>之間</code>，以及在淡水附近散步。</p>
+<p>在一邊前往餐廳的路途中，在冬天多雲舒適的氣溫下，一邊和設計師同事討論Miri的事情。</p>
+<p><em><strong>我以前真的是對Miri太沒信心了，我只覺得自己做了一個很弱的小玩具，完全不覺得這是一個好題材，我有能力可以好好發揮她</strong></em></p>
+<p><em><strong>我從內心壓根就不覺得Miri可能發展為產品，自然就不會想到要規劃去開發她</strong></em></p>
+<p><em><strong>只是說真的，我工作兩年了，而且也在不同的公司工作過，我卻沒有一個可上線的作品，秀給大家看</strong></em></p>
+<p><em><strong>赫然我想起，有一個程式已經上線兩年，她在我跟大家聊天時，面試時，可以隨時拿出來秀給大家，而且沒有壞掉過，她就是Miri。</strong></em></p>
+<p><em><strong>那Miri為什麼叫作Miri呢？</strong></em></p>
+<p><em><strong>因為我一開始是想做Siri那樣的人工智慧管家，所以我就把我的名字縮寫M加上Siri，變成Miri。</strong></em></p>
+<p>事實上在前些日子，我就已經先把第二版本擁有盧恩符文的Miri介紹給同事玩，我當時覺得不過就是只有一個抽取盧恩符文的功能，再加上弱弱的文字回覆，使用者引導還做得十分破爛，和自己正在做的IOT太陽能資料收集系統跟IOT路燈資料收集系統差得太多了，我自然也就對Miri沒有抱著太大的信心，也許被其他人或者面試官看到，還會覺得<code>這是什麼呀？</code></p>
+<p>在某次下班後的晚上我也是和朋友約在<code>之間</code>，在等待朋友的時間和設計師同事聊了20分鐘，才前往餐廳。</p>
+<p><em><strong>他只有一個盧恩符文的占卜功能，而且還一堆錯字，跟蠻弱的使用者引導</strong></em></p>
+<p><em><strong>可是我不覺得Miri差唷，他其實是可以發展成一個產品的，我已經想到Miri賺錢的方式了</strong></em></p>
+<p><em><strong>什麼？是什麼？</strong></em></p>
+<p><em><strong>嗯，妳是未來的老闆，妳自己想囉！至少我已經想到了不只一種賺錢方式</strong></em></p>
+<p>這次離職後，我決定隨著我的直覺，鼓起勇氣給自己半年的時間做Miri，希望能夠將她發展下一個新的版本，一個至少可以讓使用者玩，可以秀給別人看，而不覺得內疚難堪的版本。</p>
+<h1>第五章 - 第三版本</h1>
+<p>離職前夕，我就開始著手規劃下一版本也就是第三版本Miri的功能要有哪些。</p>
+<p>至從Miri做了一個盧恩符文的占卜功能後，Miri的定位越往<code>占卜跟命理</code>主題走。想起先前自己看星座命盤的財帛宮時看到自己可能會做<code>占星、命理</code>類的產品賺錢，再加上Miri目前唯一的功能是占卜相關，我就更篤信的要把Miri的未來發展朝向<code>占卜跟命理</code>。</p>
+<p>這次給自己預計半年的時間開發第三版本，所以3月開始規劃跟實作，大約7月跟8月能夠完成第三版的開發。</p>
+<p>由於思想已經比之前成熟，所以在這半年內，一樣會希望規劃第三版本時，能夠會是一個比較階段性完整的版本，同時又能夠在半年時程下完成開發，因此會針對程式架構、UI跟其他功能有顯著的擴增，規劃的功能如下：</p>
+<ul>
+<li>希望從一種占卜擴增到六種占卜</li>
+</ul>
+<p>離職前那個月，我很常跑神秘學的店家，買了蠻多牌卡來玩，其中也有幫忙一些朋友占卜。所以就想過，除了盧恩符文以外，也可以放多一點不同的占卜方法甚至是不同性質的牌卡進入占卜。</p>
+<p>第二版本有一個盧恩符文的占卜，那麼第三版本就想著要從原本的只有盧恩符文一個占卜選項，新增到六個占卜選項。</p>
+<ul>
+<li>不同的使用平台</li>
+</ul>
+<p>由於原先只有Line社交軟體可以使用，也就是說不普遍使用Line的地區，將無法使用Miri，考量到未來找工作可能傾向往國外公司找，而Line目前僅在亞洲地區使用，所以我希望能夠再新增另外一個社交平台且比較偏向不同區域，這樣可以讓亞洲地區以外的使用者可以使用Miri。</p>
+<p>剛開始我想到的選項是 <code>What's app</code>，但我發現<code>What's app</code>的bot api發展的好像不是很完全，加上商業帳號跟個人帳號的號碼綁在一塊，意味著當我在使用商業帳號時，會被迫登出個人帳號，也就無法收到朋友們傳來的訊息，在開發上造成些許不方便。</p>
+<p>我感覺用<code>What's app</code>和<code>Messenger</code>來作為第二使用者平台的選項不太適合，後來和一個俄羅斯的朋友討論後，他告訴我<code>Telegram</code>跟<code>Line</code>一樣有 bot api 可以使用，經過搜尋還有使用各種通訊軟體平台後，我認為<code>Telegram</code>的性質和<code>Line</code>是較為相似，bot api也發展得比較完全，再加上目前Telegram的普及區域與Line不同，所以選擇它作為Miri的第二的使用者平台選項。</p>
+<p>於是除了原先<code>Line</code>平台之外，第三版本會新增<code>Telegram</code>平台作為第二的使用平台。</p>
+<ul>
+<li>帳號系統與不同語言</li>
+</ul>
+<p>就像上述提及，考量到未來可能會找國外的工作，加上決定開發<code>Telegram</code>平台，因此除了<code>繁體中文</code>外，還需要其他語言讓外國使用者選擇，考量到目前英文是第一使用多的外國語言，加上目前的時程只夠開發一種新的外語，所以選擇新增<code>英語</code>作為另外一個對話預設語言。</p>
+<p>既然需要紀錄使用者跟語言，那就會需要帳號管理，不排除未來可能會開發更多跟帳號相關的內容，所以新增<code>帳號管理</code>功能，主要目的是紀錄<code>使用者、使用平台及使用語言</code>，這麼一來就不用每次使用Miri都要設定一次語言了。</p>
+<ul>
+<li>使用者引導</li>
+</ul>
+<p>我想新增上述的功能已經是蠻完整的第三版開發規劃了，但最後一項我覺得是特別重要的部分。在第二版的Miri，需要使用者自己在對話框輸入<code>盧恩符文</code>才會驅動占卜的功能，甚至當使用者將Miri加為好友後，並沒有任何的提示或手冊，常常讓人加入好友後，便不知道如何開始。</p>
+<p>然後，由於先前盧恩符文的占卜流程太過簡略，還有不夠清楚，導致很多使用者常常還沒冥想占卜問題，就點了按鈕得到答案，這次也會規劃擁有整個占卜流程，包括選擇牌陣跟冥想，也會把占卜流程的程式規劃分開，使其容易閱讀跟整理。</p>
+<p>所以說整體使用者的流程都蠻簡略且粗糙，這部分也列為此次需要優化跟加強的範圍，所以新增的部分像是：</p>
+<ol>
+<li>新增使用者引導手冊</li>
+<li>新增選單</li>
+<li>優化占卜流程</li>
+</ol>
+<p>也就是說再加為好友的瞬間，剛開始先選定預設對話語言，然後會有訊息引導或者介紹怎麼使用Miri，詳細的話還沒想到，但是會新增這方面的功能。</p>
+<p>再來就是<code>選單</code>的部分，在第二版的Miri，可以發現當使用者使用完一次後，下次使用還是得再輸入<code>盧恩符文</code>驅動占卜功能，再加上這次更新會新增很多不同的占卜方法跟功能，所以我認為需要製作一個選單，讓使用者無論是在使用過程還是之後再次使用，都可以透過選單點擊功能，而不用手動或陷入不知道如何使用的窘境。</p>
+<h1>第六章 - 做產品哪有這麼簡單</h1>
+<p>既然要從原先只有一種占卜功能擴增到六種，再加上原本只有Line的平台，現在要新增Telegram的平台功能，想必程式的架構需要重新設計。由於第二版本的Miri在開發時，我的程式設計能力還只是停留在<code>實作功能</code>，<code>規劃架構</code>、<code>程式設計</code>、<code>可讀性</code>跟<code>效能</code>完全是沒有考慮到的。<code>Miri</code>已經不再是一個小功能小玩具，她開始規劃作為一個軟體或一個系統的目標前進。</p>
+<p>首要任務就是將原本Miri的程式架構依據第三版的功能，再加上未來可能會新增的功能，來考量重新設計程式架構。這個部分由於在第二份工作已經大量學習到規劃架構跟設計程式，因此沒有遇到什麼困難，大概花費2週時間就完成。</p>
+<p>接下來我的順序會是：</p>
+<ul>
+<li>
+<p>[API] 先確認後端程式和前端溝通無礙</p>
+<ul>
+<li>這次由於前同事的推坑，我打算把使用的API服務從Flask框架改成FastApi</li>
+<li>為符合新增的Telegram功能，需要調整原先的API程式架構</li>
+<li>重新設計Line平台API跟處理程式</li>
+<li>規劃與設計Telegram平台API與處理程式</li>
+</ul>
+</li>
+<li>
+<p>[占卜功能] 主要是依照流程撰寫程式</p>
+<ul>
+<li>規劃統一的占卜流程</li>
+<li>依據不同的占卜方法刪除或增加流程</li>
+<li>實作</li>
+</ul>
+</li>
+<li>
+<p>[帳號與語言] 新增帳號管理功能，紀錄語言為其中一個功能</p>
+<ul>
+<li>規劃與實作帳號功能</li>
+<li>規劃與實作語言設定與切換功能</li>
+<li>規劃與實作帳號綁定預設語言功能</li>
+</ul>
+</li>
+<li>
+<p>[占卜內容] 等到大部分的程式都寫完後，開始針對占卜牌卡內容跟解釋撰寫</p>
+<ul>
+<li>實作跟填寫每個占卜方法的牌卡資訊</li>
+<li>規劃與實作解釋功能</li>
+</ul>
+</li>
+<li>
+<p>[使用者引導] 像是訊息引導或繪製圖像介紹或者是選單的部分</p>
+<ul>
+<li>預先選擇語言功能</li>
+<li>使用者引導功能</li>
+<li>使用者引導手冊</li>
+<li>Menu選單功能</li>
+</ul>
+</li>
+</ul>
+<h2>[感想] 遇到的困難與障礙</h2>
+<p>我想大致上的開發任務都列在上面，就不一一撰寫開發日子了，每天的日子都是早上起床吃早餐，接著就坐到電腦前進入開發模式，下午跟吃飽飯後的時間是最能專注跟最清醒的時刻，一天開發時間大該也約是8小時，其他吃飯跟洗澡時間都會拿來思考跟解決遇到的難題。</p>
+<p>但整個開發過程中，總會遇到一些困難跟一些障礙，讓我有所突破跟成長，接下來的篇章就讓我來撰寫那些日子我遇到的困難。</p>
+<h3>UI/User Flow的重要性</h3>
+<p>作為後端工程師兩年的工作經驗，一直以來從我都以後端的角度來看事情，在和前端工程師合作時，一定都會先以前端工程師方便的規格為主討論API跟程式設計，所以與前端的對接只需要討論跟規定API規格就好。</p>
+<p>然而，這次的前端是先藉由Line跟Telegram Bot作為前端呈現，所以不會有設計前端的問題。</p>
+<p>在剛開始結束重構後，我就自行依據上述列的功能開始往下規劃跟實作後端程式的部分，但實作沒多久，開始要和前端平台對接並由前端使用來測試時，我才發現我後端的功能雖齊全，但和前端甚至是使用者流程完全不符合，開發一陣子了，結果完全沒辦法從使用者方面來測試功能面。</p>
+<p>哎糟糕，怎麼越開發越茫然的感覺，後端程式寫一寫，搭配前端平台測試，沒點幾下前端按鈕，就需要這邊改一改，那邊改一改，然後前面跟後面剛改完又不對盤。</p>
+<p>這時候我才發現，原來一切都需要回到最原本的使用者端的角度來規劃後續的功能實作計畫。</p>
+<p>也就是說，我得把自己轉換成<code>使用者</code>，今天我希望Miri呈現給我的整個使用者流程是怎麼樣，然後再去設計UI呈現跟模擬的流程圖。</p>
+<p><code>使用者想看到的功能跟流程</code> -> <code>UI設計與模擬功能流程</code> -> <code>實作前端部分</code> -> <code>實作後端部分</code></p>
+<p>結果由於本身是後端工程師，所以居然是一開始就直接寫後端的部分，難怪越寫越茫然。</p>
+<p>看似這個道理很簡單，但其實很多工程師都是以工程師的角度實作專案或產品，不太會從<code>使用者</code>角度去考量事情。</p>
+<p>所以後來我先用Ipad的App來<code>規劃使用者流程</code>，接著再依據規劃出來的流程<code>設計後端的功能</code>來串接。</p>
+<p><em><strong>開始開發一個產品前，先把自己當作使用者來發想，我想看到什麼畫面跟功能面，接著去設計使用者流程跟UI介面，最後才會是前端與後端依據設計內容來實作功能。</strong></em></p>
+<p><em><strong>一個軟體開發團隊，每個角色都很重要，但也正因為每個角色都是專業且以自己的角度看世界，所以溝通與尊重變得重要。</strong></em></p>
+<h3>不同前端平台與後端程式設計的整合性</h3>
+<p>由於先前的開發經驗都偏向於單一前端平台，但這次除了有Line介面之外，還新增了Telegram的平台提供使用。</p>
+<p>實作Line跟Telegram Bot的功能都不算困難，但困難的點是這兩個通訊軟體有著不同的訊息型態，Line Bot Api 提供 <code>Template</code> 訊息型態，使一個訊息能夠同時夾雜 <code>圖片</code>、<code>標題</code>、<code>描述</code>及<code>按鈕</code>，可是在Telegram Bot Api中只能用<code>InlineKeyboardButton</code>作為傳訊型態(有<code>描述</code>及<code>按鈕</code>)，這樣對於兩邊平台的使用者而言，Telegram的使用者會沒辦法看到<code>圖片</code>，只能看到<code>描述</code>及<code>按鈕</code>，使用者的體驗就會有差別。</p>
+<p>我花在這邊的規劃與設計的時間也蠻多的，要同時<code>作為使用者</code>去規劃<code>Line</code>跟<code>Telegram</code>的訊息必須同步跟克服訊息型態不一致的問題，還需要將角度<code>切換回後端</code>，去思考這樣使用者的流程規劃如何和後端功能搭配，因為後面是共用同一個後端功能，不可能因為有兩個不同的平台而寫兩套程式。</p>
+<p><em><strong>Line的Template Message</strong></em></p>
+<p><em><strong>Telegram仿照Line的模式去設計相似的訊息型態</strong></em></p>
+<p>詳細克服的解法也是會在之後的篇章論述，而這個難關也讓我深深的感受到即便我因為時程跟自身能力的關係，用社群軟體的Bot模式代替前端的開發，但是也因為Bot的功能限制，限制了Miri功能跟呈現上的多樣性及變化性，使我埋下之後想將前端獨立出來開發，而非仰賴現有Bot功能的想法。</p>
+<p><em><strong>無論是現成的平台、功能跟函式庫都好，可以節省開發的時間，因為都有人幫你寫好了，但同時也身受限制，倘若需要自訂功能，必定還是需要深厚的底子與自創的能力</strong></em></p>
+<h3>程式技術的豐富與使用者使用感想的平衡</h3>
+<p>這個就很像是<code>程式設計師</code>很Care使用酷炫或者最新的程式技術來實作功能，但酷炫的技術或功能根本就不是使用者要的需求。</p>
+<p>其實也不完全是上述的道理。</p>
+<p>在實作Miri時，常常我會覺得我撰寫非常多後端程式，我的意思是說後端程式的工很浩大，但感覺呈現在前端平台的功能卻很少，這會讓我很沮喪，讓我覺得說會不會我花了很多時間製作Miri但是由於前端呈現出來的部分並沒有這麼多，所以會被使用者或未來的面試官質疑。</p>
+<p>這個困惑曾經不止一次出現在我的腦海中，甚至有時候會讓我陷入低潮的氛圍當中。</p>
+<p>像是會不會明明花了半年時間實作Miri，但是卻被說怎麼半年只有這點成就？</p>
+<p>所以得承受著類似這種心魔的考驗，在不被打倒的前提下，繼續將專注力拉回繼續做Miri。</p>
+<p>無論夜晚多麼茫然跟低潮，哭過一回後，隔天還是保持著希望繼續努力。</p>
+<p>不過這樣一說，我在前兩份工作時，常常後端的工程都很浩大，但是在前端顯示的部分卻感覺寥寥無幾，也就是說每個前端呈現出來的功能，其實後端都需要付出很多的工，也許是在後端大量計算與處理後，才會輸出一個精準的數字給前端呈現，是一個精準的數字，在後端的處理部分卻往往需要很多程式跟功能撰寫，但是多麼多的程式，都不會讓使用者看到的。</p>
+<p><em><strong>肯起身去行動去執行，就是個很偉大的行為了，只要用心跟努力去做，無論成果是好是壞，自己才是實際知道付出多少努力的人。</strong></em></p>
+<h3>部署與維運能力(資料庫規劃)</h3>
+<p>這也是最後部署於Heroku伺服器時才爆出的問題，而當時距離自己給自己定下的截止日期超過了2週，雖然是在自己下的日期內成功部署，但是有一個困難的解觀察了2週才解決，當時內心滿是煎熬跟緊張(其實沒人在催，只是因為超過自己定下的日期，覺得沒有達到內心的時程。)</p>
+<p>由於對部署的代理伺服器服務不熟悉，造成了一些不知道如何解決也不知道怎麼真錯的問題（確定跟自己本身的程式無關），所以剛開始發現問題時，對自己的心靈造成不小的壓力。</p>
+<p>簡單來説，Miri目前為了要求輕便簡單，是使用SQLite來儲存所有的資料，而SQLite是靜態資料庫所以跟程式存放在一起。Heroku的免費方案會每天都重置server，重置到部署的版本，所以如果有資料是部署上線後開始寫入資料庫，那每天都會重置到最初SQLite剛部署的時間點（也就是說新的資料會被消除）</p>
+<p>第二版的Miri也是使用SqLite資料庫，但沒有發現問題主要是因為只有單方面的讀取，並沒有寫入新資料的問題。而第三版本規劃了帳號管理功能，除了要記錄使用者及其平台，還需要紀錄使用者所使用的語言，所以只要有新登入的使用者，就會把新的使用者資料寫入SQLite，但上面說過了Heroku server每天都會重置，所以等於新的使用者資料每天都會被刪掉。</p>
+<p>起初因為對Heroku的不熟悉，所以發生這個問題時，一直以為是自己程式的問題，直到改了很多次程式後，還是發生一樣的問題。我就暫時擱置然後觀察一週，才找到問題。</p>
+<p><em><strong>當問題解決不了時，不要慌張，也許只是因為你不了解他，給自己多點時間觀察與研究。</strong></em></p>
+<h3>程式技術不了解</h3>
+<p>在上家公司時，由於要快速處理太陽能每兩分鐘的資料處理，所以除了大量使用Redis外，也會用到類似使用python的list或dictionary做暫存的設計。</p>
+<p>這次也使用這樣的設計，將登入的使用者及選定的語系，存在dictionary中，然後每次有使用者使用Miri時，直接去Dictionary取出使用者的預設語系，而不用再去資料庫取資料，但是不知道為什麼在使用者切換語系時，當dictionary被改動過後，會不太穩定，數值會變動，目前還無解。</p>
+<p>也算是自己對利用dictionary當做暫存機制的設計不了解所造成的問題。</p>
+<p>以上遇到的問題，並沒有合作的同事可以幫忙解決或合作，但要特別感謝兩個外國工程師的幫忙，當遇到困難時，他們也有提供協助，除了可以透過另外一個人的角度切入外，當自己本身在向對方解釋問題時，同時也是自己正在重新梳理卡住的部分。</p>
+<h1>第七章 - 未完成前的茫然</h1>
+<p>終於要迎來這半年開發時程的休止符了，我還記得當時是七月初，我覺得Miri的開發就快要結束了，但實際上又還有一段忙枯燥乏味的路途要走。</p>
+<p>在大部分的功能都開發完成後，我把要將每個占卜牌卡的解析留到最後寫，因為他不算在撰寫程式的功能中，所以可以等到所有程式都撰寫完後，在寫解析。</p>
+<p>我當時內心的感覺是只剩下每張牌卡的解析，以及最後畫使用者引導的說明書跟部署上線測試。</p>
+<p>但我把寫解析的部分想得太簡單了，如果六種方法的話，我們稍微介紹一下：</p>
+<ul>
+<li>盧恩符文 25 顆 * 2 個語言</li>
+<li>塔羅牌 78 張 * 2 正逆位 * 2 個語言</li>
+<li>雷諾曼 36 張 * 2 個語言</li>
+<li>筊杯 只有總共6個</li>
+<li>自然絮語 50 張 * 2 個語言</li>
+<li>智慧箴言 44 張 * 2 個語言</li>
+</ul>
+<p>總共以上這麼多張卡的解釋要寫，而寫那些解釋除了參考書中內容之外，我給自己的期望是要加入自己的解讀，還有分中文跟英文兩種語言撰寫。</p>
+<p>而本人對於打字工的工作，會感受到枯燥乏味沒有動力堅持，因此在那段日子之中可說是十分茫然、枯燥無聊又必須得保持專注跟耐心去撰寫解釋。</p>
+<p>再加上這個部分是完成前的最後幾步，又錯估時程覺得這個部分簡單，眼看著時間一點一滴的過去，彷彿終點就在眼前，但我卻無法完成。</p>
+<p><em><strong>會不會我花了這麼多的時間做Miri，結果換來的是面試官詢問說怎麼做成這個樣子，需要這麼多時間做嗎？</strong></em></p>
+<p><em><strong>會不會我花了這麼多的時間，結果最後失敗了，做不出來？</strong></em></p>
+<p><em><strong>大家都在職場上工作，我是不是應該停止開發，停止這個夢想，然後明天開始去找工作？</strong></em></p>
+<p>各種茫然又負面的想在那個時間鑽出，呼應開頭時說過的<code>在期間我曾經懷疑陷入茫然不安的情緒中</code>，但即便有強烈的茫然與負面情緒，我還是保持著 <code>沒有時間寫這麼多，繼續努力</code>的概念繼續做，壓著自己每天至少完成一點進度，即便撰寫解釋再怎麼無聊，直到2021/8/11 Miri上線到現在穩定運行。</p>
+<p>以上就是大概這一年發生的事情，正視開發Miri的決定，以及實作第三版本的時光。</p>
+<p>在這期間我學習到很多概念跟以前我從來沒遇到過或思考過的事情，如果人生再做一次決定，我會做同樣的決定。</p>
+<p>在製作Miri這個產品時，我學到的不只是自己作為後端工程師的本分，學會平衡產品前後端，切換以使用者跟設計師角度切入，還有像個小PM規劃功能跟時程，這段經驗帶給我的又是跟以往完全不一樣的學習，值得啦！</p>
+<p>最後，在把第三版本Miri做出來後，我開始慢慢發想產品未來的規劃，像是未來想獨立出前端的部分，就不要再掛在社群軟體的Bot上了，然而最重要的事情，也是最近才新領悟的事情。</p>
+<p>我留到下一篇撰寫，跟著未來規劃一起撰寫。</p>
+10:T3983,<p>原本我將當初是怎麼構想Miri的故事寫在Github README 裡。</p>
+<p>但最近完成第三版的開發，並且要重新撰寫README的時候，我發現我應該把這類型的描述移動到部落格文章內，再加上想紀錄自己做Miri的動機跟故事。</p>
+<p>由於我是個很容易忘記過去的人，所以我希望可以透過文章的方式，將這段 Miri 軟體開發的故事給記錄下來，無論我未來有沒有成功，他都會是一段有趣的故事。</p>
+<h1>第一章 - Miri 誕生了</h1>
+<p><img src="https://mingjungyu.files.wordpress.com/2021/08/599743_544968448866799_1105772966_n.jpg" alt=""></p>
+<p><code>Miri 機器人算命師</code> - Miri 是一個虛構的10歲小女孩，人物設定像是她自幼天資聰穎，對數學及命理有興趣，年紀輕輕就自學命理與占卜學，並開始為前往找她的問事者解惑。</p>
+<p>其實Miri一開始並不是要作為機器人占卜師，我一開始是希望將Miri朝向人工智慧的方向發展，作為管理的助手或管家。</p>
+<p>在攻讀研究所前，我有一段日子是失去人生的目標，且對未來感到十分的茫然，那段日子有時間可以看一些影劇作品，所以陸續看了<code>鋼鐵人</code>跟<code>惡靈古堡</code>全集，那時看到鋼鐵人影劇中有<code>Friday</code>人工智慧當他的管家，聽從史塔克的指令，Friday能夠根據指令收集資料作出分析，並透過視覺化的虛擬介面展示於第三維度的空間中，平時也有Friday幫助史塔克管理一些事物或回報進度。而在惡靈古堡中，在第一集就出現的人工智慧<code>紅后</code>也激起我的熱忱，紅后協助控管整個公司，而且後來也發展出有自我意識的人工智慧。</p>
+<p>受到鋼鐵人的<code>Friday</code>以及<code>惡靈古堡「紅后」</code>的影響，讓當時的我燃起對人工智慧的幻想，希望在未來能夠研究人工智慧或進入厲害的軟體開發研究室，和世界各地厲害的工程師一起開發人工智慧。</p>
+<p><code>人工智慧</code> 聽起來就是很炫很超科技的名詞，在研究所時我接觸到了<a href="https://www.rinna.jp/">りんな</a>，<code>りんな</code>是日本公司做的人工智慧，當時是掛在Line社交軟體中，你可和他聊天，也有一些額外的功能可以使用，當初的我一邊和<code>りんな</code>交流，一邊感慨在現實生活中，出現了夢想中的人工智慧，讓當時的我初步先將實現人工智慧的夢想朝向聊天機器人的方向，並且選擇將Line的聊天機器人作為我人工智慧夢的第一步。(現在去看<code>りんな</code>的官網，發現該公司開發了很多不同的新功能，也有開發占卜的功能！占卜跟命理真是一塊新穎的知識發展，感覺再不開始規劃實作，就會被很多人佔掉市場)</p>
+<p>然而在校時，我個人的程式能力才剛起步，我完全沒有什麼軟體開發的經驗，加上沒有相關的知識來研究，遲遲讓我不知道如何下手。</p>
+<p>終於有一次的機會，我們系大學部找了外師來學校用一堂課的時間，教授如何實作Line的聊天機器人，讓當時不知如何開始的我有機會踏入聊天機器人的開發。也就是這個時候創立了 <code>Miri</code> 在Line的帳號。</p>
+<p><code>Miri</code>誕生了！</p>
+<p>為什麼要取名叫做 <code>Miri</code> 呢？</p>
+<p>因為當時只有蘋果手機的 <code>Siri</code> 像是具有人工智慧技術的個人管家，而我創立這個聊天機器人又是抱著想要自創人工智慧的初心，我把我的名字英文縮寫 <code>M</code> 加上 <code>Siri</code> 組成了 <code>Miri</code> 作為未來的人工智慧管家名稱。</p>
+<p><code>Miri</code> 的大頭貼是怎麼來的？</p>
+<p>在2010年時，Facebook有出一個外部插件軟體，可以自己製作一個人像大頭貼，我當初依照當時自己的樣貌，做了一個與自己相似的可愛大頭照，放上Facebook。</p>
+<p>後來我覺得那個大頭貼很像一個年輕的小女孩，加上 Miri 發音聽起來很像一個俏皮可愛的女生名字，我就決定把那個大頭貼當作是Miri的照片。</p>
+<p>在Miri剛誕生時，大部分的時間處於停機的狀態，就像上述所說，教授Line機器人的外師只用一堂課的時間教授實作聊天機器人，再加上自己程式能力剛起步對整個軟體的設計基礎能力完全是0，所以最一開始的Miri功能，只有將使用者發送的訊息像是Echo般將一樣的訊息回覆使用者。</p>
+<p>而且因為我不會架設server，所以只要人沒有使用電腦，Miri就是停機狀態，完全不會做任何反應。</p>
+<p>當時只有註冊Miri Line帳號，還有貼上講師附贈的 Line api 程式碼加上Ngrok轉址功能，只建造了非常簡單的雛形，而且連Line bot api程式都看不懂。</p>
+<h1>第二章 - 初步開發 Miri</h1>
+<p>由於在研究所大部分實作的專案，都是跟網頁相關，而且嚴重缺乏軟體後端的基礎知識(我最一開始是做前端網頁開始學習寫程式)，所以我完全不知道在創立Miri後，我要怎麼繼續開發Miri，要怎麼讓他成為像 Friday 跟 紅后一樣的人工智慧管家，Miri的開發就暫時停止了，大概停了1-2年的時間，都沒有規劃任何的功能開發。</p>
+<p>畢業後，為了實現自己想要開發人工智慧的夢想，第一間公司就嘗試著尋找開發人工智慧的職位，後來很幸運的，進入了研發人工智慧的美商新創公司，在那期間開始精進我的python程式能力以及學習大量的人工智慧知識。</p>
+<p>在高壓的環境下進行了半年的磨練，在那之後，我發現自己有比之前擁有更多的背景和技術能力足以支撐我繼續開發Miri。</p>
+<p>於是，我開啟已經停擺近2年的Miri，然後試著用學習到的知識跟技術，初步規劃了Miri的程式架構，還有加上人工智慧斷詞套件<code>nltk</code>跟<code>jieba</code>實作簡單的文字訊息斷詞及回覆設定好的語句。</p>
+<p>用到的技術包括Python的Flask框架，語意斷詞套件，還有初步了解line bot api的程式碼實作。</p>
+<p>而回應的訊息，當初也只是初步設定一些打招呼用語像是<code>早安</code>，<code>晚安</code>以及其他基本用語，當然我也想過要將Miri做成情人聊天機器人，所以也設定了幾個調情的語句，像是<code>喜歡你</code>，<code>愛你</code>，你今天好漂亮..等之類的語句。</p>
+<p>也因為理解了人工智慧背後的運行原理後，我發現人工智慧並沒有一開始想像的這麼夢幻，大部分都是依靠大量輸入語句內容，或者訓練詞彙並存在資料庫中，使其接收到固定的詞彙時就回覆詞彙中設定好的答案。</p>
+<p>當然也有可能我並沒有往更深層或核心的人工智慧知識探索，所以我對人工智慧實作的了解程度只停在將語句斷詞然後再設定相對應的回答/或者設定計算公式並回覆給使用者。</p>
+<p>唯一想到如何訓練Miri的想法就是大量輸入語句，然後透過 <code>nltk</code> 或 <code>jieba</code> 斷詞後存入資料庫，並針對存取的斷詞設定預定回覆的答案或計算公式。</p>
+<p>如果要將Miri做成聊天機器人或者管家，就必須透過這樣的方式訓練Miri。</p>
+<p>如果要發展成管理個人事務的管家，還需要透過連接外部軟體或外部機器的功能融合輸入的詞彙，才能達到開發人工智慧管家的條件。</p>
+<p>要將人工智慧開發成管家或者像電影一樣擁有自我個性的人，想必需要更多人更多研究學者跟科學家合作，僅依靠一人團隊是不太可能，再加上現今人工智慧的技術發展還沒這麼的成熟。</p>
+<p>電影還是看看就好，雖然對人工智慧的夢想沒有當初這麼的濃厚，但是創造了Miri也開啟了我想要自己創作自己的軟體的道路。</p>
+<p>雖然想將Miri發展成聊天機器人或者朝向個人管家的目標出發，但是Miri缺乏一個主題性的產品概念，要做什麼樣的聊天機器人？他有什麼功能有什麼主題？</p>
+<p>我當時完全沒有任何想法，既想將Miri做成像情人一樣的聊天機器人，也想將Miri做成像Friday一樣的個人管家，但這就很像在大海裡撈針一樣，缺乏主題性的概念，就無法想像產品的最終形態，自然就不知道如何規劃開發跟實作計畫。</p>
+<h1>第三章 - 往占卜領域擴展</h1>
+<p>2019/8/15，我離開了第一份工作，要準備第二份工作的面試，我有一小段時間可以準備履歷跟更新作品集，由於已經有初步的軟體開發經驗與技術能力，在這段時間我把以前做的專案程式碼整理後，陸續上傳到github，還有就是部署在heroku的伺服器上，並在履歷的作品部分，附上github和正在運行的作品網址。</p>
+<p>由於第一份工作是在新創公司工作，公司的產品開發過程十分顛頗，缺乏主要方向以及主要的產品領導人，產品面臨一次又一次得重新規劃跟重做，我參與過很多網頁的專案開發還有公司產品的開發，但是沒有一個上線的專案或產品是可以秀給未來的面試官看。</p>
+<p>這時候我想到的是將擁有非常初階聊天機器人功能的 Miri拿出來繼續開發，我希望能夠將我在第一份工作所學到的所有技術跟技能都運用在Miri身上，Miri就能夠代表我在第一份工作學到的技術跟經驗集合。</p>
+<p>當時我並沒有想到要安排很多時間開發Miri，所以我大概只給自己1-2個月的時間開發Miri，然後就準備找下一份工作。</p>
+<p>在只有2個月的時間，我必須要將Miri做出一個有階段性成果的版本，所以一定不會是像是<code>聊天機器人</code>那樣擁有著開放性未來的主題。</p>
+<p>我指的是，我必須在僅有的兩個月時間，利用我所學，在Miri中做出一個具有主題性的功能，而不是像之前設定好的回覆語句，感覺這個專案/自作產品非常沒有完整性。</p>
+<p>在仔細思考後，由於我的個性驅使，我不想Miri的功能像是一般其他的聊天機器人一樣，我想到我之前有段時間研究過盧恩符文(一種占卜術)，這是一個獨立性質高且非常獨特的主題，而且我有信心能夠在兩個月內達成一個階段性的成就，足夠輔助我秀給未來的面試官看。</p>
+<p>因此，我決定就在原本基於Line bot api 機器人的基礎上，新做一個獨立性功能(盧恩符文占卜)的延伸，利用Line api特有的 <code>Template</code> 訊息型別來引導使用者進行占卜，添加點新的訊息型別，而不是像原本只有文字訊息單調的回覆。利用SQLite資料庫儲存靜態的盧恩符文資料與解釋，然後在透過訊息引導使用者點擊按鈕，透過隨機抽取的方式抓取結果，然後將結果跟解釋傳回給使用者。</p>
+<p>先是參考在第一份工作觀察到的程式架構設計，很簡單的設計了能符合擴展占卜功能的程式架構，同時也保有最一開始實作的簡單的對話語句及調情語句。</p>
+<p>總共大概花費只有3週的時間就完成此次規劃的目標，也就是Miri的第二版內容。</p>
+<p>然後學著使用Heroku將Miri架設在伺服器上，這樣 Miri就正式上線，提供使用者使用啦～</p>
+<p>雖然是很簡單的盧恩符文占卜，但是卻讓我在面試時能夠拿出來秀給面試官看，除此之外和同事聊天時也能説自己做了一個小小的軟體創作，也有朋友會時不時使用Miri來占卜盧恩符文。</p>
+<p>這就是Miri從最一開始定位在人工智慧管家，之後誤打誤撞轉型成占卜機器人的轉折點，到之後奠定成為機器人占卜師的過程。</p>
+<p>以上，是我從最一開始構想Miri的啟發，一直到開始實作，然後決定發展主題的過程，現在想起來其實也覺得蠻有趣的，在我的內心我並沒有把Miri當作是很重要的事情。</p>
+<p>但我卻會在每次離開一份工作後，都想將工作上學習到的知識跟技術運用在Miri身上。而開發Miri每次都讓我了解到我缺了哪些技術和知識，我需要學習哪些技術才能進行再下一步Miri的開發。</p>
+<p>也許是因為自己在工作上開發的每個專案跟產品都沒有上線運行過(大部分都被腰斬或者重做)，所以兩年後回眸，赫然發現自己身上竟有一個Miri很穩定的在伺服器上運行了兩年，而且還可以讓我隨時拿出來展示給別人看。</p>
+<p>雖然當時的我還沒有意識到Miri的重要性，因為我覺得我的能力不足以把Miri做成我心目中最終的樣貌。而此次離職，透過前同事的激勵與推動，再加上離職的雙重刺激下，我開始正視Miri的重要性。</p>
+<p>這個部分包含我這半年的開發心得，將會在下一篇描述。</p>
+<p>在撰寫本文時，我比較了 <code>Miri</code> 和 <code>りんな</code>，我理解了一些重要的概念。</p>
+<p>我認為最重要的是要釐清產品的定義：</p>
+<ul>
+<li>什麼是主要概念？</li>
+<li>目標用戶/客戶是誰？</li>
+<li>要實施的範圍有多廣？</li>
+</ul>
+<p>在做產品之前，需要通過這些問題來定義產品，因為結果將決定它需要多少團隊成員，需要什麼技能，需要營銷哪個地區，區域等等。</p>
+<p>作為工程師，從第一份工作開始，我只觀察實作方面跟單向溝通，停留在基本的位置。在這個時候開始廣泛開發 Miri 的 6 個月旅途中，我理解了很多概念，我發現我總是使用開發人員/工程師的角度來思考事情。</p>
+<p>不適合考慮產品的整個方面。</p>
+<p>在這段獨自開發Miri帶給我的是：</p>
+<ul>
+<li>我現在缺乏什麼技能/能力</li>
+<li>我接下來需要學習哪些技能/能力</li>
+<li>一種產品如何製造和運營、設計、設計程式、行銷</li>
+<li>一個產品的主要概念和訂定實作範圍有多重要</li>
+<li>切換不同角色的思維角度（有時是設計師，有時是工程師，有時是 PM，有時是產品負責人，考慮目標客戶以及如何行銷）</li>
+</ul>
+<p>還有很多不同的概念</p>
+<p>我享受著整體開發過程，我很高興我花了6個月的時間來開發 Miri 並了解了很多東西。</p>
+<p>那麼關於這些故事，請期待下一篇文章:)</p>
+11:T2009,<p>不知道是不是月經快來了</p>
+<p>每次月經來的那陣子，我的感性神經都能壓過理性神經，是說！！</p>
+<p>我上一篇文章也是月經期間發的哈哈，因為感性時刻才會比較好寫文章，如果一直都保持比較理性的一面，那大部分的時間就會是去寫程式或學習語言。</p>
+<p>終於，在這幾天我感受到一股強烈的力量，讓我連續好幾天都能保持專注且開發速度非常迅速。可能是因為原先十分無聊的打字工進度做完了(就是我要照著書上的解釋或者我自己的想法，手打鍵入資料庫)，我很早就知道這樣的工作對我來說非常枯燥，我不喜歡，但這些卡牌的解釋會是整個產品中重要的一環。</p>
+<p>度過了漫長兩個月的打字工產品進度後，回到了撰寫程式的部分，可能真的是蠻喜歡寫程式的，原先覺得需要再一個半月的開發進度，大概一週內就快完成了。</p>
+<p>終於啊，感覺可以在這週或者下週就把產品掛上正式服跑，然後歷經親友團的壓力測試(?)，因為現在產品使用人數也很少，所以可以直接掛上正式服做測試。</p>
+<p>大約一個月的測試加上修正期後，就正式結束了我長達半年的產品二版開發旅途。</p>
+<p>感覺非常的筋疲力竭，長達半年的一人團隊，一人分飾多個不同的角色，然後一同合作做出產品。</p>
+<p>在這期間我領悟到了很多事情是以前我工作時完全沒想過或領悟過的道理，也遇到很多大大小小的開發困難，但敵不過我內心熱情的開發動力，一個一個的想出辦法解決。</p>
+<p>大概在連一兩個月開始，我開始有了一些念頭，</p>
+<p><em><strong>我現在做的事情是正確的嗎？還是我應該要停下來，馬上去找工作？我會不會把自己想得太理想化了呢？</strong></em></p>
+<p><em><strong>我應該要繼續做嗎？會不會我花了半年的時間，結果感覺什麼都沒做？</strong></em></p>
+<p><em><strong>會不會我開發了半年產品，結果面試拿出來說的時候，被洗臉說怎麼只做了一點東西？</strong></em></p>
+<p><em><strong>面試官們看到我將近快一年沒工作，會不會覺得我很奇怪，會不會不錄用我？</strong></em></p>
+<p>正是打字工進度的時期，我開始產生這些負面的想法，但開發進度不太允許我停在這些負面的思想中盤旋，我眼睛睜開來，就開始動腦思考解決方法，今天要做多少進度？細細數著剩下的開發工作？解決不了的產品問題，我就帶入睡夢中思考。</p>
+<p>著急著為什麼感覺剩下最後一哩路，卻還是感覺結束日期遙遙無期，到後來我僅僅抱持著 <code>有時間就趕緊做</code> 的態度，而屏除那些焦慮的情緒。</p>
+<p>做一個軟體產品，其實真的不簡單，但我很喜歡，很喜歡這樣透過自己的手跟腦，憑空創造出來，我很享受每一次在電腦前寫程式的時光，很享受吃飯時，洗澡時都在思考怎麼改良產品或者想出解決方法。</p>
+<p>也許這段時光是我無薪在家沒工作經驗的開發時光，但學到的知識跟領悟到的道理，絕對不亞於我在工作時所學。</p>
+<p>也許，走跟別人不同的路，嘗試跟別人不同的人生經驗，本身就是得靠自己摸索，並沒有前人經驗可以參考。也許這就是我這個人生中代表的主旨，就是嘗試與眾不同的道路與方法，無論成功或失敗，都可以將自身的經驗透過網路的力量分享出去。</p>
+<p>我常說，幼稚園時，我知道下一個階段要進小學，小學畢業後要進國中，國中畢業後考高中，高中畢業後考大學，大學畢業後可能有些人往研究所走。</p>
+<p>但多的人可能會在大學畢業後突然就變得十分茫然，因為失去了人生的方向，看著求學的每個階段，我們都知道下個階段在哪，唯獨長大後，突然就不知道該如何走，因為路途從原本只有一個，突然變成茫茫大海。再加上社會，新聞或者家人的薰陶，也許會踏上了一條自己不怎麼喜歡的路途。</p>
+<p>我常常想，如果我不跟著做，會怎麼樣？如果我做了我腦中想的決定，會怎麼樣嗎？我會去選一個很多人不常選的路途，既沒有前人的經驗能參考，也沒有人能帶領，每一里路都得靠自己摸索，憑著自己20幾年根深蒂固所學，認真並自由的發展。</p>
+<p>產品還沒來得及有個結束，我就迫不及待地告訴朋友們，趕緊來幫忙測試我的產品。</p>
+<p>但其實我內心多少還是會擔心會覺得自卑，我做的軟體產品是跟占卜有關，我知道很多人不信占卜，也覺得這個是怪力亂神。也害怕他們會覺得看著軟體覺得 <code>這是什麼呀？</code>，然後很快就拋諸腦後了。</p>
+<p>我的部落格文章也是，當我越在乎點閱率時，越有得失心越害怕，點閱數就一樣低迷。但是當放置不去在乎，一樣秉持著認真寫文章的精神時，在不經意的時刻，點閱數居然突然高飛。</p>
+<p>果然，產品一開放讓親友們使用，就會出現蠻多使用上的問題。軟體本身就受限於通訊軟體的限制，再加上自己能力不足，沒辦法把使用者流程跟規劃程式架構的部分做得更好，收到了一些評論。</p>
+<p>如果是以往的自己，在工作上收到這樣的評論，由於還不會愛自己，所以總是會自己折磨自己，開始陷入低谷，覺得自己很爛很差，覺得自己很努力了怎麼還是這麼差，尤其是來自主管或者父母親的評論。</p>
+<p>但是這次收到的評論，老實說我自己也有期許，我清楚明白自己從來沒做過使用者流程規劃，也清楚明白自己目前的程式能力是越級去挑戰去當程式架構規劃，然後程式能力沒有這麼厲害，所以在開發或者規劃上除了和使用流程有時候很難搭配之外，包括開發的技術跟架構正如我所說，很多都是我第一次做挑戰，沒有人能引導我。</p>
+<p>除了本身能力外，我的軟體是掛在 Line 跟 Telegram 上透過 機器人 bot的概念延伸。剛開始由於自己是個後端工程師，不會前端的開發，所以選擇了通訊軟體的聊天機器人當作產品的前端。但沒想到，當我開發到一半時，我發現我受限於機器人的訊息類型，只能夠使用僅有的幾個模板或者只能透過對話模式展現我的產品。</p>
+<p>於是，我開始慢慢的不願意屈服掛在軟體機器人後，我開始去思考如果我能自己學習前端設計，開發網頁或者app去接我的後端程式，那就會變成一個完整的產品，而不是感覺處處受限制的產品。</p>
+<p>是讓我產生了想學習前端的想法，也為之後的產品規劃埋下伏筆。</p>
+<p><em><strong>究竟一個占卜或命理類型的軟體產品，應該要長什麼樣子呢？</strong></em></p>
+<p>也許我應該要趁這段時間(直到我有下一個這麼長時間的開發時期)，好好的思考跟規劃，從最廣泛從最後成品開始去構思，然後慢慢回推。</p>
+<p>順便說一句，我的這個產品其實同時也代表著我的個人能力目前在什麼地方，從最開始他只是個在大學請外師教一堂課的Echo聊天機器人，到我結束第一份工作，用學到的Python技術開始做出簡單的 <code>盧恩符文占卜</code> 功能，直到結束第二份工作，有最初階的程式架構設計經驗跟更深層的Python程式撰寫能力，然後憑著一顆熱忱的心，就投入開發。</p>
+<p>下次呢？會是帶著Python更深厚的程式撰寫能力及更深厚的程式架構設計經驗以及一點前端的功力來投入第三版的開發嗎？</p>
+<p>我們拭目以待～</p>
+<p>後續會更新之前的開發心得跟開發紀錄！</p>
+<p>最後雖然產品還沒完全完工，但是曬一張Line操作的畫面</p>
+<p><img src="https://minayu0416.files.wordpress.com/2021/07/img_7322.jpg" alt=""></p>
+2:["$","$L7",null,{"lang":"zh-TW","posts":[{"lang":"zh-TW","year":"2023","month":"08","slug":"frontend-how-to-do-simple-starry-sky-effect","isDraft":false,"content":"$8","author":"minayu416","title":"[前端] 使用CSS linear-gradient與Figma轉化SVG達成簡單的漸層星空特效。","date":"$D2023-08-18T12:26:20.000Z","status":"published","categories":["軟體開發 SWD","[前端] 前端知識研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"今天來分享一下，我是用CSS線性漸層linear-gradient搭配Figma轉出的星星SVG檔，構成的前端簡單星空背景效果。","tags":["自學前端的冒險計畫"],"keywords":["CSS","linear-gradient","前端 front-end","Figma","starry night effect"],"featured":"screenshot-2023-08-18-at-9.42.11-pm-3954764380-e1692366164937.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"zh-TW","year":"2023","month":"08","slug":"frontend-linear-gradient-change-background","isDraft":false,"content":"$9","author":"minayu416","title":"[前端] CSS背景若使用漸層效果(linear-gradient)，又需要有改變背景顏色的需求，該如何做？","date":"$D2023-08-12T12:56:20.000Z","status":"published","categories":["軟體開發 SWD","[前端] 前端知識研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"由於本人最近在開發自己的命理服務產品，大量使用了漸層(linear-gradient)的css背景顏色來美化前端頁面。其中一個功能是當使用者點選時，改變背景顏色，用原本的方式單純改變背景顏色(background-color)無法實現功能，後來找到解法並分享在文章。","tags":["自學前端的冒險計畫"],"keywords":["CSS","linear-gradient","overlay","background-color","absolute"],"featured":"screenshot-2023-08-12-at-9.21.18-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"zh-TW","year":"2023","month":"07","slug":"cors-resolution-note","isDraft":false,"content":"$a","author":"minayu416","title":"[後端] 解決CORS跨域請求的研究筆記(Python FastAPI + Firebase/Firestore)","date":"$D2023-07-07T05:37:20.000Z","status":"published","categories":["軟體開發 SWD","[後端] 後端技術研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"由於本人最近在開發自己的命理服務，需要前端網站請求後端API的功能，但遇到了先前常常遇到的CORS跨域請求問題，每次遇到每次忘記，因此這次特別來記錄一下解法。","tags":["1萬小時 - 後端工程師養成計劃"],"keywords":["CORS policy","Access-Control-Allow-Origin","Python FastAPI","Firebase and Firestore"],"featured":"","featuredalt":"","featuredpath":""},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-concept-3-new-feature-account-language","isDraft":false,"content":"$b","author":"minayu416","title":"[產品概念介紹] Miri的第三版新功能: 帳號管理、語言紀錄與切換介紹 | 開發概念系列(3)","date":"$D2021-09-14T09:12:02.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動。新的版本添加了語言設定與切換的功能，並新增英文可供使用者多一種語言選擇。而為了紀錄使用者預設語言，也新增開發了帳號功能，無論是未來需要新增帳號相關的設定或者開發註冊與管理功能，都可從帳號功能延伸。本篇將介紹語言功能跟帳號功能的設計概念與技術實現。","tags":["[產品] Miri 機器人算命師"],"keywords":["占卜","divination","product","軟體開發","heroku"],"featured":"screen-shot-2021-09-14-at-4.39.59-pm.png","featuredalt":"","featuredpath":"https://mingjungyu.files.wordpress.com/2021/09/"},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-concept-2-ui-user-flow-guide","isDraft":false,"content":"$c","author":"minayu416","title":"[產品概念介紹] Miri的使用者流程、占卜流程、使用者引導介紹 | 開發概念系列(2)","date":"$D2021-09-08T06:23:31.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動，我學著跳脫以往使用後端工程師角度思考，轉換為使用者與UI設計師的角度思考，使作品的使用者體驗跟流程順暢度大大提升，在第三版本的作品，新增了使用者引導訊息、改善占卜流程以及新增選單功能。這段日子帶給我很多心靈上跟實力上的進步，現在我就來分享這半年對於使用者流程與介面設計的概念。","tags":["[產品] Miri 機器人算命師"],"keywords":["占卜","divination","product","line bot","telegram bot"],"featured":"screen-shot-2021-04-21-at-10.14.59-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/04/"},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-technology-1-frontend-design-connect-backend-with-fastapi-line-bot-telegram-bot","isDraft":false,"content":"$d","author":"minayu416","title":"[產品使用技術][Python] Miri的前端與後端接口、整體程式架構介紹 | FastApi x Line Bot x Telegram Bot | 開發概念系列(1)","date":"$D2021-09-06T11:32:09.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動，我將原本的Flask框架改為FastApi，由原本只有Line Bot平台，新增Telegram的平台，無論是程式開發還是這篇文章都是自己綜合實力、努力、堅強跟嘗試的心血，它帶給我很多心靈上跟實力上的進步，現在我就來分享這半年實作技術方面的點點滴滴。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","fastapi","line bot","telegram bot","heroku"],"featured":"screen-shot-2021-09-06-at-4.55.08-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/09/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-4-the-future-plan","isDraft":false,"content":"$e","author":"minayu416","title":"[產品開發日記] Miri的未來規劃 | 開發日記系列(4) | 開發感想","date":"$D2021-08-30T05:10:07.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜命理軟體。本篇紀錄自己已將第三版本軟體功能開發完成，並反省自己在過去半年的開發經驗中學習到的概念與人生目標反思，最後為作品期許未來的發展與功能規劃。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"img_7985-e1630309209651.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-3-the-third-version","isDraft":false,"content":"$f","author":"minayu416","title":"[產品開發日記] 這半年的時間開發Miri第三版本的感想與進步 | 開發日記系列(3) | 開發感想","date":"$D2021-08-26T08:00:58.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜命理軟體。本篇紀錄自己終於發現自己想開發作品的心，以及決定要開發第三個版本，長達半年開發過程的感想。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"img_0453-e1630242161993.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-2-begin","isDraft":false,"content":"$10","author":"minayu416","title":"[產品開發日記] Miri的開發動機、起源與構想紀錄 | 開發日記系列(2) | 開發感想","date":"$D2021-08-23T06:52:06.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜軟體。利用寫小說的方式，描述自己從一開始啟發想要創作軟體的心，一直到實際執行，直到現在有了產品未來的最終樣貌，並持續努力前進。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"","featuredalt":"","featuredpath":""},{"lang":"zh-TW","year":"2021","month":"07","slug":"miri-development-series-1-final","isDraft":false,"content":"$11","author":"minayu416","title":"[產品開發日記] 最後一哩路！筋疲力竭的抒發心得 | 開發日記系列(1) | 輕短文 | 開發感想","date":"$D2021-07-29T16:14:56.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜軟體。使用Python連接Line和 Telegram的Bot製作占卜類型的軟體，在最後的開發時段抒發這幾個月的感想。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","line","telegram","占卜 divination","命理 fortune telling"],"featured":"screen-shot-2021-07-31-at-12.56.49-am.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/07/"}]}]
+6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Create Next App"}],["$","meta","3",{"name":"description","content":"Generated by create next app"}],["$","link","4",{"rel":"icon","href":"/staging/favicon.ico","type":"image/x-icon","sizes":"16x16"}],["$","meta","5",{"name":"next-size-adjust"}]]
+1:null
