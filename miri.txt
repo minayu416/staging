@@ -1,60 +1,67 @@
 3:I[9275,[],""]
 5:I[1343,[],""]
+6:I[4080,["185","static/chunks/app/layout-57c233894bc87518.js"],""]
 4:["routes","miri","c"]
-0:["BtztGXLghCb4kyyOoKl_H",[[["",{"children":[["routes","miri","c"],{"children":["__PAGE__?{\"routes\":[\"miri\"]}",{}]}]},"$undefined","$undefined",true],["",{"children":[["routes","miri","c"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},[["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null],null]},[["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__className_dcd603","children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/staging/_next/static/css/0a1d829d3b405975.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L6"]]]]]
-7:I[4633,["676","static/chunks/870fdd6f-d8d8a996639eb86b.js","99","static/chunks/99-8b11c91fca0a0585.js","920","static/chunks/920-d7de7a79109c9690.js","635","static/chunks/635-e879002c1d5bc2de.js","432","static/chunks/app/%5B...routes%5D/page-3d032cf2ba4633f3.js"],"default"]
-8:T183f,<p>在開發自己設計的命理軟體，終於逐漸地進入到開發一些當初我覺得比較困難的效果設計。</p>
-<p>應該會常常遇到的是UI設計師設計很炫的特效跟畫面，但前端工程師眉頭一皺，煩惱著到底要怎麼達成那個效果？</p>
-<p>這個狀況在我身上沒有發生，因為作為自己集結設計+開發為一身的角色，當初我剛學會使用Figma並開始設計出我腦內偉大的初版前端畫面時，為了讓整個軟體服務品質看起來美觀，也是特別設計了幾項我當時覺得進開發一定會卡著不知道怎麼做的效果。</p>
-<p>不過畢竟Figma還是一款特別設計軟體前端介面為主的服務，所以許多功能上還是基於前端開發的功能去使用，不像真實的藝術家，那一筆那一畫，或者特效師做了許多的酷炫特效，前端工程師會刻不出來的窘境。</p>
+0:["gWYZ_fHc--fCqAKiSTZKH",[[["",{"children":[["routes","miri","c"],{"children":["__PAGE__?{\"routes\":[\"miri\"]}",{}]}]},"$undefined","$undefined",true],["",{"children":[["routes","miri","c"],{"children":["__PAGE__",{},[["$L1","$L2"],null],null]},[["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}],null],null]},[["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","$L6",null,{"src":"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","strategy":"afterInteractive"}],["$","$L6",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-EETGWC7GNV","strategy":"afterInteractive"}],["$","$L6",null,{"id":"ga4-init","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-EETGWC7GNV', {\n              page_path: window.location.pathname,\n            });\n          "}]]}],["$","body",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]]}],null],null],[[["$","link","0",{"rel":"stylesheet","href":"/staging/_next/static/css/a885b08f1e348bb1.css","precedence":"next","crossOrigin":"$undefined"}]],[null,"$L7"]]]]]
+8:I[4633,["676","static/chunks/870fdd6f-d8d8a996639eb86b.js","99","static/chunks/99-8b11c91fca0a0585.js","920","static/chunks/920-d7de7a79109c9690.js","635","static/chunks/635-ab82260154b40da3.js","432","static/chunks/app/%5B...routes%5D/page-d1eba579bc58afde.js"],"default"]
+9:T189d,<p>在開發自己設計的命理軟體，終於逐漸地進入到開發一些當初我覺得比較困難的效果設計。</p>
+<p>應該會常常遇到的是 UI 設計師設計很炫的特效跟畫面，但前端工程師眉頭一皺，煩惱著到底要怎麼達成那個效果？</p>
+<p>這個狀況在我身上沒有發生，因為作為自己集結設計+開發為一身的角色，當初我剛學會使用 Figma 並開始設計出我腦內偉大的初版前端畫面時，為了讓整個軟體服務品質看起來美觀，也是特別設計了幾項我當時覺得進開發一定會卡著不知道怎麼做的效果。</p>
+<p>不過畢竟 Figma 還是一款特別設計軟體前端介面為主的服務，所以許多功能上還是基於前端開發的功能去使用，不像真實的藝術家，那一筆那一畫，或者特效師做了許多的酷炫特效，前端工程師會刻不出來的窘境。</p>
 <p>今天，來簡單分享一個自己當初覺得應該會蠻難達成的一個美觀效果，但後來居然找到方式做出來了。</p>
 <h2>需求介紹</h2>
-<p>我先show出我在Figma設計渲染得很開心的圖。</p>
+<p>我先 show 出我在 Figma 設計渲染得很開心的圖。</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
-<p>這是一張透過線性渲染效果來呈現夜空作為背景，再手動一條一條拉金色的星空，用Figma做的前端背景。</p>
+<p>這是一張透過線性渲染效果來呈現夜空作為背景，再手動一條一條拉金色的星空，用 Figma 做的前端背景。</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.35.06-pm.png" alt="miri-home-page"></p>
 <p>所以基於這個背景再加上一些元素後，可以很好搭配命理的神秘感。</p>
 <p>這是我自學自己幫我的命理軟體加上第一版前端頁面的設計。</p>
 <p>為了讓整個軟體服務看起來更夢幻跟神秘，我特地加上了星星，並將背景調成漸層，但在前端開發上，就會需要比較多工。</p>
 <p>當時確實是考慮了幾種方式，問了其他同事，得出幾種答案。</p>
 <ul>
-<li>用css刻。</li>
+<li>用 css 刻。</li>
 <li>直接放一張圖。</li>
 </ul>
-<p>本來想說用第一種方式，用純css刻，這樣對於網站的loading也會比較小，但後來居然誤打誤撞，用了第二種方式，接下來就來針對第二種方式寫下解法。</p>
+<p>本來想說用第一種方式，用純 css 刻，這樣對於網站的 loading 也會比較小，但後來居然誤打誤撞，用了第二種方式，接下來就來針對第二種方式寫下解法。</p>
 <h2>解法</h2>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
-<p>先看一下Figma的圖，要做出這樣的背景，以下幾個步驟。</p>
+<p>先看一下 Figma 的圖，要做出這樣的背景，以下幾個步驟。</p>
 <ol>
-<li>在background 用 線性漸層 linear-gradient 先把夜空的效果做出來。</li>
-<li>將Figma上的設計，用Figma的Plugin 導出SVG檔</li>
-<li>將SVG檔和原本設計的背景做調整與整合。</li>
+<li>在 background 用 線性漸層 linear-gradient 先把夜空的效果做出來。</li>
+<li>將 Figma 上的設計，用 Figma 的 Plugin 導出 SVG 檔</li>
+<li>將 SVG 檔和原本設計的背景做調整與整合。</li>
 </ol>
-<p>首先第一步驟，我們先用 線性漸層勾勒出夜空背景，以下是css。</p>
+<p>首先第一步驟，我們先用 線性漸層勾勒出夜空背景，以下是 css。</p>
 <pre><code class="language-css">/* 我們用了三層漸層從上而下製造出夜空效果 */
 .wallpaper {
-  background: linear-gradient(to bottom, rgba(23, 18, 50), rgba(49, 22, 56), rgba(53, 53, 119));
+  background: linear-gradient(
+    to bottom,
+    rgba(23, 18, 50),
+    rgba(49, 22, 56),
+    rgba(53, 53, 119)
+  );
 }
 </code></pre>
-<pre><code class="language-html">
-&#x3C;div class="wallpaper">
-
-&#x3C;/div>
-
+<pre><code class="language-html">&#x3C;div class="wallpaper">&#x3C;/div>
 </code></pre>
 <p>這樣就可以很好的渲染出夜空漸層效果。</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.21.00-pm.png" alt="night-effect"></p>
-<p>再來是第二步驟，我們需要把星空，在Figma用Plugin導出。</p>
-<p>在Figma中，選取你的星星效果(記得將他們都group by起來)，去Plugins找到<code>SVG Export</code> 這個工具。</p>
-<p>記得要點選你的特效再按Plugin，他就會將你的特效轉成SVG。</p>
+<p>再來是第二步驟，我們需要把星空，在 Figma 用 Plugin 導出。</p>
+<p>在 Figma 中，選取你的星星效果(記得將他們都 group by 起來)，去 Plugins 找到<code>SVG Export</code> 這個工具。</p>
+<p>記得要點選你的特效再按 Plugin，他就會將你的特效轉成 SVG。</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.22.27-pm.png" alt="export-step-of-stars"></p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-9.23.01-pm.png" alt="export-svg-tool-in-figma"></p>
-<p>接下來就會存成一個svg檔。</p>
-<p>第三個步驟是將SVG檔和我們的背景整合！</p>
-<p>我試過直接在wallpaper div裡直接放一張圖片然後導入SVG檔，這可以達成我們要的效果，但是在這背景上所有其他的元件跟按鈕都沒辦法點選，因為會直接被圖片蓋掉，也嘗試過用<code>z-index</code>去調，很無奈的是由於我有一個頁面是一堆卡牌需要用到一堆z-index，所以他們的垂直關係變得錯綜複雜。</p>
+<p>接下來就會存成一個 svg 檔。</p>
+<p>第三個步驟是將 SVG 檔和我們的背景整合！</p>
+<p>我試過直接在 wallpaper div 裡直接放一張圖片然後導入 SVG 檔，這可以達成我們要的效果，但是在這背景上所有其他的元件跟按鈕都沒辦法點選，因為會直接被圖片蓋掉，也嘗試過用<code>z-index</code>去調，很無奈的是由於我有一個頁面是一堆卡牌需要用到一堆 z-index，所以他們的垂直關係變得錯綜複雜。</p>
 <p>所以後來我運用了 <code>before</code>跟<code>after</code> 加上 <code>relative</code> 與 <code>absolute</code>，可以達成的需求，又能在背景上實作其他功能，請參照以下的程式碼。</p>
 <pre><code class="language-css">.wallpaper {
-  background: linear-gradient(to bottom, rgba(23, 18, 50), rgba(49, 22, 56), rgba(53, 53, 119));
+  background: linear-gradient(
+    to bottom,
+    rgba(23, 18, 50),
+    rgba(49, 22, 56),
+    rgba(53, 53, 119)
+  );
   /* 記得加relative，才能讓absolute的svg檔符貼在背景上 */
   position: relative;
 }
@@ -74,58 +81,54 @@
   background-size: contain;
 }
 </code></pre>
-<pre><code class="language-html">
-&#x3C;div class="wallpaper">
-
-&#x3C;/div>
-
+<pre><code class="language-html">&#x3C;div class="wallpaper">&#x3C;/div>
 </code></pre>
-<p>記得兩者整合時，我們是將svg檔貼在背景上，所以原本的背景要加上 <code>position:relative</code>，後面導入的svg要加上<code>position:absolute</code>，如此一來便能達到我們預計的星空背景。</p>
+<p>記得兩者整合時，我們是將 svg 檔貼在背景上，所以原本的背景要加上 <code>position:relative</code>，後面導入的 svg 要加上<code>position:absolute</code>，如此一來便能達到我們預計的星空背景。</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-18-at-8.34.34-pm.png" alt="starry-sky-by-figma"></p>
-<p>不過透過Figma svg export Plugin導出的svg檔會有一點點誤差，所以在設置位置時，要自己調整一下 top, left, right and bottom 值，讓SVG檔符合你想要的效果.</p>
+<p>不過透過 Figma svg export Plugin 導出的 svg 檔會有一點點誤差，所以在設置位置時，要自己調整一下 top, left, right and bottom 值，讓 SVG 檔符合你想要的效果.</p>
 <p>大家試試看吧！</p>
 <p>由於我是自學前端，學習的方式很粗糙，就是直接做專案，沒有一個有系統地學習方式，沒有使用教學課程的習慣。</p>
 <p>所以如果有其他前端工程師們有更好的解法，麻煩分享給我，我會更新文章。</p>
 <p>感謝收看唷！</p>
-9:T101b,<p>由於我自己開發的命理服務產品，有大量使用漸層效果渲染前端，為求美麗的頁面呈現，加上是自己自學前端工程，所以卡了這個問題有一段時間，後來解決了，撰寫一篇文章分享給需要的其他工程師小夥伴們。</p>
+a:Tffb,<p>由於我自己開發的命理服務產品，有大量使用漸層效果渲染前端，為求美麗的頁面呈現，加上是自己自學前端工程，所以卡了這個問題有一段時間，後來解決了，撰寫一篇文章分享給需要的其他工程師小夥伴們。</p>
 <h2>需求介紹</h2>
 <p>再正式進入解法之前，先上圖解釋。</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-8.59.56-pm.png" alt=""></p>
 <p>這個頁面是其中一頁我自己開發的產品頁面，圖中的金邊框框，我使用了漸層效果來展示毛玻璃微透明感，這還不是最終完成的樣子。</p>
-<p>以下是我的CSS和html</p>
-<pre><code class="language-html">    &#x3C;div className='h-32 w-32 rounded-[20px]'>
-        &#x3C;div className='h-32 w-32 rounded-[20px] border square'>
-        &#x3C;/div>
-    &#x3C;/div>
-
+<p>以下是我的 CSS 和 html</p>
+<pre><code class="language-html">&#x3C;div className="h-32 w-32 rounded-[20px]">
+  &#x3C;div className="h-32 w-32 rounded-[20px] border square">&#x3C;/div>
+&#x3C;/div>
 </code></pre>
-<pre><code class="language-css">
-.square {
-  border-color: #EACB84;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+<pre><code class="language-css">.square {
+  border-color: #eacb84;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)
+  );
 }
-
 </code></pre>
 <p>那在這個命理服務中，使用者需要根據他本身的需求選擇牌陣，所以我希望當使用者選取該牌陣時，給予一個特效，如下：</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-9.00.13-pm.png" alt=""></p>
-<p>剛開始，我就想著這還不簡單，使用 hover 然後change background的顏色就好，但卻行不通，沒有任何反應。</p>
+<p>剛開始，我就想著這還不簡單，使用 hover 然後 change background 的顏色就好，但卻行不通，沒有任何反應。</p>
 <p>卡這個問題，卡了一段時間，後來找了很多文章後，才找到根源，以下是我的解法。</p>
 <h2>解法</h2>
 <p>由於我是自學前端，學習的方式很粗糙，就是直接做專案，沒有一個有系統地學習方式，沒有使用教學課程的習慣，因為我不太喜歡看影片，有可能在某個教學課程中有提到，但我渾然不知。</p>
 <p>以下是我後來查到的原因：</p>
-<p><strong>使用linear-gradient漸層效果顏色的優先度比其他單純的顏色還高，所以單純用hover或者單純在寫一個css改變backgound-color是行不通的。</strong></p>
-<p>後來我查網站的解法是用 overlay + absolute的方式解決，在原先使用漸層效果的div前新加一個overlay的div，把原本的漸層背景蓋掉。</p>
+<p><strong>使用 linear-gradient 漸層效果顏色的優先度比其他單純的顏色還高，所以單純用 hover 或者單純在寫一個 css 改變 backgound-color 是行不通的。</strong></p>
+<p>後來我查網站的解法是用 overlay + absolute 的方式解決，在原先使用漸層效果的 div 前新加一個 overlay 的 div，把原本的漸層背景蓋掉。</p>
 <p>不過如果有其他前端大神有更好的解法，歡迎分享給我，我會更新文章。</p>
-<p>於是，我在我原先的square div前加一個overlay，偵測只要該div被選取，就新增一個overlay div，然後再製作一個overlay的css，我們來看code</p>
-<pre><code class="language-html">    &#x3C;!-- 記得要加relative，因為overlay會是使用absolute去疊在這個div上，蓋掉原本的背景顏色  -->
-    &#x3C;div className='relative h-32 w-32 rounded-[20px]'>
-        &#x3C;!-- 因為我是用React.js 開發，所以這麼寫等同於當這個div被選取時，前面自動加一個overlay的div改掉原本的顏色-->
-        &#x3C;!-- 你可以根據你使用的框架或Javascript來改，總之就是一有點取的動作，就新增這個overlay的div -->
-        {selectedDiv === square.id &#x26;&#x26; &#x3C;div className="overlay">&#x3C;/div>}
-            &#x3C;div className='h-32 w-32 rounded-[20px] border square'>
-            &#x3C;/div>
-    &#x3C;/div>
-
+<p>於是，我在我原先的 square div 前加一個 overlay，偵測只要該 div 被選取，就新增一個 overlay div，然後再製作一個 overlay 的 css，我們來看 code</p>
+<pre><code class="language-html">&#x3C;!-- 記得要加relative，因為overlay會是使用absolute去疊在這個div上，蓋掉原本的背景顏色  -->
+&#x3C;div className="relative h-32 w-32 rounded-[20px]">
+  &#x3C;!-- 因為我是用React.js 開發，所以這麼寫等同於當這個div被選取時，前面自動加一個overlay的div改掉原本的顏色-->
+  &#x3C;!-- 你可以根據你使用的框架或Javascript來改，總之就是一有點取的動作，就新增這個overlay的div -->
+  {selectedDiv === square.id &#x26;&#x26;
+  &#x3C;div className="overlay">&#x3C;/div>
+  }
+  &#x3C;div className="h-32 w-32 rounded-[20px] border square">&#x3C;/div>
+&#x3C;/div>
 </code></pre>
 <pre><code class="language-css">.overlay {
   /* position 是absolute，直接在最上層蓋掉原本的背景顏色 */
@@ -136,32 +139,31 @@
   height: 100%;
   border-radius: 20px;
   background-color: rgba(234, 203, 132);
-  opacity: 0.4; 
+  opacity: 0.4;
 }
-
 </code></pre>
 <p>如此一來，就能實現以下的效果：</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/08/screenshot-2023-08-12-at-9.00.13-pm.png" alt=""></p>
 <p>以上就是這次開發產品時遇到的前端問題，我不知道有沒有其他更好的解法，所以如果有工程師夥伴們有任何想法，歡迎在下面的留言區點開留言，或者寄信給我，我會把其他解法更新在文章上，造福更多工程師們。</p>
 <p>感謝收看！</p>
-a:Tf9b,<p>由於最近在將我的命理服務的前端和後端串接，又遇到了CORS跨域問題，但我記得這個問題先前也有遇過，可是完全忘記之前怎麼解決，所以這次特地寫了一篇文章紀錄。</p>
-<h2>前言 &#x26; 什麼是CORS (Cross-origin resource sharing)</h2>
+b:Tfdd,<p>由於最近在將我的命理服務的前端和後端串接，又遇到了 CORS 跨域問題，但我記得這個問題先前也有遇過，可是完全忘記之前怎麼解決，所以這次特地寫了一篇文章紀錄。</p>
+<h2>前言 &#x26; 什麼是 CORS (Cross-origin resource sharing)</h2>
 <p>我相信許多其他部落客或技術文章會寫得比我更詳細，這邊就簡短描述一下。</p>
-<p>在提及CORS之前，先描述同源策略(Same-origin policy)，由於資訊安全的關係，為防止網站內的資源請求(例如前端call後端的API取得資訊，或者前端網站的圖像、CSS及一些資源需要使用外部請求時)，必須是同源/同個域名/同個domain，為防止駭客或其他有心人士假冒假的域名侵入你的服務。</p>
-<p>但隨著科技的發達呢，現在的軟體服務很多會去使用到第三方或者外部的資源請求，所以就會有CORS跨域請求的出現。</p>
+<p>在提及 CORS 之前，先描述同源策略(Same-origin policy)，由於資訊安全的關係，為防止網站內的資源請求(例如前端 call 後端的 API 取得資訊，或者前端網站的圖像、CSS 及一些資源需要使用外部請求時)，必須是同源/同個域名/同個 domain，為防止駭客或其他有心人士假冒假的域名侵入你的服務。</p>
+<p>但隨著科技的發達呢，現在的軟體服務很多會去使用到第三方或者外部的資源請求，所以就會有 CORS 跨域請求的出現。</p>
 <ol>
-<li>我最現成的例子是Jamstack，我將我的前端網站架在Github，但後端的API我架在Vercel上，當前端使用fetch對後端的API請求時，出現了<code>Access to Reqeust, ... has been blocked by CORS policy</code>。</li>
+<li>我最現成的例子是 Jamstack，我將我的前端網站架在 Github，但後端的 API 我架在 Vercel 上，當前端使用 fetch 對後端的 API 請求時，出現了<code>Access to Reqeust, ... has been blocked by CORS policy</code>。</li>
 </ol>
 <p>這應該是蠻多技術人員會遇到的問題。</p>
 <ol start="2">
-<li>先前我的前端網站需要存取Google Firestore &#x26; Firebase資訊時，也遇到了CORS問題。</li>
+<li>先前我的前端網站需要存取 Google Firestore &#x26; Firebase 資訊時，也遇到了 CORS 問題。</li>
 </ol>
-<p>但本人非常的健忘，所以以至於這次遇到CORS問題時，又花了些時間找解決方法。</p>
-<p>許多以前端為本的解決方法嘗試過了沒有成功，後來才想起是要去後端的部分加上CORS，然後將前端的網域加入白名單，使前端請求能被允許傳入後端API中。</p>
-<p>我查了很多關於後端的解決方式，但因為每個人的服務都不同，有的服務需要去NGINX 修改設定，但我的是去後端API層加上CORS實作，所以本篇會以兩個我遇到的案例提供解決方法。</p>
+<p>但本人非常的健忘，所以以至於這次遇到 CORS 問題時，又花了些時間找解決方法。</p>
+<p>許多以前端為本的解決方法嘗試過了沒有成功，後來才想起是要去後端的部分加上 CORS，然後將前端的網域加入白名單，使前端請求能被允許傳入後端 API 中。</p>
+<p>我查了很多關於後端的解決方式，但因為每個人的服務都不同，有的服務需要去 NGINX 修改設定，但我的是去後端 API 層加上 CORS 實作，所以本篇會以兩個我遇到的案例提供解決方法。</p>
 <h2>案例一: 前端 React.js with 後端 Python Fask API</h2>
-<p>當React.js實作的前端網站使用fetch 送出HTTPS 請求時，被後端API 擋下產生CORS問題。</p>
-<p>因此這邊的解決方式就是，我們在後端的API層實作CORS，並將前端網域加入白名單，以下是實作程式碼:</p>
+<p>當 React.js 實作的前端網站使用 fetch 送出 HTTPS 請求時，被後端 API 擋下產生 CORS 問題。</p>
+<p>因此這邊的解決方式就是，我們在後端的 API 層實作 CORS，並將前端網域加入白名單，以下是實作程式碼:</p>
 <pre><code class="language-py">
 # Import fastapi的套件
 from fastapi import FastAPI
@@ -178,7 +180,7 @@ origins = [
     "https://example.com"
 ]
 
-# (3) Init CORS物件，並將設定及白名單加入app中 
+# (3) Init CORS物件，並將設定及白名單加入app中
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -193,16 +195,16 @@ def hello_word():
     return {"Hello": "World"}
 </code></pre>
 <h2>案例二: React.js 前端 存取 Google Firestore or Firebase</h2>
-<p>在此案例為React.js前端網頁存取Google的資料庫(Firestore or Firebase)，前端網頁的域名被Google擋掉。</p>
-<p>而設定需要去Google Cloud的Console去做設定</p>
-<p>先前往Google Firebase Console，選取你的專案(此為fancy-chatroom)，然後確認有沒有Authentication在左邊的Navbar。</p>
+<p>在此案例為 React.js 前端網頁存取 Google 的資料庫(Firestore or Firebase)，前端網頁的域名被 Google 擋掉。</p>
+<p>而設定需要去 Google Cloud 的 Console 去做設定</p>
+<p>先前往 Google Firebase Console，選取你的專案(此為 fancy-chatroom)，然後確認有沒有 Authentication 在左邊的 Navbar。</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.24.33-pm.png" alt=""></p>
-<p>如果沒有的話，需要進入左邊最下面的所有產品，然後創一個新的Authentication</p>
+<p>如果沒有的話，需要進入左邊最下面的所有產品，然後創一個新的 Authentication</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.26.09-pm.png" alt=""></p>
-<p>創好後，回到 Authentication -> Settings -> 授權網域 -> 新增網域，加入你希望能夠allow哪些網站的請求，加入完之後就不會有CORS的報錯了！</p>
+<p>創好後，回到 Authentication -> Settings -> 授權網域 -> 新增網域，加入你希望能夠 allow 哪些網站的請求，加入完之後就不會有 CORS 的報錯了！</p>
 <p><img src="https://minayu0416.files.wordpress.com/2023/07/screenshot-2023-07-07-at-2.28.27-pm.png" alt=""></p>
 <p>大家試試看吧！</p>
-b:T2499,<p>這篇開發概念應該會是這陣子的最後一篇，第三版本的新功能與概念設計就到這篇為止，給自己半年的時間把Miri將原本只是個小玩具專案的規模，建築為具有發展性的產品，接著開發的工作會暫時打住，並開始規劃未來的實作方向。</p>
+c:T2499,<p>這篇開發概念應該會是這陣子的最後一篇，第三版本的新功能與概念設計就到這篇為止，給自己半年的時間把Miri將原本只是個小玩具專案的規模，建築為具有發展性的產品，接著開發的工作會暫時打住，並開始規劃未來的實作方向。</p>
 <p>至於為什麼和上一篇撰寫日期差了有一週，因為本人在這週施打了新冠肺炎AZ疫苗，受到疫苗年輕人之認證，躺著高燒兩天外加幾天全身肌肉與神經痠痛，還有誤吃含有咖啡因的退燒藥兩天通宵沒睡，所以將近一週的時間完全沒辦法在電腦前撰寫文章。</p>
 <p>在第三版本還有兩個新的功能，雖然使用者不會有太明顯的感受，卻在後續軟體開發跟維護中佔了很大的作用，那就是帳號功能與語言功能。</p>
 <p>當初是<code>語言功能</code>最先被列入規劃開發的行列中，因為我在將Miri展現給我的外國朋友看時，我發現他們只能就第二版功能的錄影來觀賞<code>功能面</code>的呈現。因為我大部分的外國人朋友是沒有使用Line通訊軟體，除了當初並沒有做除了Line之外的通訊軟體，語言也只有中文一個語言而已。</p>
@@ -351,7 +353,7 @@ b:T2499,<p>這篇開發概念應該會是這陣子的最後一篇，第三版本
 <p>以上就是這次實作語言功能跟帳號功能的解說。</p>
 <p>通常語言選擇會是前端的部分處理，但是因為這次實作Miri，前端是使用社交軟體的Bot功能來呈現，所以如果要額外紀錄語言的話，只能自己在後端這邊自行紀錄。壞處就是如果未來帳號資訊過多或者訊息過多，那後端的暫存空間會使用越來越多，讀取暫存的次數也會越多，相反的如果是由前端傳入使用者預設語言的話，就不需要暫存來存放語言的紀錄，訊息的傳遞速度跟程式的運作也許會變得比較快。</p>
 <p>不過總之，這些規劃跟解決方法也都會一併列入下一次開發版本優化或開發的功能之一。</p>
-c:T3a25,<p>開發Miri的技術與概念第二篇，來分享一些與第一篇較不同面向的開發概念。</p>
+d:T3a25,<p>開發Miri的技術與概念第二篇，來分享一些與第一篇較不同面向的開發概念。</p>
 <p>對比於Miri的第二版本，除了Line Bot的技術有改善之外，還新增的Telegram Bot的平台供給使用。</p>
 <p>這部分在上篇文章以超級長文的形式分享了，接下來分享一些比較偏向使用者面向及UI面向的概念規劃。</p>
 <h1>使用者流程發想起源</h1>
@@ -481,7 +483,7 @@ c:T3a25,<p>開發Miri的技術與概念第二篇，來分享一些與第一篇�
 <p>以上就是這次針對Miri第三版本關於使用者流程的優化與改善，雖然還有許多流程上以及使用者的不便，但相較於第二版本已經進步很多，加上又必須會被兩個社群軟體Bot的功能侷限，能做到這個程度我已經很開心了。</p>
 <p>接下來的優化跟改善就交給之後未來的規劃，看要怎麼設計或者突破侷限。</p>
 <p>感謝觀看！</p>
-d:Tb0ce,<p>由於本人健康問題，再加上這幾天有其他事情比較重要，還有就是一下把開發感想寫完，寫文章的靈感突然全無，所以跟技巧還有概念設計相關的文章就拖到了現在才有靈感撰寫。</p>
+e:Tb0ce,<p>由於本人健康問題，再加上這幾天有其他事情比較重要，還有就是一下把開發感想寫完，寫文章的靈感突然全無，所以跟技巧還有概念設計相關的文章就拖到了現在才有靈感撰寫。</p>
 <p>再將近一週內心的沈澱後，我想應該可以好好的撰寫本系列的文章了，我應該會分成三到四篇來撰寫。</p>
 <p>這篇主要介紹的是Miri的前端設計，以及和後端API接口的程式設計。</p>
 <p><em><strong>整篇文章非常的長，以下為整篇文章的目錄</strong></em></p>
@@ -1253,7 +1255,7 @@ command2 - Another description
 <p>這是我目前短暫想出的方式，也許會讓Line使用者在使用上有點多此一舉跟卡卡的感覺。期望未來如果我實作前端網頁跟mobile版本後，就不需要糾結於這個問題，但也有可能未來即便出了網頁跟手機端，還是會保留機器人版本(說不定喔！)</p>
 <p>好啦，這篇應該是產品技術文章中最長的文章，能看到這邊的人也蠻厲害的了(還是只會有我看得到XD)</p>
 <p>多謝支持啦！</p>
-e:T2007,<p>在過去毫無意識的狀態下，我一直在思考，作為一個軟體產業的工程師，我的追逐目標跟夢想是什麼？</p>
+f:T2007,<p>在過去毫無意識的狀態下，我一直在思考，作為一個軟體產業的工程師，我的追逐目標跟夢想是什麼？</p>
 <p>對我來說目標跟夢想是啟動跟維持熱忱最好的驅動力，即便這個夢想也許是很遙遠的，但也因為夠困難夠遙遠，才能讓我維持毅力持續努力。</p>
 <p>一直到近期幾年，訂下的目標跟夢想，都因為自己的努力達成，</p>
 <p>我記得從最一開始只是覺得修理電腦的懂一點電腦很有成就感，就這麼地把我從原本茫然的狀態下，拉回主線考研究所認真鑽研資訊產業。</p>
@@ -1332,7 +1334,7 @@ e:T2007,<p>在過去毫無意識的狀態下，我一直在思考，作為一個
 <p>當然這些功能其實都具有一定的技術難度，很多也是目前市面上現有的命理性質軟體尚未做到的部分，但是我想在未來實現這些功能。</p>
 <p>之後的功能規劃還是要看看之後我的決定為何，希望在歷經腦力激盪後，能有比較清晰的產品主軸內容產出。</p>
 <p>感謝大家的觀看，也感謝我自己的反思。</p>
-f:T67cb,<p>回想這段日子，彷彿好像事情昨天才發生，時間很快就過去了</p>
+10:T67cb,<p>回想這段日子，彷彿好像事情昨天才發生，時間很快就過去了</p>
 <p>這段日子帶給我很多收穫，雖然在期間我曾經懷疑陷入茫然不安的情緒中，但是堅定的直覺力，讓我即便承受著極度茫然與悲傷的情緒中，還是努力繼續做直到完成。</p>
 <p>那麼就來看看這半年的故事吧！</p>
 <h1>第四章 - 來自同事的鼓勵</h1>
@@ -1522,7 +1524,7 @@ f:T67cb,<p>回想這段日子，彷彿好像事情昨天才發生，時間很快
 <p>在製作Miri這個產品時，我學到的不只是自己作為後端工程師的本分，學會平衡產品前後端，切換以使用者跟設計師角度切入，還有像個小PM規劃功能跟時程，這段經驗帶給我的又是跟以往完全不一樣的學習，值得啦！</p>
 <p>最後，在把第三版本Miri做出來後，我開始慢慢發想產品未來的規劃，像是未來想獨立出前端的部分，就不要再掛在社群軟體的Bot上了，然而最重要的事情，也是最近才新領悟的事情。</p>
 <p>我留到下一篇撰寫，跟著未來規劃一起撰寫。</p>
-10:T3983,<p>原本我將當初是怎麼構想Miri的故事寫在Github README 裡。</p>
+11:T3983,<p>原本我將當初是怎麼構想Miri的故事寫在Github README 裡。</p>
 <p>但最近完成第三版的開發，並且要重新撰寫README的時候，我發現我應該把這類型的描述移動到部落格文章內，再加上想紀錄自己做Miri的動機跟故事。</p>
 <p>由於我是個很容易忘記過去的人，所以我希望可以透過文章的方式，將這段 Miri 軟體開發的故事給記錄下來，無論我未來有沒有成功，他都會是一段有趣的故事。</p>
 <h1>第一章 - Miri 誕生了</h1>
@@ -1599,7 +1601,7 @@ f:T67cb,<p>回想這段日子，彷彿好像事情昨天才發生，時間很快
 <p>還有很多不同的概念</p>
 <p>我享受著整體開發過程，我很高興我花了6個月的時間來開發 Miri 並了解了很多東西。</p>
 <p>那麼關於這些故事，請期待下一篇文章:)</p>
-11:T2009,<p>不知道是不是月經快來了</p>
+12:T2009,<p>不知道是不是月經快來了</p>
 <p>每次月經來的那陣子，我的感性神經都能壓過理性神經，是說！！</p>
 <p>我上一篇文章也是月經期間發的哈哈，因為感性時刻才會比較好寫文章，如果一直都保持比較理性的一面，那大部分的時間就會是去寫程式或學習語言。</p>
 <p>終於，在這幾天我感受到一股強烈的力量，讓我連續好幾天都能保持專注且開發速度非常迅速。可能是因為原先十分無聊的打字工進度做完了(就是我要照著書上的解釋或者我自己的想法，手打鍵入資料庫)，我很早就知道這樣的工作對我來說非常枯燥，我不喜歡，但這些卡牌的解釋會是整個產品中重要的一環。</p>
@@ -1638,6 +1640,6 @@ f:T67cb,<p>回想這段日子，彷彿好像事情昨天才發生，時間很快
 <p>後續會更新之前的開發心得跟開發紀錄！</p>
 <p>最後雖然產品還沒完全完工，但是曬一張Line操作的畫面</p>
 <p><img src="https://minayu0416.files.wordpress.com/2021/07/img_7322.jpg" alt=""></p>
-2:["$","$L7",null,{"lang":"zh-TW","posts":[{"lang":"zh-TW","year":"2023","month":"08","slug":"frontend-how-to-do-simple-starry-sky-effect","isDraft":false,"content":"$8","author":"minayu416","title":"[前端] 使用CSS linear-gradient與Figma轉化SVG達成簡單的漸層星空特效。","date":"$D2023-08-18T12:26:20.000Z","status":"published","categories":["軟體開發 SWD","[前端] 前端知識研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"今天來分享一下，我是用CSS線性漸層linear-gradient搭配Figma轉出的星星SVG檔，構成的前端簡單星空背景效果。","tags":["自學前端的冒險計畫"],"keywords":["CSS","linear-gradient","前端 front-end","Figma","starry night effect"],"featured":"screenshot-2023-08-18-at-9.42.11-pm-3954764380-e1692366164937.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"zh-TW","year":"2023","month":"08","slug":"frontend-linear-gradient-change-background","isDraft":false,"content":"$9","author":"minayu416","title":"[前端] CSS背景若使用漸層效果(linear-gradient)，又需要有改變背景顏色的需求，該如何做？","date":"$D2023-08-12T12:56:20.000Z","status":"published","categories":["軟體開發 SWD","[前端] 前端知識研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"由於本人最近在開發自己的命理服務產品，大量使用了漸層(linear-gradient)的css背景顏色來美化前端頁面。其中一個功能是當使用者點選時，改變背景顏色，用原本的方式單純改變背景顏色(background-color)無法實現功能，後來找到解法並分享在文章。","tags":["自學前端的冒險計畫"],"keywords":["CSS","linear-gradient","overlay","background-color","absolute"],"featured":"screenshot-2023-08-12-at-9.21.18-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"zh-TW","year":"2023","month":"07","slug":"cors-resolution-note","isDraft":false,"content":"$a","author":"minayu416","title":"[後端] 解決CORS跨域請求的研究筆記(Python FastAPI + Firebase/Firestore)","date":"$D2023-07-07T05:37:20.000Z","status":"published","categories":["軟體開發 SWD","[後端] 後端技術研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"由於本人最近在開發自己的命理服務，需要前端網站請求後端API的功能，但遇到了先前常常遇到的CORS跨域請求問題，每次遇到每次忘記，因此這次特別來記錄一下解法。","tags":["1萬小時 - 後端工程師養成計劃"],"keywords":["CORS policy","Access-Control-Allow-Origin","Python FastAPI","Firebase and Firestore"],"featured":"","featuredalt":"","featuredpath":""},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-concept-3-new-feature-account-language","isDraft":false,"content":"$b","author":"minayu416","title":"[產品概念介紹] Miri的第三版新功能: 帳號管理、語言紀錄與切換介紹 | 開發概念系列(3)","date":"$D2021-09-14T09:12:02.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動。新的版本添加了語言設定與切換的功能，並新增英文可供使用者多一種語言選擇。而為了紀錄使用者預設語言，也新增開發了帳號功能，無論是未來需要新增帳號相關的設定或者開發註冊與管理功能，都可從帳號功能延伸。本篇將介紹語言功能跟帳號功能的設計概念與技術實現。","tags":["[產品] Miri 機器人算命師"],"keywords":["占卜","divination","product","軟體開發","heroku"],"featured":"screen-shot-2021-09-14-at-4.39.59-pm.png","featuredalt":"","featuredpath":"https://mingjungyu.files.wordpress.com/2021/09/"},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-concept-2-ui-user-flow-guide","isDraft":false,"content":"$c","author":"minayu416","title":"[產品概念介紹] Miri的使用者流程、占卜流程、使用者引導介紹 | 開發概念系列(2)","date":"$D2021-09-08T06:23:31.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動，我學著跳脫以往使用後端工程師角度思考，轉換為使用者與UI設計師的角度思考，使作品的使用者體驗跟流程順暢度大大提升，在第三版本的作品，新增了使用者引導訊息、改善占卜流程以及新增選單功能。這段日子帶給我很多心靈上跟實力上的進步，現在我就來分享這半年對於使用者流程與介面設計的概念。","tags":["[產品] Miri 機器人算命師"],"keywords":["占卜","divination","product","line bot","telegram bot"],"featured":"screen-shot-2021-04-21-at-10.14.59-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/04/"},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-technology-1-frontend-design-connect-backend-with-fastapi-line-bot-telegram-bot","isDraft":false,"content":"$d","author":"minayu416","title":"[產品使用技術][Python] Miri的前端與後端接口、整體程式架構介紹 | FastApi x Line Bot x Telegram Bot | 開發概念系列(1)","date":"$D2021-09-06T11:32:09.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動，我將原本的Flask框架改為FastApi，由原本只有Line Bot平台，新增Telegram的平台，無論是程式開發還是這篇文章都是自己綜合實力、努力、堅強跟嘗試的心血，它帶給我很多心靈上跟實力上的進步，現在我就來分享這半年實作技術方面的點點滴滴。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","fastapi","line bot","telegram bot","heroku"],"featured":"screen-shot-2021-09-06-at-4.55.08-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/09/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-4-the-future-plan","isDraft":false,"content":"$e","author":"minayu416","title":"[產品開發日記] Miri的未來規劃 | 開發日記系列(4) | 開發感想","date":"$D2021-08-30T05:10:07.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜命理軟體。本篇紀錄自己已將第三版本軟體功能開發完成，並反省自己在過去半年的開發經驗中學習到的概念與人生目標反思，最後為作品期許未來的發展與功能規劃。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"img_7985-e1630309209651.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-3-the-third-version","isDraft":false,"content":"$f","author":"minayu416","title":"[產品開發日記] 這半年的時間開發Miri第三版本的感想與進步 | 開發日記系列(3) | 開發感想","date":"$D2021-08-26T08:00:58.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜命理軟體。本篇紀錄自己終於發現自己想開發作品的心，以及決定要開發第三個版本，長達半年開發過程的感想。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"img_0453-e1630242161993.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-2-begin","isDraft":false,"content":"$10","author":"minayu416","title":"[產品開發日記] Miri的開發動機、起源與構想紀錄 | 開發日記系列(2) | 開發感想","date":"$D2021-08-23T06:52:06.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜軟體。利用寫小說的方式，描述自己從一開始啟發想要創作軟體的心，一直到實際執行，直到現在有了產品未來的最終樣貌，並持續努力前進。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"","featuredalt":"","featuredpath":""},{"lang":"zh-TW","year":"2021","month":"07","slug":"miri-development-series-1-final","isDraft":false,"content":"$11","author":"minayu416","title":"[產品開發日記] 最後一哩路！筋疲力竭的抒發心得 | 開發日記系列(1) | 輕短文 | 開發感想","date":"$D2021-07-29T16:14:56.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜軟體。使用Python連接Line和 Telegram的Bot製作占卜類型的軟體，在最後的開發時段抒發這幾個月的感想。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","line","telegram","占卜 divination","命理 fortune telling"],"featured":"screen-shot-2021-07-31-at-12.56.49-am.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/07/"}]}]
-6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Create Next App"}],["$","meta","3",{"name":"description","content":"Generated by create next app"}],["$","link","4",{"rel":"icon","href":"/staging/favicon.ico","type":"image/x-icon","sizes":"16x16"}],["$","meta","5",{"name":"next-size-adjust"}]]
+2:["$","$L8",null,{"lang":"zh-TW","posts":[{"lang":"zh-TW","year":"2023","month":"08","slug":"frontend-how-to-do-simple-starry-sky-effect","isDraft":false,"content":"$9","author":"minayu416","title":"[前端] 使用CSS linear-gradient與Figma轉化SVG達成簡單的漸層星空特效。","date":"$D2023-08-18T12:26:20.000Z","status":"published","categories":["軟體開發 SWD","前端－前端知識研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"今天來分享一下，我是用CSS線性漸層linear-gradient搭配Figma轉出的星星SVG檔，構成的前端簡單星空背景效果。","tags":["自學前端的冒險計畫"],"keywords":["CSS","linear-gradient","前端 front-end","Figma","starry night effect"],"featured":"screenshot-2023-08-18-at-9.42.11-pm-3954764380-e1692366164937.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"zh-TW","year":"2023","month":"08","slug":"frontend-linear-gradient-change-background","isDraft":false,"content":"$a","author":"minayu416","title":"[前端] CSS背景若使用漸層效果(linear-gradient)，又需要有改變背景顏色的需求，該如何做？","date":"$D2023-08-12T12:56:20.000Z","status":"published","categories":["軟體開發 SWD","前端－前端知識研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"由於本人最近在開發自己的命理服務產品，大量使用了漸層(linear-gradient)的css背景顏色來美化前端頁面。其中一個功能是當使用者點選時，改變背景顏色，用原本的方式單純改變背景顏色(background-color)無法實現功能，後來找到解法並分享在文章。","tags":["自學前端的冒險計畫"],"keywords":["CSS","linear-gradient","overlay","background-color","absolute"],"featured":"screenshot-2023-08-12-at-9.21.18-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2023/08/"},{"lang":"zh-TW","year":"2023","month":"07","slug":"cors-resolution-note","isDraft":false,"content":"$b","author":"minayu416","title":"[後端] 解決CORS跨域請求的研究筆記(Python FastAPI + Firebase/Firestore)","date":"$D2023-07-07T05:37:20.000Z","status":"published","categories":["軟體開發 SWD","後端－後端技術研究"],"type":"post","useFor":"miri","verNum":"Ver2.0.0","description":"由於本人最近在開發自己的命理服務，需要前端網站請求後端API的功能，但遇到了先前常常遇到的CORS跨域請求問題，每次遇到每次忘記，因此這次特別來記錄一下解法。","tags":["1萬小時 - 後端工程師養成計劃"],"keywords":["CORS policy","Access-Control-Allow-Origin","Python FastAPI","Firebase and Firestore"],"featured":"","featuredalt":"","featuredpath":""},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-concept-3-new-feature-account-language","isDraft":false,"content":"$c","author":"minayu416","title":"[產品概念介紹] Miri的第三版新功能: 帳號管理、語言紀錄與切換介紹 | 開發概念系列(3)","date":"$D2021-09-14T09:12:02.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動。新的版本添加了語言設定與切換的功能，並新增英文可供使用者多一種語言選擇。而為了紀錄使用者預設語言，也新增開發了帳號功能，無論是未來需要新增帳號相關的設定或者開發註冊與管理功能，都可從帳號功能延伸。本篇將介紹語言功能跟帳號功能的設計概念與技術實現。","tags":["[產品] Miri 機器人算命師"],"keywords":["占卜","divination","product","軟體開發","heroku"],"featured":"screen-shot-2021-09-14-at-4.39.59-pm.png","featuredalt":"","featuredpath":"https://mingjungyu.files.wordpress.com/2021/09/"},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-concept-2-ui-user-flow-guide","isDraft":false,"content":"$d","author":"minayu416","title":"[產品概念介紹] Miri的使用者流程、占卜流程、使用者引導介紹 | 開發概念系列(2)","date":"$D2021-09-08T06:23:31.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動，我學著跳脫以往使用後端工程師角度思考，轉換為使用者與UI設計師的角度思考，使作品的使用者體驗跟流程順暢度大大提升，在第三版本的作品，新增了使用者引導訊息、改善占卜流程以及新增選單功能。這段日子帶給我很多心靈上跟實力上的進步，現在我就來分享這半年對於使用者流程與介面設計的概念。","tags":["[產品] Miri 機器人算命師"],"keywords":["占卜","divination","product","line bot","telegram bot"],"featured":"screen-shot-2021-04-21-at-10.14.59-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/04/"},{"lang":"zh-TW","year":"2021","month":"09","slug":"miri-develop-technology-1-frontend-design-connect-backend-with-fastapi-line-bot-telegram-bot","isDraft":false,"content":"$e","author":"minayu416","title":"[產品使用技術][Python] Miri的前端與後端接口、整體程式架構介紹 | FastApi x Line Bot x Telegram Bot | 開發概念系列(1)","date":"$D2021-09-06T11:32:09.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"在2021年2月離職後，我用了半年的時間用Python開發自己的占卜機器人作品，在這版本的開發有很大幅度的變動，我將原本的Flask框架改為FastApi，由原本只有Line Bot平台，新增Telegram的平台，無論是程式開發還是這篇文章都是自己綜合實力、努力、堅強跟嘗試的心血，它帶給我很多心靈上跟實力上的進步，現在我就來分享這半年實作技術方面的點點滴滴。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","fastapi","line bot","telegram bot","heroku"],"featured":"screen-shot-2021-09-06-at-4.55.08-pm.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/09/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-4-the-future-plan","isDraft":false,"content":"$f","author":"minayu416","title":"[產品開發日記] Miri的未來規劃 | 開發日記系列(4) | 開發感想","date":"$D2021-08-30T05:10:07.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜命理軟體。本篇紀錄自己已將第三版本軟體功能開發完成，並反省自己在過去半年的開發經驗中學習到的概念與人生目標反思，最後為作品期許未來的發展與功能規劃。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"img_7985-e1630309209651.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-3-the-third-version","isDraft":false,"content":"$10","author":"minayu416","title":"[產品開發日記] 這半年的時間開發Miri第三版本的感想與進步 | 開發日記系列(3) | 開發感想","date":"$D2021-08-26T08:00:58.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜命理軟體。本篇紀錄自己終於發現自己想開發作品的心，以及決定要開發第三個版本，長達半年開發過程的感想。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"img_0453-e1630242161993.jpg","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/08/"},{"lang":"zh-TW","year":"2021","month":"08","slug":"miri-development-series-2-begin","isDraft":false,"content":"$11","author":"minayu416","title":"[產品開發日記] Miri的開發動機、起源與構想紀錄 | 開發日記系列(2) | 開發感想","date":"$D2021-08-23T06:52:06.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜軟體。利用寫小說的方式，描述自己從一開始啟發想要創作軟體的心，一直到實際執行，直到現在有了產品未來的最終樣貌，並持續努力前進。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","產品開發","新創","占卜 divination","命理 fortune telling"],"featured":"","featuredalt":"","featuredpath":""},{"lang":"zh-TW","year":"2021","month":"07","slug":"miri-development-series-1-final","isDraft":false,"content":"$12","author":"minayu416","title":"[產品開發日記] 最後一哩路！筋疲力竭的抒發心得 | 開發日記系列(1) | 輕短文 | 開發感想","date":"$D2021-07-29T16:14:56.000Z","status":"published","categories":["軟體開發 SWD","架構設計與構思創新解決方案"],"type":"post","useFor":"miri","verNum":"Ver1.2.0","description":"帶著熱忱的心跟不怎麼厲害的程式能力，就開始嘗試自己開發起自己的占卜軟體。使用Python連接Line和 Telegram的Bot製作占卜類型的軟體，在最後的開發時段抒發這幾個月的感想。","tags":["[產品] Miri 機器人算命師"],"keywords":["python","line","telegram","占卜 divination","命理 fortune telling"],"featured":"screen-shot-2021-07-31-at-12.56.49-am.png","featuredalt":"","featuredpath":"https://minayu0416.files.wordpress.com/2021/07/"}]}]
+7:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Miri 機器人算命師 - 月水瓶 @Mina 的人生實驗室"}],["$","meta","3",{"name":"description","content":"Miri的官方網站。"}],["$","meta","4",{"name":"application-name","content":"月水瓶 @Mina 的人生實驗室"}],["$","meta","5",{"name":"author","content":"Mina Yu"}],["$","link","6",{"rel":"author","href":"https://minayu.site"}],["$","meta","7",{"name":"author","content":"@Mina Influence"}],["$","meta","8",{"name":"generator","content":"Next.js 14.2.5"}],["$","meta","9",{"name":"keywords","content":"Miri 機器人算命師,塔羅牌,盧恩符文,雷諾曼,線上命理服務"}],["$","meta","10",{"name":"referrer","content":"origin-when-cross-origin"}],["$","meta","11",{"name":"creator","content":"Mina Yu"}],["$","meta","12",{"name":"publisher","content":"Mina Yu"}],["$","meta","13",{"name":"robots","content":"index, follow"}],["$","meta","14",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","15",{"rel":"canonical","href":"https://minayu.site/miri"}],["$","link","16",{"rel":"alternate","hrefLang":"en","href":"https://minayu.site/en/miri"}],["$","link","17",{"rel":"alternate","hrefLang":"zh-TW","href":"https://minayu.site/miri"}],["$","meta","18",{"name":"format-detection","content":"telephone=no, address=no, email=no"}],["$","meta","19",{"property":"og:title","content":"Miri 機器人算命師 - 月水瓶 @Mina 的人生實驗室"}],["$","meta","20",{"property":"og:description","content":"Miri的官方網站。"}],["$","meta","21",{"property":"og:site_name","content":"月水瓶 @Mina 的人生實驗室"}],["$","meta","22",{"property":"og:locale","content":"zh-TW"}],["$","meta","23",{"property":"og:image","content":"https://minayu.site/static/img/favicon.jpg"}],["$","meta","24",{"property":"og:image:width","content":"1200"}],["$","meta","25",{"property":"og:image:height","content":"630"}],["$","meta","26",{"property":"og:type","content":"website"}],["$","meta","27",{"name":"twitter:card","content":"summary"}],["$","meta","28",{"name":"twitter:site:id","content":"@MingJungYU"}],["$","meta","29",{"name":"twitter:creator","content":"@MingJungYU"}],["$","meta","30",{"name":"twitter:title","content":"Miri 機器人算命師 - 月水瓶 @Mina 的人生實驗室"}],["$","meta","31",{"name":"twitter:description","content":"Miri的官方網站。"}],["$","meta","32",{"name":"twitter:image","content":"https://minayu.site/static/img/favicon.jpg"}],["$","meta","33",{"name":"twitter:image:alt","content":"@Mina Influence Image"}],["$","link","34",{"rel":"shortcut icon","href":"/static/img/favicon.jpg"}],["$","link","35",{"rel":"icon","href":"/static/img/favicon.jpg"}],["$","link","36",{"rel":"apple-touch-icon","href":"/static/img/favicon.jpg"}],["$","meta","37",{"name":"next-size-adjust"}]]
 1:null
